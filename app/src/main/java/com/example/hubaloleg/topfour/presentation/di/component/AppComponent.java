@@ -1,5 +1,7 @@
 package com.example.hubaloleg.topfour.presentation.di.component;
 
+import com.example.hubaloleg.topfour.presentation.di.module.Utils.UtilsModule;
+import com.example.hubaloleg.topfour.presentation.di.module.app.AppModule;
 import com.example.hubaloleg.topfour.presentation.di.module.network.NetworkModule;
 
 import javax.inject.Singleton;
@@ -11,6 +13,10 @@ import dagger.Component;
  */
 
 @Singleton
-@Component(modules = NetworkModule.class)
+@Component(modules =  {
+        NetworkModule.class,
+        AppModule.class,
+        UtilsModule.class
+})
 public interface AppComponent {
 }

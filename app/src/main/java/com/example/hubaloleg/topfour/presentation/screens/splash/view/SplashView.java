@@ -1,4 +1,4 @@
-package com.example.hubaloleg.topfour.presentation.mvp.presentation.view.splash;
+package com.example.hubaloleg.topfour.presentation.screens.splash.view;
 
 import com.arellomobile.mvp.MvpView;
 

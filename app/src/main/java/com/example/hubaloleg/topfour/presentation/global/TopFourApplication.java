@@ -5,6 +5,7 @@ import android.app.Application;
 import com.crashlytics.android.Crashlytics;
 import com.example.hubaloleg.topfour.presentation.di.component.AppComponent;
 import com.example.hubaloleg.topfour.presentation.di.component.DaggerAppComponent;
+import com.example.hubaloleg.topfour.presentation.di.module.app.AppModule;
 
 import io.fabric.sdk.android.Fabric;
 
@@ -24,7 +25,7 @@ public class TopFourApplication extends Application {
                 .build();
     }
 
-    public static AppComponent getmAppComponent() {
+    public static AppComponent getAppComponent() {
         return mAppComponent;
     }
 }
