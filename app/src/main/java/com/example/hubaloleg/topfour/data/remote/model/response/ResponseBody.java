@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
 public class ResponseBody<T> {
 
     @SerializedName("response")
-    T response;
+    private T response;
 
     public T getResponse() {
         return response;

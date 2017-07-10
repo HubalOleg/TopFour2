@@ -1,6 +1,6 @@
 package com.example.hubaloleg.topfour.data.remote.model.response;
 
-import com.example.hubaloleg.topfour.data.remote.model.entity.VenueApi;
+import com.example.hubaloleg.topfour.data.remote.model.entity.VenueEntity;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -12,13 +12,13 @@ import java.util.List;
 public class SearchVenueResponse {
 
     @SerializedName("venues")
-    List<VenueApi> venueApiList;
+    private List<VenueEntity> mVenueEntityList;
 
-    public List<VenueApi> getVenueApiList() {
-        return venueApiList;
+    public List<VenueEntity> getVenueEntityList() {
+        return mVenueEntityList;
     }
 
-    public void setVenueApiList(List<VenueApi> venueApiList) {
-        this.venueApiList = venueApiList;
+    public void setVenueEntityList(List<VenueEntity> venueEntityList) {
+        this.mVenueEntityList = venueEntityList;
     }
 }
