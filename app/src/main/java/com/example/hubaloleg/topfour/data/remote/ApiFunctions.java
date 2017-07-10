@@ -1,4 +1,4 @@
-package com.example.hubaloleg.topfour.presentation.global;
+package com.example.hubaloleg.topfour.data.remote;
 
 /**
  * Created by kostya on 10.07.17.

@@ -49,6 +49,7 @@ android {
         all {
             buildConfigField "String", "CLIENT_ID",                 '"GQUNINKHGJUUZGB0AZ25Q4FWN54RNLKEH4PO5NC0U4MRTSZT"'
             buildConfigField "String", "CLIENT_SECRET",             '"1ILRNPPOEJKRC4LQIUS3RNZBLGSMMXFRBHHTJNHSZPO4T2AE"'
+            buildConfigField "String", "BASE_API",                  '"https://api.foursquare.com/v2/"'
         }
         release {
             minifyEnabled false
@@ -100,6 +101,8 @@ dependencies {
     compile "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
     compile "com.squareup.okhttp3:okhttp:${okhttpVersion}"
     compile "com.squareup.okhttp3:logging-interceptor:${okhttpVersion}"
+    compile "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}"
+
 
     //    DBFlow
     compile "com.github.Raizlabs.DBFlow:dbflow-core:${dbflowVersion}"
