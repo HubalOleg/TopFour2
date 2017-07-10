@@ -19,9 +19,10 @@ public class TopFourApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Fabric.with(this, new Crashlytics());
+//        Fabric.with(this, new Crashlytics());
         mAppComponent = DaggerAppComponent
                 .builder()
+                .appModule(new AppModule(TopFourApplication.this))
                 .build();
     }
 

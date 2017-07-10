@@ -1,9 +1,8 @@
-package com.example.hubaloleg.topfour.presentation.di.module.Utils;
+package com.example.hubaloleg.topfour.presentation.di.module.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.example.hubaloleg.topfour.data.security.SecurityManager;
 
 import javax.inject.Singleton;
 
@@ -22,11 +21,5 @@ public class UtilsModule {
     @Singleton
     SharedPreferences provideSharedPref(Context context) {
         return context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
-    }
-
-    @Provides
-    @Singleton
-    SecurityManager provideSecurityManager(SharedPreferences sharedPreferences) {
-        return new SecurityManager(sharedPreferences);
     }
 }

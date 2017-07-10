@@ -1,8 +1,11 @@
 package com.example.hubaloleg.topfour.presentation.di.component;
 
-import com.example.hubaloleg.topfour.presentation.di.module.Utils.UtilsModule;
+import android.content.Context;
+
+import com.example.hubaloleg.topfour.presentation.di.module.utils.UtilsModule;
 import com.example.hubaloleg.topfour.presentation.di.module.app.AppModule;
 import com.example.hubaloleg.topfour.presentation.di.module.network.NetworkModule;
+import com.example.hubaloleg.topfour.presentation.screens.splash.SplashActivity;
 
 import javax.inject.Singleton;
 
@@ -19,4 +22,5 @@ import dagger.Component;
         UtilsModule.class
 })
 public interface AppComponent {
+    void inject(SplashActivity splashActivity);
 }
