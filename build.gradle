@@ -44,5 +44,7 @@ ext {
     dbflowVersion = "4.0.4"
     retrofitVersion = "2.3.0"
     okhttpVersion = "3.2.0"
+    crashlyticsVersion = "2.6.8@aar"
+    foursquareAuthVersion = "1.0.3"
 
 }

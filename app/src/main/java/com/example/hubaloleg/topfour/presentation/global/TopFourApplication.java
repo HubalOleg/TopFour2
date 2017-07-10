@@ -1,4 +1,4 @@
-package com.example.hubaloleg.topfour.global;
+package com.example.hubaloleg.topfour.presentation.global;
 
 import android.app.Application;
 
