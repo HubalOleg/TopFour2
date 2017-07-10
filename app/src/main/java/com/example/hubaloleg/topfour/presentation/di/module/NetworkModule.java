@@ -1,6 +1,8 @@
-package com.example.hubaloleg.topfour.presentation.di.module.network;
+package com.example.hubaloleg.topfour.presentation.di.module;
 
 import com.example.hubaloleg.topfour.BuildConfig;
+import com.example.hubaloleg.topfour.data.remote.api.ApiInterface;
+import com.example.hubaloleg.topfour.presentation.di.scopes.PerActivity;
 
 import javax.inject.Singleton;
 
@@ -18,6 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 @Module
 public class NetworkModule {
+
     @Provides
     @Singleton
     HttpLoggingInterceptor provideHttpLoggingInterceptor() {
@@ -46,12 +49,20 @@ public class NetworkModule {
 
     @Provides
     @Singleton
-    Retrofit provideRetrofit(OkHttpClient client, GsonConverterFactory gsonConverterFactory, RxJava2CallAdapterFactory rxJava2CallAdapterFactory) {
+    Retrofit provideRetrofit(OkHttpClient client,
+                             GsonConverterFactory gsonConverterFactory,
+                             RxJava2CallAdapterFactory rxJava2CallAdapterFactory) {
         return new Retrofit.Builder()
                 .baseUrl(BuildConfig.BASE_API)
                 .addConverterFactory(gsonConverterFactory)
                 .addCallAdapterFactory(rxJava2CallAdapterFactory)
                 .client(client)
                 .build();
+    }
+
+    @Provides
+    @Singleton
+    ApiInterface provideApiInterface(Retrofit retrofit) {
+        return retrofit.create(ApiInterface.class);
     }
 }

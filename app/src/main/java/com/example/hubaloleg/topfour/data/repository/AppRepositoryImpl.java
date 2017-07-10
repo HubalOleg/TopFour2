@@ -1,0 +1,20 @@
+package com.example.hubaloleg.topfour.data.repository;
+
+import com.example.hubaloleg.topfour.data.local.LocalStorage;
+import com.example.hubaloleg.topfour.data.remote.storage.RemoteStorage;
+import com.example.hubaloleg.topfour.domain.repository.AppRepository;
+
+/**
+ * Created by hubaloleg on 10.07.17.
+ */
+
+public class AppRepositoryImpl implements AppRepository{
+
+    private final LocalStorage mLocalStorage;
+    private final RemoteStorage mRemoteStorage;
+
+    public AppRepositoryImpl(LocalStorage localStorage, RemoteStorage remoteStorage) {
+        mLocalStorage = localStorage;
+        mRemoteStorage = remoteStorage;
+    }
+}
