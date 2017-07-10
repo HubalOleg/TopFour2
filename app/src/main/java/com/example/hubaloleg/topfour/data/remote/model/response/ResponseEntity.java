@@ -6,10 +6,10 @@ import com.google.gson.annotations.SerializedName;
  * Created by hubaloleg on 10.07.17.
  */
 
-public class ResponseBody<T> {
+public class ResponseEntity<T> {
 
     @SerializedName("response")
-    T response;
+    private T response;
 
     public T getResponse() {
         return response;
