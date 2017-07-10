@@ -1,4 +1,19 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
 apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
 apply plugin: 'me.tatarka.retrolambda'
 
 
@@ -60,5 +75,9 @@ dependencies {
     compile "com.github.Raizlabs.DBFlow:dbflow-core:${dbflowVersion}"
     compile "com.github.Raizlabs.DBFlow:dbflow:${dbflowVersion}"
     annotationProcessor "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflowVersion}"
+    //crashlytics
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
+        transitive = true;
+    }
 
 }
