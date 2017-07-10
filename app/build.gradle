@@ -31,10 +31,29 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
+    //    Sign config
+    def keystorePropertiesFile = rootProject.file("keystore.properties")
+    def keystoreProperties = new Properties()
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+    signingConfigs {
+        release {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+        }
+    }
+
     buildTypes {
+        all {
+            buildConfigField "String", "CLIENT_ID",                 '"GQUNINKHGJUUZGB0AZ25Q4FWN54RNLKEH4PO5NC0U4MRTSZT"'
+            buildConfigField "String", "CLIENT_SECRET",             '"1ILRNPPOEJKRC4LQIUS3RNZBLGSMMXFRBHHTJNHSZPO4T2AE"'
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 
@@ -50,19 +69,7 @@ android {
         sourceCompatibility 1.8
     }
 
-    //    Sign config
-    def keystorePropertiesFile = rootProject.file("keystore.properties")
-    def keystoreProperties = new Properties()
-    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
-    signingConfigs {
-        release {
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
-            storeFile file(keystoreProperties['storeFile'])
-            storePassword keystoreProperties['storePassword']
-        }
-    }
 }
 
 dependencies {
