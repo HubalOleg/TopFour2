@@ -1,6 +1,6 @@
 package com.example.hubaloleg.topfour.data.remote.storage;
 
-import com.example.hubaloleg.topfour.data.local.prefs.CredentialStore;
+import com.example.hubaloleg.topfour.data.local.credential.CredentialStore;
 import com.example.hubaloleg.topfour.data.remote.api.ApiInterface;
 
 import javax.inject.Inject;
@@ -19,6 +19,5 @@ public class RemoteStorage {
         mApiInterface = apiInterface;
         mCredentialStore = credentialStore;
     }
-
 
 }

@@ -1,11 +1,8 @@
 package com.example.hubaloleg.topfour.presentation.di.component;
 
-import com.example.hubaloleg.topfour.presentation.di.module.ApplicationModule;
 import com.example.hubaloleg.topfour.presentation.di.module.CredentialModule;
 import com.example.hubaloleg.topfour.presentation.di.scopes.PerActivity;
 import com.example.hubaloleg.topfour.presentation.screens.splash.SplashActivity;
-
-import javax.inject.Singleton;
 
 import dagger.Component;
 
