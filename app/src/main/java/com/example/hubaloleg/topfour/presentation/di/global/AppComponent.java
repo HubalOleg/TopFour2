@@ -1,10 +1,10 @@
-package com.example.hubaloleg.topfour.presentation.di.module.global;
+package com.example.hubaloleg.topfour.presentation.di.global;
 
 import android.content.Context;
 
 import com.example.hubaloleg.topfour.data.local.credential.CredentialStore;
 import com.example.hubaloleg.topfour.data.remote.api.ApiInterface;
-import com.example.hubaloleg.topfour.presentation.di.module.global.ApplicationModule;
+import com.example.hubaloleg.topfour.presentation.di.global.ApplicationModule;
 import com.example.hubaloleg.topfour.presentation.global.TopFourApplication;
 import com.example.hubaloleg.topfour.presentation.screens.authorization.AuthorizationActivity;
 import com.example.hubaloleg.topfour.presentation.screens.splash.SplashActivity;

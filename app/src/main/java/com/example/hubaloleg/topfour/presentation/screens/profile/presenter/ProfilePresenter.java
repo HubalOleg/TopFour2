@@ -17,12 +17,12 @@ public class ProfilePresenter extends MvpPresenter<ProfileView> {
     private final UserInfoUseCase mUserUseCase;
 
     @Inject
-    ProfilePresenter(UserInfoUseCase userInfoUseCase, CredentialStore credentialStore) {
+    ProfilePresenter(UserInfoUseCase userInfoUseCase) {
         mUserUseCase = userInfoUseCase;
     }
 
-    public void loadUserData() {
-        mUserUseCase.loadUserInfo(null)
+    public void loadUserData(String token) {
+        mUserUseCase.loadUserInfo(token)
                 .subscribe(userInfo -> getViewState().showUserInfo(userInfo),
                         throwable -> System.out.printf("error " + throwable));
     }

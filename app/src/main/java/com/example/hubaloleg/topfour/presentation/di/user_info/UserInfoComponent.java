@@ -1,7 +1,6 @@
-package com.example.hubaloleg.topfour.presentation.di.module.user_info;
+package com.example.hubaloleg.topfour.presentation.di.user_info;
 
-import com.example.hubaloleg.topfour.presentation.di.module.global.AppComponent;
-import com.example.hubaloleg.topfour.presentation.screens.near_venue.NearVenueFragment;
+import com.example.hubaloleg.topfour.presentation.di.global.AppComponent;
 import com.example.hubaloleg.topfour.presentation.screens.profile.ProfileFragment;
 
 import dagger.Component;

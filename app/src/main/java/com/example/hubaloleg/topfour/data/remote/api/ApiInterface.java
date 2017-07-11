@@ -22,5 +22,7 @@ public interface ApiInterface {
             @Query("v") String v);
 
     @GET(ApiFunctions.GET_PROFILE_INFO)
-    Observable<ResponseEntity<UserInfoResponse>> getUserProfileInfo(@Query("oauth_token") String token);
+    Observable<ResponseEntity<UserInfoResponse>> getUserProfileInfo(
+            @Query("oauth_token") String token,
+            @Query("v") String version);
 }

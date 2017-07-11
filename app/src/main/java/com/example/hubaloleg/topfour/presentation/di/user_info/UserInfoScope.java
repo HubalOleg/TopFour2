@@ -1,4 +1,4 @@
-package com.example.hubaloleg.topfour.presentation.di.module.user_info;
+package com.example.hubaloleg.topfour.presentation.di.user_info;
 
 import javax.inject.Scope;
 

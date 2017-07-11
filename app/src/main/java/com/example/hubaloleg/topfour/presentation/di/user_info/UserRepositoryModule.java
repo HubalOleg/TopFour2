@@ -1,4 +1,4 @@
-package com.example.hubaloleg.topfour.presentation.di.module.user_info;
+package com.example.hubaloleg.topfour.presentation.di.user_info;
 
 import com.example.hubaloleg.topfour.data.local.LocalUserStorage;
 import com.example.hubaloleg.topfour.data.local.credential.CredentialStore;

@@ -1,4 +1,4 @@
-package com.example.hubaloleg.topfour.presentation.di.module.global;
+package com.example.hubaloleg.topfour.presentation.di.global;
 
 import com.example.hubaloleg.topfour.BuildConfig;
 import com.example.hubaloleg.topfour.data.remote.api.ApiInterface;
