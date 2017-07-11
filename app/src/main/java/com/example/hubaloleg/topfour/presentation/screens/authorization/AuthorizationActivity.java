@@ -5,8 +5,15 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.arellomobile.mvp.MvpAppCompatActivity;
+import com.arellomobile.mvp.presenter.InjectPresenter;
+import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.example.hubaloleg.topfour.R;
+import com.example.hubaloleg.topfour.domain.usecase.CredentialUseCase;
+import com.example.hubaloleg.topfour.presentation.di.component.DaggerCredentialComponent;
+import com.example.hubaloleg.topfour.presentation.global.TopFourApplication;
+import com.example.hubaloleg.topfour.presentation.screens.authorization.presenter.AuthorizationPresenter;
 import com.example.hubaloleg.topfour.presentation.screens.authorization.view.AuthorizationView;
+import com.example.hubaloleg.topfour.presentation.screens.splash.SplashActivity;
 import com.foursquare.android.nativeoauth.FoursquareOAuth;
 import com.foursquare.android.nativeoauth.model.AuthCodeResponse;
 
@@ -30,6 +37,16 @@ public class AuthorizationActivity extends MvpAppCompatActivity
     private static final int REQUEST_CODE_FSQ_TOKEN_EXCHANGE = 201;
     private static final int REQUEST_CODE_FSQ_CONNECT = 200;
 
+    @Inject
+    @InjectPresenter
+    AuthorizationPresenter mPresenter;
+
+    @ProvidePresenter
+    AuthorizationPresenter provideAuthPresenter() {
+        initInjection();
+        return mPresenter;
+    }
+
     public static Intent getIntent(Context context) {
         return new Intent(context, AuthorizationActivity.class);
     }
@@ -50,6 +67,13 @@ public class AuthorizationActivity extends MvpAppCompatActivity
     @OnClick(R.id.btn_login_foursquare)
     public void onClickFoursquareLogin() {
         handleLoginClick();
+    }
+
+    private void initInjection() {
+        DaggerCredentialComponent.builder()
+                .appComponent(TopFourApplication.getAppComponent())
+                .build()
+                .inject(AuthorizationActivity.this);
     }
 
     private void handleLoginClick() {
@@ -80,5 +104,6 @@ public class AuthorizationActivity extends MvpAppCompatActivity
     }
 
     private void handleFSQTokenExchange(String token) {
+        mPresenter.storeToken(token);
     }
 }
