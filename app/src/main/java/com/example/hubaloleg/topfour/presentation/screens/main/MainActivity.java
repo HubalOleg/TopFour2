@@ -2,11 +2,12 @@ package com.example.hubaloleg.topfour.presentation.screens.main;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 
 import com.example.hubaloleg.topfour.R;
-import com.example.hubaloleg.topfour.presentation.screens.profile.ProfileFragment;
+import com.example.hubaloleg.topfour.presentation.screens.near_venue.NearVenueFragment;
 
 import butterknife.ButterKnife;
 
@@ -23,13 +24,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(MainActivity.this);
-        replaceFragment(ProfileFragment.newInstance());
+
+        if (savedInstanceState == null) {
+            setNearVenueFragment();
+            setProfileFragment();
+        }
     }
 
-    private void replaceFragment(ProfileFragment profileFragment) {
+    private void setNearVenueFragment() {
+        setFragment(R.id.fl_near_venue_container,
+                NearVenueFragment.newInstance(),
+                NearVenueFragment.class.getSimpleName());
+    }
+
+    private void setProfileFragment() {
+
+    }
+
+    private void setFragment(int containerId, Fragment fragment, String tag) {
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.fl_profile_container, profileFragment)
+                .replace(containerId, fragment, tag)
                 .commit();
     }
 }
