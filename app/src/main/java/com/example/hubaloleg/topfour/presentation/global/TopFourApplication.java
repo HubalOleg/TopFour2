@@ -2,9 +2,9 @@ package com.example.hubaloleg.topfour.presentation.global;
 
 import android.app.Application;
 
-import com.example.hubaloleg.topfour.presentation.di.component.AppComponent;
-import com.example.hubaloleg.topfour.presentation.di.component.DaggerAppComponent;
-import com.example.hubaloleg.topfour.presentation.di.module.ApplicationModule;
+import com.example.hubaloleg.topfour.presentation.di.module.global.AppComponent;
+import com.example.hubaloleg.topfour.presentation.di.module.global.ApplicationModule;
+import com.example.hubaloleg.topfour.presentation.di.module.global.DaggerAppComponent;
 
 
 /**

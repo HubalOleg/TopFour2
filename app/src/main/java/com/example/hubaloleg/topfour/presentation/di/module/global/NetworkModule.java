@@ -1,8 +1,7 @@
-package com.example.hubaloleg.topfour.presentation.di.module;
+package com.example.hubaloleg.topfour.presentation.di.module.global;
 
 import com.example.hubaloleg.topfour.BuildConfig;
 import com.example.hubaloleg.topfour.data.remote.api.ApiInterface;
-import com.example.hubaloleg.topfour.presentation.di.scopes.PerActivity;
 
 import dagger.Module;
 import dagger.Provides;

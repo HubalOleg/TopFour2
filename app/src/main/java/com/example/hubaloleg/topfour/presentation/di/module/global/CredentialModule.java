@@ -1,13 +1,13 @@
-package com.example.hubaloleg.topfour.presentation.di.module;
+package com.example.hubaloleg.topfour.presentation.di.module.global;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.example.hubaloleg.topfour.data.local.credential.CredentialStore;
 import com.example.hubaloleg.topfour.data.local.credential.CredentialStoreImpl;
-import com.example.hubaloleg.topfour.presentation.di.qualifier.PreferenceName;
-import com.example.hubaloleg.topfour.presentation.di.scopes.PerActivity;
 import com.example.hubaloleg.topfour.presentation.global.Constants;
+
+import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
@@ -20,23 +20,20 @@ import dagger.Provides;
 public class CredentialModule {
 
     @Provides
-    @PerActivity
-    @PreferenceName
+    @Singleton
     String providePreferenceName() {
         return Constants.PREFERENCE_NAME;
     }
 
     @Provides
-    @PerActivity
-    SharedPreferences provideSharedPref(Context context, @PreferenceName String prefsName) {
+    @Singleton
+    SharedPreferences provideSharedPref(Context context, String prefsName) {
         return context.getSharedPreferences(prefsName, Context.MODE_PRIVATE);
     }
 
     @Provides
-    @PerActivity
+    @Singleton
     CredentialStore provideCredentialStore(SharedPreferences sharedPreferences) {
         return new CredentialStoreImpl(sharedPreferences);
     }
-
-
 }
