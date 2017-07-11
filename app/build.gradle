@@ -114,6 +114,6 @@ dependencies {
     compile("com.crashlytics.sdk.android:crashlytics:${crashlyticsVersion}") {
         transitive = true;
     }
-
+    compile "com.github.bumptech.glide:glide:${glideVersion}"
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
 }
