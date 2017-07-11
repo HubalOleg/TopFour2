@@ -3,6 +3,8 @@ package com.example.hubaloleg.topfour.presentation.di.global;
 import com.example.hubaloleg.topfour.BuildConfig;
 import com.example.hubaloleg.topfour.data.remote.api.ApiInterface;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 import okhttp3.OkHttpClient;
@@ -16,16 +18,15 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 @Module
+@Singleton
 public class NetworkModule {
 
     @Provides
-    @PerActivity
     HttpLoggingInterceptor provideHttpLoggingInterceptor() {
         return new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY);
     }
 
     @Provides
-    @PerActivity
     OkHttpClient provideOkHttpClient(HttpLoggingInterceptor interceptor) {
         return new OkHttpClient.Builder()
                 .addInterceptor(interceptor)
@@ -33,19 +34,16 @@ public class NetworkModule {
     }
 
     @Provides
-    @PerActivity
     GsonConverterFactory provideGsonConverterFactory() {
         return GsonConverterFactory.create();
     }
 
     @Provides
-    @PerActivity
     RxJava2CallAdapterFactory provideRxJavaCallAdapterFactory() {
         return RxJava2CallAdapterFactory.create();
     }
 
     @Provides
-    @PerActivity
     Retrofit provideRetrofit(OkHttpClient client,
                              GsonConverterFactory gsonConverterFactory,
                              RxJava2CallAdapterFactory rxJava2CallAdapterFactory) {
@@ -58,7 +56,6 @@ public class NetworkModule {
     }
 
     @Provides
-    @PerActivity
     ApiInterface provideApiInterface(Retrofit retrofit) {
         return retrofit.create(ApiInterface.class);
     }

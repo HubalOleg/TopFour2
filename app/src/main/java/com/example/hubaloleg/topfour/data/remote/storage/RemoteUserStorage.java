@@ -17,6 +17,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class RemoteUserStorage {
 
+    public static final String TEST_VERSION = "20171107";
     private final ApiInterface mApiInterface;
     private final CredentialStore mCredentialStore;
 
@@ -29,7 +30,7 @@ public class RemoteUserStorage {
 
     public Observable<ResponseEntity<UserInfoResponse>> loadUserInfo(String token) {
         return mApiInterface.
-                getUserProfileInfo(token)
+                getUserProfileInfo(token, TEST_VERSION)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
