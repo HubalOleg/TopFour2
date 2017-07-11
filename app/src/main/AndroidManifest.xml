@@ -25,7 +25,7 @@
             android:value="2bbcd45ca8f76583d56f070859c3f2f7965888f4"/>
 
         <activity android:name=".presentation.screens.authorization.AuthorizationActivity"/>
-        <activity android:name=".presentation.screens.near_venues.NearVenuesActivity">
+        <activity android:name=".presentation.screens.main.MainActivity">
         </activity>
     </application>
 

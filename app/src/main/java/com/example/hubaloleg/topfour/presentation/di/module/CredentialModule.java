@@ -3,14 +3,11 @@ package com.example.hubaloleg.topfour.presentation.di.module;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-
-import com.example.hubaloleg.topfour.data.local.prefs.CredentialStore;
-import com.example.hubaloleg.topfour.data.local.prefs.CredentialStoreImpl;
+import com.example.hubaloleg.topfour.data.local.credential.CredentialStore;
+import com.example.hubaloleg.topfour.data.local.credential.CredentialStoreImpl;
 import com.example.hubaloleg.topfour.presentation.di.qualifier.PreferenceName;
 import com.example.hubaloleg.topfour.presentation.di.scopes.PerActivity;
 import com.example.hubaloleg.topfour.presentation.global.Constants;
-
-import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;

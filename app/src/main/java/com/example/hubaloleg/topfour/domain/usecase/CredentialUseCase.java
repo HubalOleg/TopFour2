@@ -2,8 +2,7 @@ package com.example.hubaloleg.topfour.domain.usecase;
 
 import android.text.TextUtils;
 
-import com.arellomobile.mvp.InjectViewState;
-import com.example.hubaloleg.topfour.data.local.prefs.CredentialStore;
+import com.example.hubaloleg.topfour.data.local.credential.CredentialStore;
 
 import javax.inject.Inject;
 
@@ -27,4 +26,5 @@ public class CredentialUseCase {
     public void storeToken(String token) {
         mCredentialStore.saveToken(token);
     }
+
 }
