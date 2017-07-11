@@ -1,4 +1,4 @@
-package com.example.hubaloleg.topfour.data.remote.api;
+package com.example.hubaloleg.topfour.data.remote.base;
 
 /**
  * Created by kostya on 10.07.17.

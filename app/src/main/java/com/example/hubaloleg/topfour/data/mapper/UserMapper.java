@@ -1,4 +1,4 @@
-package com.example.hubaloleg.topfour.data.remote.model.entity.mapper;
+package com.example.hubaloleg.topfour.data.mapper;
 
 import com.example.hubaloleg.topfour.data.remote.model.entity.IconEntity;
 import com.example.hubaloleg.topfour.data.remote.model.entity.UserEntity;
@@ -6,13 +6,11 @@ import com.example.hubaloleg.topfour.domain.model.UserInfo;
 
 import java.util.Date;
 
-import javax.inject.Inject;
-
 /**
  * Created by kostya on 11.07.17.
  */
 
-public class UserEntityDataMapper {
+public class UserMapper {
 
     public UserInfo transform(UserEntity userEntity) {
         UserInfo userInfo = new UserInfo();

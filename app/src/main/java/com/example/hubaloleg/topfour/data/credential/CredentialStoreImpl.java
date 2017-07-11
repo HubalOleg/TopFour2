@@ -1,4 +1,4 @@
-package com.example.hubaloleg.topfour.data.local.credential;
+package com.example.hubaloleg.topfour.data.credential;
 
 import android.content.SharedPreferences;
 

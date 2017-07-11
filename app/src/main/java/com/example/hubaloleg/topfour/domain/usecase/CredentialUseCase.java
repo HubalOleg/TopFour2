@@ -2,7 +2,7 @@ package com.example.hubaloleg.topfour.domain.usecase;
 
 import android.text.TextUtils;
 
-import com.example.hubaloleg.topfour.data.local.credential.CredentialStore;
+import com.example.hubaloleg.topfour.data.credential.CredentialStore;
 
 import javax.inject.Inject;
 

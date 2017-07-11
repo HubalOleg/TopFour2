@@ -1,7 +1,7 @@
 package com.example.hubaloleg.topfour.presentation.di.global;
 
 import com.example.hubaloleg.topfour.BuildConfig;
-import com.example.hubaloleg.topfour.data.remote.api.ApiInterface;
+import com.example.hubaloleg.topfour.data.remote.base.ApiInterface;
 
 import javax.inject.Singleton;
 

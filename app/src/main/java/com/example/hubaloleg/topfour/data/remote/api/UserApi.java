@@ -1,7 +1,7 @@
-package com.example.hubaloleg.topfour.data.remote.storage;
+package com.example.hubaloleg.topfour.data.remote.api;
 
-import com.example.hubaloleg.topfour.data.local.credential.CredentialStore;
-import com.example.hubaloleg.topfour.data.remote.api.ApiInterface;
+import com.example.hubaloleg.topfour.data.credential.CredentialStore;
+import com.example.hubaloleg.topfour.data.remote.base.ApiInterface;
 import com.example.hubaloleg.topfour.data.remote.model.response.ResponseEntity;
 import com.example.hubaloleg.topfour.data.remote.model.response.UserInfoResponse;
 
@@ -15,14 +15,14 @@ import io.reactivex.schedulers.Schedulers;
  * Created by hubaloleg on 10.07.17.
  */
 
-public class RemoteUserStorage {
+public class UserApi {
 
     public static final String TEST_VERSION = "20171107";
     private final ApiInterface mApiInterface;
     private final CredentialStore mCredentialStore;
 
     @Inject
-    public RemoteUserStorage(ApiInterface apiInterface, CredentialStore credentialStore) {
+    public UserApi(ApiInterface apiInterface, CredentialStore credentialStore) {
         mApiInterface = apiInterface;
         mCredentialStore = credentialStore;
     }

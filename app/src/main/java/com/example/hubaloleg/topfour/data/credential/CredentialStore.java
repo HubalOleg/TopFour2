@@ -1,4 +1,4 @@
-package com.example.hubaloleg.topfour.data.local.credential;
+package com.example.hubaloleg.topfour.data.credential;
 
 /**
  * Created by kostya on 10.07.17.

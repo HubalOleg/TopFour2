@@ -1,4 +1,4 @@
-package com.example.hubaloleg.topfour.data.remote.api;
+package com.example.hubaloleg.topfour.data.remote.base;
 
 import com.example.hubaloleg.topfour.data.remote.model.response.ResponseEntity;
 import com.example.hubaloleg.topfour.data.remote.model.response.SearchVenueResponse;

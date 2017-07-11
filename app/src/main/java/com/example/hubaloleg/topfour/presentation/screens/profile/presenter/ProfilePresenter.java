@@ -2,7 +2,7 @@ package com.example.hubaloleg.topfour.presentation.screens.profile.presenter;
 
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
-import com.example.hubaloleg.topfour.data.local.credential.CredentialStore;
+import com.example.hubaloleg.topfour.data.credential.CredentialStore;
 import com.example.hubaloleg.topfour.domain.usecase.UserInfoUseCase;
 import com.example.hubaloleg.topfour.presentation.screens.profile.view.ProfileView;
 

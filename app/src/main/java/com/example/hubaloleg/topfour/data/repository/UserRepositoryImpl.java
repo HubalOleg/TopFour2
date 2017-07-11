@@ -1,10 +1,10 @@
 package com.example.hubaloleg.topfour.data.repository;
 
-import com.example.hubaloleg.topfour.data.local.LocalUserStorage;
-import com.example.hubaloleg.topfour.data.remote.model.entity.mapper.UserEntityDataMapper;
+import com.example.hubaloleg.topfour.data.remote.api.UserApi;
 import com.example.hubaloleg.topfour.data.remote.model.response.ResponseEntity;
 import com.example.hubaloleg.topfour.data.remote.model.response.UserInfoResponse;
-import com.example.hubaloleg.topfour.data.remote.storage.RemoteUserStorage;
+import com.example.hubaloleg.topfour.data.cache.UserCache;
+import com.example.hubaloleg.topfour.data.mapper.UserMapper;
 import com.example.hubaloleg.topfour.domain.model.UserInfo;
 import com.example.hubaloleg.topfour.domain.repository.UserRepository;
 
@@ -16,20 +16,20 @@ import io.reactivex.Observable;
 
 public class UserRepositoryImpl implements UserRepository {
 
-    private final LocalUserStorage mLocalUserStorage;
-    private final RemoteUserStorage mRemoteUserStorage;
-    private final UserEntityDataMapper mDataMapper;
+    private final UserCache mUserCache;
+    private final UserApi mUserApi;
+    private final UserMapper mDataMapper;
 
-    public UserRepositoryImpl(LocalUserStorage localUserStorage, RemoteUserStorage remoteUserStorage, UserEntityDataMapper dataMapper) {
-        mLocalUserStorage = localUserStorage;
-        mRemoteUserStorage = remoteUserStorage;
+    public UserRepositoryImpl(UserCache userCache, UserApi userApi, UserMapper dataMapper) {
+        mUserCache = userCache;
+        mUserApi = userApi;
         mDataMapper = dataMapper;
     }
 
     @Override
     public Observable<UserInfo> retrieveUserInfo(String token) {
-//        if (mLocalUserStorage.isUserInfoValid())
-        Observable<ResponseEntity<UserInfoResponse>> observable = mRemoteUserStorage.loadUserInfo(token);
+//        if (mUserCache.isUserInfoValid())
+        Observable<ResponseEntity<UserInfoResponse>> observable = mUserApi.loadUserInfo(token);
         return observable.map(userInfoResponseResponseEntity -> mDataMapper.transform(userInfoResponseResponseEntity.getResponse().getUserEntity()));
     }
 }
