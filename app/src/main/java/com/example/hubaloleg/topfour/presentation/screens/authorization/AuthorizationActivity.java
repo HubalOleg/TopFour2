@@ -13,6 +13,7 @@ import com.example.hubaloleg.topfour.presentation.di.component.DaggerCredentialC
 import com.example.hubaloleg.topfour.presentation.global.TopFourApplication;
 import com.example.hubaloleg.topfour.presentation.screens.authorization.presenter.AuthorizationPresenter;
 import com.example.hubaloleg.topfour.presentation.screens.authorization.view.AuthorizationView;
+import com.example.hubaloleg.topfour.presentation.screens.main.MainActivity;
 import com.example.hubaloleg.topfour.presentation.screens.splash.SplashActivity;
 import com.foursquare.android.nativeoauth.FoursquareOAuth;
 import com.foursquare.android.nativeoauth.model.AuthCodeResponse;
@@ -105,5 +106,10 @@ public class AuthorizationActivity extends MvpAppCompatActivity
 
     private void handleFSQTokenExchange(String token) {
         mPresenter.storeToken(token);
+    }
+
+    @Override
+    public void startMainActivity() {
+        startActivity(MainActivity.getIntent(AuthorizationActivity.this));
     }
 }

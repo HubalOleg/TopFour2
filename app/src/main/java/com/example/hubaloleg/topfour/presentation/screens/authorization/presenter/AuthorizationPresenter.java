@@ -22,5 +22,6 @@ public class AuthorizationPresenter extends MvpPresenter<AuthorizationView> {
 
     public void storeToken(String token) {
         mCredentialUseCase.storeToken(token);
+        getViewState().startMainActivity();
     }
 }

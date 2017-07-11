@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private void replaceFragment(ProfileFragment profileFragment) {
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.fl_near_venue_container, profileFragment)
+                .replace(R.id.fl_profile_container, profileFragment)
                 .commit();
     }
 }
