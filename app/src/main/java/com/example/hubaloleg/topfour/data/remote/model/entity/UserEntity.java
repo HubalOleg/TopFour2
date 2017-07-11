@@ -23,4 +23,68 @@ public class UserEntity {
     private String mHomeCity;
     @SerializedName("bio")
     private String mBiography;
+
+    public String getUserId() {
+        return mUserId;
+    }
+
+    public void setUserId(String userId) {
+        mUserId = userId;
+    }
+
+    public String getFirstName() {
+        return mFirstName;
+    }
+
+    public void setFirstName(String firstName) {
+        mFirstName = firstName;
+    }
+
+    public String getLastName() {
+        return mLastName;
+    }
+
+    public void setLastName(String lastName) {
+        mLastName = lastName;
+    }
+
+    public String getGender() {
+        return mGender;
+    }
+
+    public void setGender(String gender) {
+        mGender = gender;
+    }
+
+    public IconEntity getIconEntity() {
+        return mIconEntity;
+    }
+
+    public void setIconEntity(IconEntity iconEntity) {
+        mIconEntity = iconEntity;
+    }
+
+    public long getBirthdayTimestamp() {
+        return mBirthdayTimestamp;
+    }
+
+    public void setBirthdayTimestamp(long birthdayTimestamp) {
+        mBirthdayTimestamp = birthdayTimestamp;
+    }
+
+    public String getHomeCity() {
+        return mHomeCity;
+    }
+
+    public void setHomeCity(String homeCity) {
+        mHomeCity = homeCity;
+    }
+
+    public String getBiography() {
+        return mBiography;
+    }
+
+    public void setBiography(String biography) {
+        mBiography = biography;
+    }
 }
