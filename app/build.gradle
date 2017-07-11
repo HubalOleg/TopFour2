@@ -51,6 +51,9 @@ android {
             buildConfigField "String", "CLIENT_SECRET",             '"1ILRNPPOEJKRC4LQIUS3RNZBLGSMMXFRBHHTJNHSZPO4T2AE"'
             buildConfigField "String", "BASE_API",                  '"https://api.foursquare.com/v2/"'
         }
+        debug {
+            signingConfig signingConfigs.release
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
