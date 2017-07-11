@@ -1,4 +1,4 @@
-package com.example.hubaloleg.topfour.presentation.di.user_info;
+package com.example.hubaloleg.topfour.presentation.di.venue;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -6,9 +6,10 @@ import java.lang.annotation.RetentionPolicy;
 import javax.inject.Scope;
 
 /**
- * Created by kostya on 11.07.17.
+ * Created by hubaloleg on 11.07.17.
  */
+
 @Scope
 @Retention(RetentionPolicy.RUNTIME)
-public @interface UserInfoScope {
+public @interface VenueScope {
 }

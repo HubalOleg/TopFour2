@@ -10,6 +10,7 @@ import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.example.hubaloleg.topfour.R;
+import com.example.hubaloleg.topfour.presentation.di.venue.DaggerVenueComponent;
 import com.example.hubaloleg.topfour.presentation.global.TopFourApplication;
 import com.example.hubaloleg.topfour.presentation.screens.near_venue.presenter.NearVenuePresenter;
 import com.example.hubaloleg.topfour.presentation.screens.near_venue.view.NearVenueView;
@@ -41,11 +42,14 @@ public class NearVenueFragment extends MvpAppCompatFragment implements NearVenue
     @ProvidePresenter
     NearVenuePresenter providePresenter() {
         initInjection();
-        return new NearVenuePresenter();
+        return mNearVenuePresenter;
     }
 
     private void initInjection() {
-
+        DaggerVenueComponent.builder()
+                .appComponent(TopFourApplication.getAppComponent())
+                .build()
+                .inject(NearVenueFragment.this);
     }
 
     @Override

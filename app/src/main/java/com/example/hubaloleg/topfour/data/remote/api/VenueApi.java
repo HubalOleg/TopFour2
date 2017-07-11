@@ -21,7 +21,7 @@ public class VenueApi extends BaseDataApi {
         super(apiInterface, credentialStore, apiVersion);
     }
 
-    public Observable<ResponseEntity<SearchVenueResponse>> searchVenues(String coordinates, int limit) {
+    public Observable<ResponseEntity<SearchVenueResponse>> searchVenuesWithCoordinates(String coordinates, int limit) {
         return mApiInterface.getSearchVenues(coordinates, limit, mToken, mApiVersion);
     }
 }

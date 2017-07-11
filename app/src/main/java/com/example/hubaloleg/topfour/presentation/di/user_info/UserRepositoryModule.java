@@ -17,16 +17,15 @@ import dagger.Provides;
  */
 
 @Module
+@UserInfoScope
 public class UserRepositoryModule {
 
     @Provides
-    @UserInfoScope
     UserCache provideUserCache() {
         return new UserCache();
     }
 
     @Provides
-    @UserInfoScope
     UserApi provideUserApi(ApiInterface apiInterface,
                            CredentialStore credentialStore,
                            @ApiVersion String apiVersion) {
@@ -34,13 +33,11 @@ public class UserRepositoryModule {
     }
 
     @Provides
-    @UserInfoScope
     UserMapper provideUserMapper() {
         return new UserMapper();
     }
 
     @Provides
-    @UserInfoScope
     UserRepository provideUserRepository(UserCache userCache, UserApi userApi, UserMapper dataMapper) {
         return new UserRepositoryImpl(userCache, userApi, dataMapper);
     }
