@@ -21,4 +21,10 @@ public class SplashPresenter extends MvpPresenter<SplashView> {
         mCredentialUseCase = credentialUseCase;
     }
 
+    public void checkLoginState() {
+        if (mCredentialUseCase.isAuthorized())
+            getViewState().showNearVenues();
+        else
+            getViewState().showAuthorization();
+    }
 }

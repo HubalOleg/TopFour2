@@ -27,9 +27,4 @@ public class CredentialUseCase {
     public void storeToken(String token) {
         mCredentialStore.saveToken(token);
     }
-
-    public String loadToken() {
-        return mCredentialStore.loadToken();
-    }
-
 }
