@@ -1,7 +1,7 @@
 package com.example.hubaloleg.topfour.domain.usecase;
 
-import com.example.hubaloleg.topfour.data.repository.UserRepositoryImpl;
 import com.example.hubaloleg.topfour.domain.model.UserInfo;
+import com.example.hubaloleg.topfour.domain.repository.UserRepository;
 
 import javax.inject.Inject;
 
@@ -13,10 +13,10 @@ import io.reactivex.Observable;
 
 public class UserInfoUseCase {
 
-    private final UserRepositoryImpl mUserRepository;
+    private final UserRepository mUserRepository;
 
     @Inject
-    UserInfoUseCase(UserRepositoryImpl userRepository) {
+    UserInfoUseCase(UserRepository userRepository) {
         mUserRepository = userRepository;
     }
 

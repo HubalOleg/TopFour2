@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 
 import com.example.hubaloleg.topfour.data.credential.CredentialStore;
 import com.example.hubaloleg.topfour.data.credential.CredentialStoreImpl;
+import com.example.hubaloleg.topfour.presentation.di.qualifier.ApiVersion;
+import com.example.hubaloleg.topfour.presentation.di.qualifier.PreferenceName;
 import com.example.hubaloleg.topfour.presentation.global.Constants;
 
 import javax.inject.Singleton;
@@ -17,22 +19,33 @@ import dagger.Provides;
  */
 
 @Module
+@Singleton
 public class CredentialModule {
 
+    private final String mApiVersion;
+
+    public CredentialModule(String apiVersion) {
+        mApiVersion = apiVersion;
+    }
+
     @Provides
-    @Singleton
+    @ApiVersion
+    String provideApiVersion() {
+        return mApiVersion;
+    }
+
+    @Provides
+    @PreferenceName
     String providePreferenceName() {
         return Constants.PREFERENCE_NAME;
     }
 
     @Provides
-    @Singleton
-    SharedPreferences provideSharedPref(Context context, String prefsName) {
+    SharedPreferences provideSharedPref(Context context, @PreferenceName String prefsName) {
         return context.getSharedPreferences(prefsName, Context.MODE_PRIVATE);
     }
 
     @Provides
-    @Singleton
     CredentialStore provideCredentialStore(SharedPreferences sharedPreferences) {
         return new CredentialStoreImpl(sharedPreferences);
     }

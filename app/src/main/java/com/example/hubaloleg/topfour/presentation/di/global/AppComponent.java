@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.example.hubaloleg.topfour.data.credential.CredentialStore;
 import com.example.hubaloleg.topfour.data.remote.base.ApiInterface;
+import com.example.hubaloleg.topfour.presentation.di.qualifier.ApiVersion;
 import com.example.hubaloleg.topfour.presentation.global.TopFourApplication;
 import com.example.hubaloleg.topfour.presentation.screens.authorization.AuthorizationActivity;
 import com.example.hubaloleg.topfour.presentation.screens.splash.SplashActivity;
@@ -32,6 +33,9 @@ public interface AppComponent {
     ApiInterface provideApiInterface();
 
     CredentialStore provideCredentialStore();
+
+    @ApiVersion
+    String provideApiVersion();
 
     Context getContext();
 }

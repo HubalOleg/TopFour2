@@ -6,6 +6,8 @@ import com.example.hubaloleg.topfour.data.mapper.UserMapper;
 import com.example.hubaloleg.topfour.data.remote.api.UserApi;
 import com.example.hubaloleg.topfour.data.remote.base.ApiInterface;
 import com.example.hubaloleg.topfour.data.repository.UserRepositoryImpl;
+import com.example.hubaloleg.topfour.domain.repository.UserRepository;
+import com.example.hubaloleg.topfour.presentation.di.qualifier.ApiVersion;
 
 import dagger.Module;
 import dagger.Provides;
@@ -25,8 +27,10 @@ public class UserRepositoryModule {
 
     @Provides
     @UserInfoScope
-    UserApi provideUserApi(ApiInterface apiInterface, CredentialStore credentialStore) {
-        return new UserApi(apiInterface, credentialStore);
+    UserApi provideUserApi(ApiInterface apiInterface,
+                           CredentialStore credentialStore,
+                           @ApiVersion String apiVersion) {
+        return new UserApi(apiInterface, credentialStore, apiVersion);
     }
 
     @Provides
@@ -37,7 +41,7 @@ public class UserRepositoryModule {
 
     @Provides
     @UserInfoScope
-    UserRepositoryImpl provideUserRepositoryImpl(UserCache userCache, UserApi userApi, UserMapper dataMapper) {
+    UserRepository provideUserRepository(UserCache userCache, UserApi userApi, UserMapper dataMapper) {
         return new UserRepositoryImpl(userCache, userApi, dataMapper);
     }
 }
