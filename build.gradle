@@ -47,4 +47,5 @@ ext {
     crashlyticsVersion = "2.6.8@aar"
     foursquareAuthVersion = "1.0.3"
 
+    glideVersion = "3.7.0"
 }

@@ -2,12 +2,10 @@ package com.example.hubaloleg.topfour.presentation.screens.main;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 
 import com.example.hubaloleg.topfour.R;
-import com.example.hubaloleg.topfour.presentation.screens.near_venue.NearVenueFragment;
 
 import butterknife.ButterKnife;
 
@@ -25,6 +23,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(MainActivity.this);
         putNearVenueFragment(savedInstanceState);
+        replaceFragment(ProfileFragment.newInstance());
+    }
+
+    private void replaceFragment(ProfileFragment profileFragment) {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fl_near_venue_container, profileFragment)
+                .commit();
     }
 
     private void putNearVenueFragment(Bundle savedInstanceState) {
