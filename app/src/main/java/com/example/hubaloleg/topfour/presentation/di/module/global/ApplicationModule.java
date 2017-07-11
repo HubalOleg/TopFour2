@@ -1,4 +1,4 @@
-package com.example.hubaloleg.topfour.presentation.di.module;
+package com.example.hubaloleg.topfour.presentation.di.module.global;
 
 import android.content.Context;
 

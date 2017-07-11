@@ -14,11 +14,6 @@ import javax.inject.Inject;
 
 public class UserEntityDataMapper {
 
-    @Inject
-    UserEntityDataMapper() {
-
-    }
-
     public UserInfo transform(UserEntity userEntity) {
         UserInfo userInfo = new UserInfo();
         if (userEntity != null) {

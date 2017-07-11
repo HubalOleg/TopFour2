@@ -1,0 +1,32 @@
+package com.example.hubaloleg.topfour.presentation.di.module.global;
+
+import android.content.Context;
+
+import com.example.hubaloleg.topfour.data.local.credential.CredentialStore;
+import com.example.hubaloleg.topfour.data.remote.api.ApiInterface;
+import com.example.hubaloleg.topfour.presentation.di.module.global.ApplicationModule;
+import com.example.hubaloleg.topfour.presentation.global.TopFourApplication;
+
+import javax.inject.Singleton;
+
+import dagger.Component;
+
+/**
+ * Created by hubaloleg on 10.07.17.
+ */
+
+@Singleton
+@Component(modules = {
+        ApplicationModule.class,
+        CredentialModule.class,
+        NetworkModule.class
+})
+public interface AppComponent {
+    void inject(TopFourApplication application);
+
+    ApiInterface provideApiInterface();
+
+    CredentialStore provideCredentialStore();
+
+    Context getContext();
+}

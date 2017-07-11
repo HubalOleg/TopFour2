@@ -5,4 +5,7 @@ package com.example.hubaloleg.topfour.data.local;
  */
 
 public class LocalStorage {
+    public boolean isUserInfoValid() {
+        return false;
+    }
 }

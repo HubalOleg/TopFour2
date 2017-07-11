@@ -8,7 +8,6 @@ import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.example.hubaloleg.topfour.R;
-import com.example.hubaloleg.topfour.presentation.di.component.DaggerCredentialComponent;
 import com.example.hubaloleg.topfour.presentation.global.TopFourApplication;
 import com.example.hubaloleg.topfour.presentation.screens.authorization.AuthorizationActivity;
 import com.example.hubaloleg.topfour.presentation.screens.main.MainActivity;
@@ -42,10 +41,7 @@ public class SplashActivity extends MvpAppCompatActivity implements SplashView {
     }
 
     private void initInjection() {
-        DaggerCredentialComponent.builder()
-                .appComponent(TopFourApplication.getAppComponent())
-                .build()
-                .inject(SplashActivity.this);
+
     }
 
     @Override

@@ -9,7 +9,6 @@ import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.example.hubaloleg.topfour.R;
 import com.example.hubaloleg.topfour.domain.usecase.CredentialUseCase;
-import com.example.hubaloleg.topfour.presentation.di.component.DaggerCredentialComponent;
 import com.example.hubaloleg.topfour.presentation.global.TopFourApplication;
 import com.example.hubaloleg.topfour.presentation.screens.authorization.presenter.AuthorizationPresenter;
 import com.example.hubaloleg.topfour.presentation.screens.authorization.view.AuthorizationView;
@@ -71,10 +70,7 @@ public class AuthorizationActivity extends MvpAppCompatActivity
     }
 
     private void initInjection() {
-        DaggerCredentialComponent.builder()
-                .appComponent(TopFourApplication.getAppComponent())
-                .build()
-                .inject(AuthorizationActivity.this);
+
     }
 
     private void handleLoginClick() {

@@ -10,4 +10,12 @@ import com.google.gson.annotations.SerializedName;
 public class UserInfoResponse {
     @SerializedName("user")
     private UserEntity mUserEntity;
+
+    public UserEntity getUserEntity() {
+        return mUserEntity;
+    }
+
+    public void setUserEntity(UserEntity userEntity) {
+        mUserEntity = userEntity;
+    }
 }
