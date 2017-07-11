@@ -49,7 +49,7 @@ public class SplashActivity extends MvpAppCompatActivity implements SplashView {
     }
 
     @Override
-    public void showNearVenues() {
+    public void showMainScreen() {
         launchActivity(MainActivity.getIntent(SplashActivity.this));
     }
 
