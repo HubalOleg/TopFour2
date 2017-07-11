@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.hubaloleg.topfour.R;
 import com.example.hubaloleg.topfour.presentation.screens.near_venue.NearVenueFragment;
-import com.example.hubaloleg.topfour.presentation.screens.profile.ProfileFragment;
 
 import butterknife.ButterKnife;
 
@@ -28,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(MainActivity.this);
 
         if (savedInstanceState == null) {
-            openFragment(ProfileFragment.newInstance(), ProfileFragment.class.getSimpleName(), false);
+            openFragment(NearVenueFragment.newInstance(), NearVenueFragment.class.getSimpleName(), false);
         }
     }
 

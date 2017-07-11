@@ -16,23 +16,17 @@ import io.reactivex.schedulers.Schedulers;
  * Created by hubaloleg on 10.07.17.
  */
 
-public class UserApi {
-
-    private final ApiInterface mApiInterface;
-    private final CredentialStore mCredentialStore;
-    private final String mApiVersion;
+public class UserApi extends BaseDataApi {
 
     @Inject
     public UserApi(ApiInterface apiInterface, CredentialStore credentialStore, @ApiVersion String apiVersion) {
-        mApiInterface = apiInterface;
-        mCredentialStore = credentialStore;
-        mApiVersion = apiVersion;
+        super(apiInterface, credentialStore, apiVersion);
     }
 
 
     public Observable<ResponseEntity<UserInfoResponse>> loadUserInfo() {
         return mApiInterface.
-                getUserProfileInfo(mCredentialStore.loadToken(), mApiVersion)
+                getUserProfileInfo(mToken, mApiVersion)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
