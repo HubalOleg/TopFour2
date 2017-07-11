@@ -1,10 +1,10 @@
 package com.example.hubaloleg.topfour.presentation.di.module.user_info;
 
-import com.example.hubaloleg.topfour.data.local.LocalStorage;
+import com.example.hubaloleg.topfour.data.local.LocalUserStorage;
 import com.example.hubaloleg.topfour.data.local.credential.CredentialStore;
 import com.example.hubaloleg.topfour.data.remote.api.ApiInterface;
 import com.example.hubaloleg.topfour.data.remote.model.entity.mapper.UserEntityDataMapper;
-import com.example.hubaloleg.topfour.data.remote.storage.RemoteStorage;
+import com.example.hubaloleg.topfour.data.remote.storage.RemoteUserStorage;
 import com.example.hubaloleg.topfour.data.repository.UserRepositoryImpl;
 
 import dagger.Module;
@@ -19,14 +19,14 @@ public class UserRepositoryModule {
 
     @Provides
     @UserInfoScope
-    LocalStorage provideLocalStorage() {
-        return new LocalStorage();
+    LocalUserStorage provideLocalStorage() {
+        return new LocalUserStorage();
     }
 
     @Provides
     @UserInfoScope
-    RemoteStorage provideRemoteStorage(ApiInterface apiInterface, CredentialStore credentialStore) {
-        return new RemoteStorage(apiInterface, credentialStore);
+    RemoteUserStorage provideRemoteStorage(ApiInterface apiInterface, CredentialStore credentialStore) {
+        return new RemoteUserStorage(apiInterface, credentialStore);
     }
 
     @Provides
@@ -37,7 +37,7 @@ public class UserRepositoryModule {
 
     @Provides
     @UserInfoScope
-    UserRepositoryImpl provideUserRepositoryImpl(LocalStorage localStorage, RemoteStorage remoteStorage, UserEntityDataMapper dataMapper) {
-        return new UserRepositoryImpl(localStorage, remoteStorage, dataMapper);
+    UserRepositoryImpl provideUserRepositoryImpl(LocalUserStorage localUserStorage, RemoteUserStorage remoteUserStorage, UserEntityDataMapper dataMapper) {
+        return new UserRepositoryImpl(localUserStorage, remoteUserStorage, dataMapper);
     }
 }

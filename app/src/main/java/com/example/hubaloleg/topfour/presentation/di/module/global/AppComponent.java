@@ -6,6 +6,8 @@ import com.example.hubaloleg.topfour.data.local.credential.CredentialStore;
 import com.example.hubaloleg.topfour.data.remote.api.ApiInterface;
 import com.example.hubaloleg.topfour.presentation.di.module.global.ApplicationModule;
 import com.example.hubaloleg.topfour.presentation.global.TopFourApplication;
+import com.example.hubaloleg.topfour.presentation.screens.authorization.AuthorizationActivity;
+import com.example.hubaloleg.topfour.presentation.screens.splash.SplashActivity;
 
 import javax.inject.Singleton;
 
@@ -23,6 +25,10 @@ import dagger.Component;
 })
 public interface AppComponent {
     void inject(TopFourApplication application);
+
+    void inject(SplashActivity splashActivity);
+
+    void inject(AuthorizationActivity authorizationActivity);
 
     ApiInterface provideApiInterface();
 

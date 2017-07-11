@@ -2,6 +2,7 @@ package com.example.hubaloleg.topfour.presentation.screens.profile.presenter;
 
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
+import com.example.hubaloleg.topfour.data.local.credential.CredentialStore;
 import com.example.hubaloleg.topfour.domain.usecase.UserInfoUseCase;
 import com.example.hubaloleg.topfour.presentation.screens.profile.view.ProfileView;
 
@@ -16,12 +17,12 @@ public class ProfilePresenter extends MvpPresenter<ProfileView> {
     private final UserInfoUseCase mUserUseCase;
 
     @Inject
-    ProfilePresenter(UserInfoUseCase userInfoUseCase) {
+    ProfilePresenter(UserInfoUseCase userInfoUseCase, CredentialStore credentialStore) {
         mUserUseCase = userInfoUseCase;
     }
 
     public void loadUserData() {
-        mUserUseCase.loadUserInfo()
+        mUserUseCase.loadUserInfo(null)
                 .subscribe(userInfo -> getViewState().showUserInfo(userInfo),
                         throwable -> System.out.printf("error " + throwable));
     }

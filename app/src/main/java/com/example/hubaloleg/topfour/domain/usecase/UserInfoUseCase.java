@@ -20,7 +20,7 @@ public class UserInfoUseCase {
         mUserRepository = userRepository;
     }
 
-    public Observable<UserInfo> loadUserInfo() {
-        return mUserRepository.retrieveUserInfo();
+    public Observable<UserInfo> loadUserInfo(String token) {
+        return mUserRepository.retrieveUserInfo(token);
     }
 }

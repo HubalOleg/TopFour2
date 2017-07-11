@@ -70,7 +70,9 @@ public class AuthorizationActivity extends MvpAppCompatActivity
     }
 
     private void initInjection() {
-
+        TopFourApplication
+                .getAppComponent()
+                .inject(AuthorizationActivity.this);
     }
 
     private void handleLoginClick() {

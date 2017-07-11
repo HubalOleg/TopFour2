@@ -8,6 +8,8 @@ import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.example.hubaloleg.topfour.R;
+import com.example.hubaloleg.topfour.presentation.di.module.global.ApplicationModule;
+import com.example.hubaloleg.topfour.presentation.di.module.global.DaggerAppComponent;
 import com.example.hubaloleg.topfour.presentation.global.TopFourApplication;
 import com.example.hubaloleg.topfour.presentation.screens.authorization.AuthorizationActivity;
 import com.example.hubaloleg.topfour.presentation.screens.main.MainActivity;
@@ -40,10 +42,6 @@ public class SplashActivity extends MvpAppCompatActivity implements SplashView {
         mSplashPresenter.checkLoginState();
     }
 
-    private void initInjection() {
-
-    }
-
     @Override
     public void showMainScreen() {
         launchActivity(MainActivity.getIntent(SplashActivity.this));
@@ -52,6 +50,11 @@ public class SplashActivity extends MvpAppCompatActivity implements SplashView {
     @Override
     public void showAuthorization() {
         launchActivity(AuthorizationActivity.getIntent(SplashActivity.this));
+    }
+
+    private void initInjection() {
+        TopFourApplication.getAppComponent()
+                .inject(SplashActivity.this);
     }
 
     private void launchActivity(Intent intent) {

@@ -8,24 +8,29 @@ import com.example.hubaloleg.topfour.data.remote.model.response.UserInfoResponse
 import javax.inject.Inject;
 
 import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by hubaloleg on 10.07.17.
  */
 
-public class RemoteStorage {
+public class RemoteUserStorage {
 
     private final ApiInterface mApiInterface;
     private final CredentialStore mCredentialStore;
 
     @Inject
-    public RemoteStorage(ApiInterface apiInterface, CredentialStore credentialStore) {
+    public RemoteUserStorage(ApiInterface apiInterface, CredentialStore credentialStore) {
         mApiInterface = apiInterface;
         mCredentialStore = credentialStore;
     }
 
 
-    public Observable<ResponseEntity<UserInfoResponse>> loadUserInfo() {
-        return mApiInterface.getUserProfileInfo();
+    public Observable<ResponseEntity<UserInfoResponse>> loadUserInfo(String token) {
+        return mApiInterface.
+                getUserProfileInfo(token)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
     }
 }
