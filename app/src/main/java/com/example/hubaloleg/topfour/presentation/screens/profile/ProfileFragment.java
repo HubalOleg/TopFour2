@@ -78,10 +78,7 @@ public class ProfileFragment extends MvpAppCompatFragment
     }
 
     private void loadProfileData() {
-        mPresenter.loadUserData(TopFourApplication
-                .getAppComponent()
-                .provideCredentialStore()
-                .loadToken());
+        mPresenter.loadUserData();
     }
 
     private void initUI() {

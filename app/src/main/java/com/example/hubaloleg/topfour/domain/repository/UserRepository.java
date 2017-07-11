@@ -9,5 +9,5 @@ import io.reactivex.Observable;
  */
 
 public interface UserRepository {
-    Observable<UserInfo> retrieveUserInfo(String token);
+    Observable<UserInfo> retrieveUserInfo();
 }

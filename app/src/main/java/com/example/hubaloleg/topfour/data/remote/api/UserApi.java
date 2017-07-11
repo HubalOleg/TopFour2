@@ -18,7 +18,6 @@ import io.reactivex.schedulers.Schedulers;
 
 public class UserApi {
 
-    public static final String TEST_VERSION = "20171107";
     private final ApiInterface mApiInterface;
     private final CredentialStore mCredentialStore;
     private final String mApiVersion;
@@ -31,9 +30,9 @@ public class UserApi {
     }
 
 
-    public Observable<ResponseEntity<UserInfoResponse>> loadUserInfo(String token) {
+    public Observable<ResponseEntity<UserInfoResponse>> loadUserInfo() {
         return mApiInterface.
-                getUserProfileInfo(token, mApiVersion)
+                getUserProfileInfo(mCredentialStore.loadToken(), mApiVersion)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }

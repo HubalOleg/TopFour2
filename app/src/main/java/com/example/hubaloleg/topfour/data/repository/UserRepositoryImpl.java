@@ -27,9 +27,9 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public Observable<UserInfo> retrieveUserInfo(String token) {
+    public Observable<UserInfo> retrieveUserInfo() {
 //        if (mUserCache.isUserInfoValid())
-        Observable<ResponseEntity<UserInfoResponse>> observable = mUserApi.loadUserInfo(token);
+        Observable<ResponseEntity<UserInfoResponse>> observable = mUserApi.loadUserInfo();
         return observable.map(userInfoResponseResponseEntity -> mDataMapper.transform(userInfoResponseResponseEntity.getResponse().getUserEntity()));
     }
 }
