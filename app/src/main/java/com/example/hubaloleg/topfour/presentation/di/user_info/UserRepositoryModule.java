@@ -1,4 +1,4 @@
-package com.example.hubaloleg.topfour.presentation.di.module.user_info;
+package com.example.hubaloleg.topfour.presentation.di.user_info;
 
 import com.example.hubaloleg.topfour.data.local.LocalStorage;
 import com.example.hubaloleg.topfour.data.local.credential.CredentialStore;
@@ -15,28 +15,25 @@ import dagger.Provides;
  */
 
 @Module
+@UserInfoScope
 public class UserRepositoryModule {
 
     @Provides
-    @UserInfoScope
     LocalStorage provideLocalStorage() {
         return new LocalStorage();
     }
 
     @Provides
-    @UserInfoScope
     RemoteStorage provideRemoteStorage(ApiInterface apiInterface, CredentialStore credentialStore) {
         return new RemoteStorage(apiInterface, credentialStore);
     }
 
     @Provides
-    @UserInfoScope
     UserEntityDataMapper provideUserEntityDataMapper() {
         return new UserEntityDataMapper();
     }
 
     @Provides
-    @UserInfoScope
     UserRepositoryImpl provideUserRepositoryImpl(LocalStorage localStorage, RemoteStorage remoteStorage, UserEntityDataMapper dataMapper) {
         return new UserRepositoryImpl(localStorage, remoteStorage, dataMapper);
     }

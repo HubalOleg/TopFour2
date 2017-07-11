@@ -10,11 +10,8 @@ import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.example.hubaloleg.topfour.R;
-import com.example.hubaloleg.topfour.presentation.global.TopFourApplication;
 import com.example.hubaloleg.topfour.presentation.screens.near_venue.presenter.NearVenuePresenter;
 import com.example.hubaloleg.topfour.presentation.screens.near_venue.view.NearVenueView;
-
-import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,7 +22,6 @@ public class NearVenueFragment extends MvpAppCompatFragment implements NearVenue
     @BindView(R.id.iv_profile_image)
     ImageView mProfileImageView;
 
-    @Inject
     @InjectPresenter
     NearVenuePresenter mNearVenuePresenter;
 

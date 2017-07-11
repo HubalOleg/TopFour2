@@ -41,7 +41,7 @@ public class SplashActivity extends MvpAppCompatActivity implements SplashView {
     }
 
     private void initInjection() {
-
+        TopFourApplication.getAppComponent().inject(SplashActivity.this);
     }
 
     @Override

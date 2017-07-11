@@ -1,4 +1,4 @@
-package com.example.hubaloleg.topfour.presentation.di.module.global;
+package com.example.hubaloleg.topfour.presentation.di.global;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -17,22 +17,20 @@ import dagger.Provides;
  */
 
 @Module
+@Singleton
 public class CredentialModule {
 
     @Provides
-    @Singleton
     String providePreferenceName() {
         return Constants.PREFERENCE_NAME;
     }
 
     @Provides
-    @Singleton
     SharedPreferences provideSharedPref(Context context, String prefsName) {
         return context.getSharedPreferences(prefsName, Context.MODE_PRIVATE);
     }
 
     @Provides
-    @Singleton
     CredentialStore provideCredentialStore(SharedPreferences sharedPreferences) {
         return new CredentialStoreImpl(sharedPreferences);
     }

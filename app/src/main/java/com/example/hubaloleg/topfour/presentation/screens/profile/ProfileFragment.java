@@ -14,7 +14,7 @@ import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.example.hubaloleg.topfour.R;
 import com.example.hubaloleg.topfour.domain.model.UserInfo;
-import com.example.hubaloleg.topfour.presentation.di.module.user_info.DaggerUserInfoComponent;
+import com.example.hubaloleg.topfour.presentation.di.user_info.DaggerUserInfoComponent;
 import com.example.hubaloleg.topfour.presentation.global.TopFourApplication;
 import com.example.hubaloleg.topfour.presentation.screens.profile.presenter.ProfilePresenter;
 import com.example.hubaloleg.topfour.presentation.screens.profile.view.ProfileView;

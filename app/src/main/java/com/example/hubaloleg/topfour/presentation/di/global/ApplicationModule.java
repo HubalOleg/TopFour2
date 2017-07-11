@@ -1,4 +1,4 @@
-package com.example.hubaloleg.topfour.presentation.di.module.global;
+package com.example.hubaloleg.topfour.presentation.di.global;
 
 import android.content.Context;
 
@@ -12,6 +12,7 @@ import dagger.Provides;
  */
 
 @Module
+@Singleton
 public class ApplicationModule {
     private Context mContext;
 
@@ -20,7 +21,6 @@ public class ApplicationModule {
     }
 
     @Provides
-    @Singleton
     Context provideApplicationContext() {
         return mContext;
     }
