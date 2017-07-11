@@ -4,10 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.hubaloleg.topfour.R;
 import com.example.hubaloleg.topfour.presentation.screens.near_venue.NearVenueFragment;
+import com.example.hubaloleg.topfour.presentation.screens.profile.ProfileFragment;
 
 import butterknife.ButterKnife;
 
@@ -26,25 +28,16 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(MainActivity.this);
 
         if (savedInstanceState == null) {
-            setNearVenueFragment();
-            setProfileFragment();
+            openFragment(ProfileFragment.newInstance(), MainActivity.class.getSimpleName(), false);
         }
     }
 
-    private void setNearVenueFragment() {
-        setFragment(R.id.fl_near_venue_container,
-                NearVenueFragment.newInstance(),
-                NearVenueFragment.class.getSimpleName());
-    }
-
-    private void setProfileFragment() {
-
-    }
-
-    private void setFragment(int containerId, Fragment fragment, String tag) {
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(containerId, fragment, tag)
-                .commit();
+    public void openFragment(Fragment fragment, String tag, boolean addToBackStack) {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.fl_container, fragment, tag);
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        if (addToBackStack)
+            ft.addToBackStack(null);
+        ft.commit();
     }
 }
