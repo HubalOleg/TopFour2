@@ -10,4 +10,8 @@ import com.example.hubaloleg.topfour.presentation.screens.profile.view.ProfileVi
 
 @InjectViewState
 public class ProfilePresenter extends MvpPresenter<ProfileView> {
+
+    public void loadUserData() {
+
+    }
 }

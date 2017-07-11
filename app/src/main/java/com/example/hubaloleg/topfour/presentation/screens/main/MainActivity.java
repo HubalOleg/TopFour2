@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(MainActivity.this);
 
         if (savedInstanceState == null) {
-            openFragment(ProfileFragment.newInstance(), MainActivity.class.getSimpleName(), false);
+            openFragment(ProfileFragment.newInstance(), ProfileFragment.class.getSimpleName(), false);
         }
     }
 

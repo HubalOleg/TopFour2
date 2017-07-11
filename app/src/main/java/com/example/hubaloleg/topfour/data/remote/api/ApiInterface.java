@@ -2,6 +2,7 @@ package com.example.hubaloleg.topfour.data.remote.api;
 
 import com.example.hubaloleg.topfour.data.remote.model.response.ResponseEntity;
 import com.example.hubaloleg.topfour.data.remote.model.response.SearchVenueResponse;
+import com.example.hubaloleg.topfour.data.remote.model.response.UserInfoResponse;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
@@ -19,4 +20,7 @@ public interface ApiInterface {
             @Query("limit") int limit,
             @Query("oauth_token") String token,
             @Query("v") String v);
+
+    @GET(ApiFunctions.GET_PROFILE_INFO)
+    Observable<ResponseEntity<UserInfoResponse>> getUserProfileInfo();
 }
