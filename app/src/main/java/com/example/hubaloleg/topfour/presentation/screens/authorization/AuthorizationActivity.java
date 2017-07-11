@@ -81,7 +81,7 @@ public class AuthorizationActivity extends MvpAppCompatActivity
         if (FoursquareOAuth.isPlayStoreIntent(intent))
             startActivity(intent);
         else
-            startActivityForResult(intent, RC_LOGIN);
+            startActivityForResult(intent, REQUEST_CODE_FSQ_CONNECT);
     }
 
     private void handleOnActivityResult(int requestCode, int resultCode, Intent data) {

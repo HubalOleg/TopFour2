@@ -47,6 +47,7 @@ android {
 
     buildTypes {
         all {
+            signingConfig signingConfigs.release
             buildConfigField "String", "CLIENT_ID",                 '"GQUNINKHGJUUZGB0AZ25Q4FWN54RNLKEH4PO5NC0U4MRTSZT"'
             buildConfigField "String", "CLIENT_SECRET",             '"1ILRNPPOEJKRC4LQIUS3RNZBLGSMMXFRBHHTJNHSZPO4T2AE"'
             buildConfigField "String", "BASE_API",                  '"https://api.foursquare.com/v2/"'
@@ -54,7 +55,6 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
         }
     }
 
@@ -78,6 +78,7 @@ dependencies {
     //    Support
     compile "com.android.support:appcompat-v7:${supportVersion}"
     compile "com.android.support.constraint:constraint-layout:${constraintVersion}"
+    compile "com.android.support:design:${supportVersion}"
 
     //    ButterKnife
     compile "com.jakewharton:butterknife:${butterknifeVersion}"
@@ -115,5 +116,7 @@ dependencies {
         transitive = true;
     }
     compile "com.github.bumptech.glide:glide:${glideVersion}"
+
+
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
 }

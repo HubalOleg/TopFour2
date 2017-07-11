@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.hubaloleg.topfour.R;
+import com.example.hubaloleg.topfour.presentation.screens.profile.ProfileFragment;
 
 import butterknife.ButterKnife;
 
@@ -22,5 +23,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(MainActivity.this);
+        replaceFragment(ProfileFragment.newInstance());
+    }
+
+    private void replaceFragment(ProfileFragment profileFragment) {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fl_near_venue_container, profileFragment)
+                .commit();
     }
 }
