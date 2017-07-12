@@ -1,4 +1,4 @@
-package com.example.hubaloleg.topfour.presentation.di.venue;
+package com.example.hubaloleg.topfour.presentation.di.modules.venue;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

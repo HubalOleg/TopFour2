@@ -1,4 +1,4 @@
-package com.example.hubaloleg.topfour.presentation.di.venue;
+package com.example.hubaloleg.topfour.presentation.di.modules.venue;
 
 import com.example.hubaloleg.topfour.data.cache.VenueCache;
 import com.example.hubaloleg.topfour.data.credential.CredentialStore;

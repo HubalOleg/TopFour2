@@ -1,6 +1,8 @@
-package com.example.hubaloleg.topfour.presentation.di.venue;
+package com.example.hubaloleg.topfour.presentation.di.components;
 
 import com.example.hubaloleg.topfour.presentation.di.global.AppComponent;
+import com.example.hubaloleg.topfour.presentation.di.modules.venue.VenueRepositoryModule;
+import com.example.hubaloleg.topfour.presentation.di.modules.venue.VenueScope;
 import com.example.hubaloleg.topfour.presentation.screens.near_venue.NearVenueFragment;
 
 import dagger.Component;

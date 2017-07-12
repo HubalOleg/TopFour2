@@ -1,6 +1,8 @@
-package com.example.hubaloleg.topfour.presentation.di.user_info;
+package com.example.hubaloleg.topfour.presentation.di.components;
 
 import com.example.hubaloleg.topfour.presentation.di.global.AppComponent;
+import com.example.hubaloleg.topfour.presentation.di.modules.user_info.UserInfoScope;
+import com.example.hubaloleg.topfour.presentation.di.modules.user_info.UserRepositoryModule;
 import com.example.hubaloleg.topfour.presentation.screens.profile.ProfileFragment;
 
 import dagger.Component;
