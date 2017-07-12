@@ -34,6 +34,4 @@ public class SearchVenueUseCase {
                 .subscribeOn(Schedulers.io())
                 .observeOn(mSchedulerUI);
     }
-
-
 }
