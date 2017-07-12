@@ -2,6 +2,8 @@ package com.example.hubaloleg.topfour.presentation.di.modules.venue;
 
 import com.example.hubaloleg.topfour.data.cache.VenueCache;
 import com.example.hubaloleg.topfour.data.credential.CredentialStore;
+import com.example.hubaloleg.topfour.data.mapper.CategoryMapper;
+import com.example.hubaloleg.topfour.data.mapper.IconMapper;
 import com.example.hubaloleg.topfour.data.mapper.VenueMapper;
 import com.example.hubaloleg.topfour.data.remote.api.VenueApi;
 import com.example.hubaloleg.topfour.data.remote.base.ApiInterface;
@@ -33,8 +35,18 @@ public class VenueRepositoryModule {
     }
 
     @Provides
-    VenueMapper provideUserMapper() {
-        return new VenueMapper();
+    IconMapper provideIconMapper() {
+        return new IconMapper();
+    }
+
+    @Provides
+    CategoryMapper provideCategoryMapper(IconMapper iconMapper) {
+        return new CategoryMapper(iconMapper);
+    }
+
+    @Provides
+    VenueMapper provideUserMapper(CategoryMapper categoryMapper) {
+        return new VenueMapper(categoryMapper);
     }
 
     @Provides
