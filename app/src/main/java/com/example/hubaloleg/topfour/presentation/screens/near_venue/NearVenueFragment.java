@@ -1,6 +1,7 @@
 package com.example.hubaloleg.topfour.presentation.screens.near_venue;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,12 +20,15 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class NearVenueFragment extends MvpAppCompatFragment implements NearVenueView {
     public static final String TAG = "NearVenueFragment";
 
     @BindView(R.id.iv_profile_image)
     ImageView mProfileImageView;
+    @BindView(R.id.fab_search_location)
+    FloatingActionButton mSearchLocationFAB;
 
     @Inject
     @InjectPresenter
@@ -69,5 +73,10 @@ public class NearVenueFragment extends MvpAppCompatFragment implements NearVenue
     public void onViewCreated(final View view, final Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+    }
+
+    @OnClick(R.id.fab_search_location)
+    public void onSearchLocationClick() {
+        mNearVenuePresenter.onSearchVenuesClick("");
     }
 }

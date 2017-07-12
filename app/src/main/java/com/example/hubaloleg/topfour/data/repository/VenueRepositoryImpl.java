@@ -6,6 +6,8 @@ import com.example.hubaloleg.topfour.data.remote.api.VenueApi;
 import com.example.hubaloleg.topfour.domain.model.Venue;
 import com.example.hubaloleg.topfour.domain.repository.VenueRepository;
 
+import java.util.List;
+
 import io.reactivex.Observable;
 
 /**
@@ -25,8 +27,10 @@ public class VenueRepositoryImpl implements VenueRepository {
     }
 
     @Override
-    public Observable<Venue> searchVenuesWithCoordinates(String coordinates, int limit) {
-        return null;
+    public Observable<List<Venue>> searchVenuesWithCoordinates(String coordinates, int limit) {
+        return mVenueApi.searchVenuesWithCoordinates(coordinates, limit)
+                .map(searchVenueResponseResponseEntity -> searchVenueResponseResponseEntity.getResponse().getVenueEntityList())
+                .map(mDataMapper::transformList);
     }
 
 }
