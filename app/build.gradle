@@ -109,6 +109,7 @@ dependencies {
     //    DBFlow
     compile "com.github.Raizlabs.DBFlow:dbflow-core:${dbflowVersion}"
     compile "com.github.Raizlabs.DBFlow:dbflow:${dbflowVersion}"
+    compile "com.github.Raizlabs.DBFlow:dbflow-rx2:${dbflowVersion}"
     annotationProcessor "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflowVersion}"
     compile "com.github.Raizlabs.DBFlow:dbflow-rx2:${dbflowVersion}"
 

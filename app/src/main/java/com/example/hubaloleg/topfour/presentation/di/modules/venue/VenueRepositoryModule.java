@@ -1,6 +1,6 @@
 package com.example.hubaloleg.topfour.presentation.di.modules.venue;
 
-import com.example.hubaloleg.topfour.data.cache.VenueCache;
+import com.example.hubaloleg.topfour.data.cache.VenueCacheTransformer;
 import com.example.hubaloleg.topfour.data.credential.CredentialStore;
 import com.example.hubaloleg.topfour.data.mapper.CategoryMapper;
 import com.example.hubaloleg.topfour.data.mapper.IconMapper;
@@ -23,8 +23,8 @@ import dagger.Provides;
 public class VenueRepositoryModule {
 
     @Provides
-    VenueCache provideUserCache() {
-        return new VenueCache();
+    VenueCacheTransformer provideUserCache() {
+        return new VenueCacheTransformer();
     }
 
     @Provides
@@ -50,7 +50,7 @@ public class VenueRepositoryModule {
     }
 
     @Provides
-    VenueRepository provideUserRepository(VenueCache venueCache, VenueApi venueApi, VenueMapper dataMapper) {
-        return new VenueRepositoryImpl(venueCache, venueApi, dataMapper);
+    VenueRepository provideUserRepository(VenueCacheTransformer venueCacheTransformer, VenueApi venueApi, VenueMapper dataMapper) {
+        return new VenueRepositoryImpl(venueCacheTransformer, venueApi, dataMapper);
     }
 }

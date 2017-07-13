@@ -1,5 +1,6 @@
 package com.example.hubaloleg.topfour.data.mapper;
 
+import com.example.hubaloleg.topfour.data.cache.db.VenueDB;
 import com.example.hubaloleg.topfour.data.remote.model.entity.VenueEntity;
 import com.example.hubaloleg.topfour.domain.model.Venue;
 
@@ -18,21 +19,37 @@ public class VenueMapper {
         mCategoryMapper = categoryMapper;
     }
 
-    public List<Venue> transformList(List<VenueEntity> venueEntityList) {
-        List<Venue> venueList = new ArrayList<>();
+    public List<VenueDB> transformApiList(List<VenueEntity> venueEntityList) {
+        List<VenueDB> venueList = new ArrayList<>();
 
         for (VenueEntity venueEntity : venueEntityList) {
-            venueList.add(transform(venueEntity));
+            venueList.add(transformApi(venueEntity));
 
         }
         return venueList;
     }
 
-    public Venue transform(VenueEntity venueEntity) {
-        return new Venue(
+    public VenueDB transformApi(VenueEntity venueEntity) {
+        return new VenueDB(
                 venueEntity.getId(),
-                venueEntity.getName(),
-                mCategoryMapper.transormList(venueEntity.getCategoryEntityList())
+                venueEntity.getName()
+        );
+    }
+
+    public List<Venue> transformDBList(List<VenueDB> venueDBList) {
+        List<Venue> venueList = new ArrayList<>();
+
+        for (VenueDB venueDB : venueDBList) {
+            venueList.add(transformDB(venueDB));
+        }
+        return venueList;
+    }
+
+    public Venue transformDB(VenueDB venueDB) {
+        return new Venue(
+                venueDB.getId(),
+                venueDB.getName(),
+                null
         );
     }
 }
