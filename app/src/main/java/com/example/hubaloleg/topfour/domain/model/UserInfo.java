@@ -8,13 +8,20 @@ import java.util.Date;
 
 public class UserInfo {
     private String mId;
-    private String mFirstName;
-    private String mLastName;
+    private String mUserName;
     private String mGender;
     private String mImageUrl;
     private Date mBirthdayDate;
     private String mHomeCity;
     private String mBiography;
+
+    public String getUserName() {
+        return mUserName;
+    }
+
+    public void setUserName(String userName) {
+        mUserName = userName;
+    }
 
     public String getId() {
         return mId;
@@ -30,22 +37,6 @@ public class UserInfo {
 
     public void setBiography(String biography) {
         mBiography = biography;
-    }
-
-    public String getFirstName() {
-        return mFirstName;
-    }
-
-    public void setFirstName(String firstName) {
-        mFirstName = firstName;
-    }
-
-    public String getLastName() {
-        return mLastName;
-    }
-
-    public void setLastName(String lastName) {
-        mLastName = lastName;
     }
 
     public String getGender() {

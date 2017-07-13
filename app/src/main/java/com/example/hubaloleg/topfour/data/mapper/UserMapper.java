@@ -16,8 +16,7 @@ public class UserMapper {
         UserInfo userInfo = new UserInfo();
         if (userEntity != null) {
             userInfo.setBiography(userEntity.getBiography());
-            userInfo.setFirstName(userEntity.getFirstName());
-            userInfo.setLastName(userEntity.getLastName());
+            userInfo.setUserName(userEntity.getFirstName() + " " + userEntity.getLastName());
             userInfo.setBirthdayDate(new Date(userEntity.getBirthdayTimestamp()));
             userInfo.setGender(userEntity.getGender());
             userInfo.setHomeCity(userEntity.getHomeCity());
@@ -28,6 +27,6 @@ public class UserMapper {
     }
 
     private String getImageUrl(IconEntity iconEntity) {
-        return iconEntity.getPrefix() + "200x200" + iconEntity.getSuffix();
+        return iconEntity.getPrefix() + "original" + iconEntity.getSuffix();
     }
 }

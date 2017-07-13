@@ -2,12 +2,14 @@ package com.example.hubaloleg.topfour.presentation.screens.profile;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
@@ -41,23 +43,22 @@ public class ProfileFragment extends MvpAppCompatFragment
 
     @BindView(R.id.siv_profile_image)
     ImageView mIvProfileImage;
-    @BindView(R.id.rv_venue_history)
-    RecyclerView mRvVenueHistory;
-    @BindView(R.id.rv_lists)
-    RecyclerView mRvLists;
+//    @BindView(R.id.rv_venue_history)
+//    RecyclerView mRvVenueHistory;
+//    @BindView(R.id.rv_lists)
+//    RecyclerView mRvLists;
+//    @BindView(R.id.tv_user_name)
+//    TextView mTvUserName;
+//    @BindView(R.id.tv_user_city)
+//    TextView mTvUserCity;
+    @BindView(R.id.collapsing_toolbar)
+    CollapsingToolbarLayout mCollapsingToolbarLayout;
+
 
     @ProvidePresenter
     ProfilePresenter provideProfilePresenter() {
         initInjection();
         return mPresenter;
-    }
-
-    private void initInjection() {
-        DaggerUserInfoComponent
-                .builder()
-                .appComponent(TopFourApplication.getAppComponent())
-                .build()
-                .inject(ProfileFragment.this);
     }
 
     public static ProfileFragment newInstance() {
@@ -72,23 +73,30 @@ public class ProfileFragment extends MvpAppCompatFragment
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         ButterKnife.bind(ProfileFragment.this, view);
-        initUI();
         loadProfileData();
         return view;
+    }
+
+    @Override
+    public void showUserInfo(UserInfo userInfo) {
+        Log.d(TAG, "showUserInfo: " + userInfo);
+        initUserInfo(userInfo);
+    }
+
+    private void initInjection() {
+        DaggerUserInfoComponent
+                .builder()
+                .appComponent(TopFourApplication.getAppComponent())
+                .build()
+                .inject(ProfileFragment.this);
     }
 
     private void loadProfileData() {
         mPresenter.loadUserData();
     }
 
-    private void initUI() {
-        InitImageUtil.intitImage(getContext(),
-                TEST_IMAGE,
-                mIvProfileImage);
-    }
-
-    @Override
-    public void showUserInfo(UserInfo userInfo) {
-        Log.d(TAG, "showUserInfo: " + userInfo);
+    private void initUserInfo(UserInfo userInfo) {
+        InitImageUtil.intitImage(getContext(), userInfo.getImageUrl(), mIvProfileImage);
+        mCollapsingToolbarLayout.setTitle(userInfo.getUserName());
     }
 }
