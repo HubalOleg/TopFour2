@@ -1,6 +1,7 @@
 package com.example.hubaloleg.topfour.presentation.di.modules.user_info;
 
 import com.example.hubaloleg.topfour.data.cache.UserCache;
+import com.example.hubaloleg.topfour.data.cache.UserCacheTransformer;
 import com.example.hubaloleg.topfour.data.credential.CredentialStore;
 import com.example.hubaloleg.topfour.data.mapper.UserMapper;
 import com.example.hubaloleg.topfour.data.remote.api.UserApi;
@@ -21,11 +22,6 @@ import dagger.Provides;
 public class UserRepositoryModule {
 
     @Provides
-    UserCache provideUserCache() {
-        return new UserCache();
-    }
-
-    @Provides
     UserApi provideUserApi(ApiInterface apiInterface,
                            CredentialStore credentialStore,
                            @ApiVersion String apiVersion) {
@@ -38,7 +34,12 @@ public class UserRepositoryModule {
     }
 
     @Provides
-    UserRepository provideUserRepository(UserCache userCache, UserApi userApi, UserMapper dataMapper) {
-        return new UserRepositoryImpl(userCache, userApi, dataMapper);
+    UserCacheTransformer provideUserCacheTransformer() {
+        return new UserCacheTransformer();
+    }
+
+    @Provides
+    UserRepository provideUserRepository(UserCacheTransformer cacheTransformer, UserApi userApi, UserMapper dataMapper) {
+        return new UserRepositoryImpl(cacheTransformer, userApi, dataMapper);
     }
 }

@@ -110,6 +110,7 @@ dependencies {
     compile "com.github.Raizlabs.DBFlow:dbflow-core:${dbflowVersion}"
     compile "com.github.Raizlabs.DBFlow:dbflow:${dbflowVersion}"
     annotationProcessor "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflowVersion}"
+    compile "com.github.Raizlabs.DBFlow:dbflow-rx2:${dbflowVersion}"
 
     //    FourSquare
     compile "com.foursquare:foursquare-android-oauth:${foursquareAuthVersion}"
