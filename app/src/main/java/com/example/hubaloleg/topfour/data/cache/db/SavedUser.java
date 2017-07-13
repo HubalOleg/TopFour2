@@ -2,6 +2,7 @@ package com.example.hubaloleg.topfour.data.cache.db;
 
 import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
+import com.raizlabs.android.dbflow.annotation.Table;
 import com.raizlabs.android.dbflow.annotation.Unique;
 import com.raizlabs.android.dbflow.structure.BaseModel;
 
@@ -11,6 +12,7 @@ import static com.raizlabs.android.dbflow.annotation.ConflictAction.REPLACE;
  * Created by kostya on 13.07.17.
  */
 
+@Table(database = AppDatabase.class)
 public class SavedUser extends BaseModel {
     @PrimaryKey(autoincrement = true)
     @Column

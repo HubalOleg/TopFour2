@@ -1,5 +1,8 @@
 package com.example.hubaloleg.topfour.data.mapper;
 
+import android.support.annotation.NonNull;
+
+import com.example.hubaloleg.topfour.data.cache.db.SavedUser;
 import com.example.hubaloleg.topfour.data.remote.model.entity.IconEntity;
 import com.example.hubaloleg.topfour.data.remote.model.entity.UserEntity;
 import com.example.hubaloleg.topfour.domain.model.UserInfo;
@@ -12,18 +15,29 @@ import java.util.Date;
 
 public class UserMapper {
 
-    public UserInfo transform(UserEntity userEntity) {
+    public UserInfo transform(SavedUser userEntity) {
         UserInfo userInfo = new UserInfo();
         if (userEntity != null) {
-            userInfo.setBiography(userEntity.getBiography());
-            userInfo.setUserName(userEntity.getFirstName() + " " + userEntity.getLastName());
-            userInfo.setBirthdayDate(new Date(userEntity.getBirthdayTimestamp()));
-            userInfo.setGender(userEntity.getGender());
-            userInfo.setHomeCity(userEntity.getHomeCity());
-            userInfo.setImageUrl(getImageUrl(userEntity.getIconEntity()));
-            userInfo.setId(userEntity.getUserId());
+            userInfo.setUserName(userEntity.getUserName());
+            userInfo.setHomeCity(userEntity.getUserCity());
+            userInfo.setImageUrl(userEntity.getUserPhotoURL());
+            userInfo.setId(userEntity.getUserID());
         }
         return userInfo;
+    }
+
+    public SavedUser transformToDB(UserEntity userEntity) {
+        SavedUser savedUser = new SavedUser();
+        savedUser.setUserCity(userEntity.getHomeCity());
+        savedUser.setUserID(userEntity.getUserId());
+        savedUser.setUserPhotoURL(getImageUrl(userEntity.getIconEntity()));
+        savedUser.setUserName(getUserName(userEntity));
+        return savedUser;
+    }
+
+    @NonNull
+    private String getUserName(UserEntity userEntity) {
+        return userEntity.getFirstName() + " " + userEntity.getLastName();
     }
 
     private String getImageUrl(IconEntity iconEntity) {

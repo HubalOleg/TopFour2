@@ -34,9 +34,9 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public Observable<UserInfo> retrieveUserInfo() {
         return mUserApi.loadUserInfo()
-                .map(ResponseEntity::getResponse)
-                .map(UserInfoResponse::getUserEntity)
-                .compose(new UserCacheTransformer())
+                .map(userInfoResponseResponseEntity -> userInfoResponseResponseEntity.getResponse().getUserEntity())
+                .map(mDataMapper::transformToDB)
+                .compose(mCacheTransformer)
                 .map(mDataMapper::transform);
     }
 }
