@@ -1,5 +1,7 @@
 package com.example.hubaloleg.topfour.presentation.screens.near_venue.presenter;
 
+import android.util.Log;
+
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 import com.example.hubaloleg.topfour.domain.usecase.SearchVenueUseCase;
@@ -32,7 +34,8 @@ public class NearVenuePresenter extends MvpPresenter<NearVenueView> {
                 })
                 .doOnTerminate(() -> getViewState().dismissLoading())
                 .subscribe(
-                        venues -> getViewState().showVenues(venues),
+                        venues -> {getViewState().showVenues(venues);
+                            Log.d(TAG, "onSearchVenuesClick: " + venues.size());},
                         throwable -> {
                             throwable.printStackTrace();
                             getViewState().showError(throwable.getMessage());
