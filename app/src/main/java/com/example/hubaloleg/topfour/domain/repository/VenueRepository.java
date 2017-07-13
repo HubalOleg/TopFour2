@@ -2,6 +2,8 @@ package com.example.hubaloleg.topfour.domain.repository;
 
 import com.example.hubaloleg.topfour.domain.model.Venue;
 
+import java.util.List;
+
 import io.reactivex.Observable;
 
 /**
@@ -10,6 +12,6 @@ import io.reactivex.Observable;
 
 public interface VenueRepository {
 
-    Observable<Venue> searchVenuesWithCoordinates(String coordinates, int limit);
+    Observable<List<Venue>> searchVenuesWithCoordinates(String coordinates, int limit);
 
 }

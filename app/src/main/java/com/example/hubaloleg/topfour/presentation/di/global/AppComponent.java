@@ -5,6 +5,7 @@ import android.content.Context;
 import com.example.hubaloleg.topfour.data.credential.CredentialStore;
 import com.example.hubaloleg.topfour.data.remote.base.ApiInterface;
 import com.example.hubaloleg.topfour.presentation.di.qualifier.ApiVersion;
+import com.example.hubaloleg.topfour.presentation.di.qualifier.SchedulerUI;
 import com.example.hubaloleg.topfour.presentation.global.TopFourApplication;
 import com.example.hubaloleg.topfour.presentation.screens.authorization.AuthorizationActivity;
 import com.example.hubaloleg.topfour.presentation.screens.splash.SplashActivity;
@@ -12,6 +13,7 @@ import com.example.hubaloleg.topfour.presentation.screens.splash.SplashActivity;
 import javax.inject.Singleton;
 
 import dagger.Component;
+import io.reactivex.Scheduler;
 
 /**
  * Created by hubaloleg on 10.07.17.
@@ -21,7 +23,8 @@ import dagger.Component;
 @Component(modules = {
         ApplicationModule.class,
         CredentialModule.class,
-        NetworkModule.class
+        NetworkModule.class,
+        SchedulerModule.class
 })
 public interface AppComponent {
     void inject(TopFourApplication application);
@@ -37,5 +40,8 @@ public interface AppComponent {
     @ApiVersion
     String provideApiVersion();
 
-    Context getContext();
+    Context provideAppContext();
+
+    @SchedulerUI
+    Scheduler provideSchedulerUI();
 }
