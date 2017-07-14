@@ -1,6 +1,5 @@
 package com.example.hubaloleg.topfour.presentation.di.modules.user_info;
 
-import com.example.hubaloleg.topfour.data.cache.UserCache;
 import com.example.hubaloleg.topfour.data.cache.UserCacheTransformer;
 import com.example.hubaloleg.topfour.data.credential.CredentialStore;
 import com.example.hubaloleg.topfour.data.mapper.UserMapper;

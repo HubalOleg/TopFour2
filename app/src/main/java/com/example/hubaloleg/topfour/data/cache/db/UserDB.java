@@ -13,7 +13,7 @@ import static com.raizlabs.android.dbflow.annotation.ConflictAction.REPLACE;
  */
 
 @Table(database = AppDatabase.class)
-public class SavedUser extends BaseModel {
+public class UserDB extends BaseModel {
     @PrimaryKey(autoincrement = true)
     @Column
     private long id;
@@ -26,9 +26,19 @@ public class SavedUser extends BaseModel {
     private String userCity;
     @Column
     private String userPhotoURL;
+    @Column
+    private String userBiography;
 
     public long getId() {
         return id;
+    }
+
+    public String getUserBiography() {
+        return userBiography;
+    }
+
+    public void setUserBiography(String userBiography) {
+        this.userBiography = userBiography;
     }
 
     public void setId(long id) {

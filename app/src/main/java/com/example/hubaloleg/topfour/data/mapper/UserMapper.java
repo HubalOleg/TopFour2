@@ -2,12 +2,10 @@ package com.example.hubaloleg.topfour.data.mapper;
 
 import android.support.annotation.NonNull;
 
-import com.example.hubaloleg.topfour.data.cache.db.SavedUser;
+import com.example.hubaloleg.topfour.data.cache.db.UserDB;
 import com.example.hubaloleg.topfour.data.remote.model.entity.IconEntity;
 import com.example.hubaloleg.topfour.data.remote.model.entity.UserEntity;
 import com.example.hubaloleg.topfour.domain.model.UserInfo;
-
-import java.util.Date;
 
 /**
  * Created by kostya on 11.07.17.
@@ -15,7 +13,7 @@ import java.util.Date;
 
 public class UserMapper {
 
-    public UserInfo transform(SavedUser userEntity) {
+    public UserInfo transform(UserDB userEntity) {
         UserInfo userInfo = new UserInfo();
         if (userEntity != null) {
             userInfo.setUserName(userEntity.getUserName());
@@ -26,13 +24,13 @@ public class UserMapper {
         return userInfo;
     }
 
-    public SavedUser transformToDB(UserEntity userEntity) {
-        SavedUser savedUser = new SavedUser();
-        savedUser.setUserCity(userEntity.getHomeCity());
-        savedUser.setUserID(userEntity.getUserId());
-        savedUser.setUserPhotoURL(getImageUrl(userEntity.getIconEntity()));
-        savedUser.setUserName(getUserName(userEntity));
-        return savedUser;
+    public UserDB transformToDB(UserEntity userEntity) {
+        UserDB userDB = new UserDB();
+        userDB.setUserCity(userEntity.getHomeCity());
+        userDB.setUserID(userEntity.getUserId());
+        userDB.setUserPhotoURL(getImageUrl(userEntity.getIconEntity()));
+        userDB.setUserName(getUserName(userEntity));
+        return userDB;
     }
 
     @NonNull

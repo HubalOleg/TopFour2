@@ -1,6 +1,6 @@
 package com.example.hubaloleg.topfour.data.cache;
 
-import com.example.hubaloleg.topfour.data.cache.db.SavedUser;
+import com.example.hubaloleg.topfour.data.cache.db.UserDB;
 import com.raizlabs.android.dbflow.sql.language.SQLite;
 
 import io.reactivex.Observable;
@@ -13,21 +13,21 @@ import io.reactivex.functions.Function;
  * Created by kostya on 13.07.17.
  */
 
-public class UserCacheTransformer implements ObservableTransformer<SavedUser, SavedUser> {
+public class UserCacheTransformer implements ObservableTransformer<UserDB, UserDB> {
 
-    private Function<SavedUser, ObservableSource<SavedUser>> mSaveFunc = savedUser -> {
-        savedUser.save();
-        return Observable.just(savedUser);
+    private Function<UserDB, ObservableSource<UserDB>> mSaveFunc = userDB -> {
+        userDB.save();
+        return Observable.just(userDB);
     };
 
-    private Function<Throwable, Observable<SavedUser>> mUserCacheErrorHandler = throwable -> {
+    private Function<Throwable, Observable<UserDB>> mUserCacheErrorHandler = throwable -> {
         throwable.printStackTrace();
-        SavedUser savedUser = SQLite.select().from(SavedUser.class).querySingle();
-        return Observable.just(savedUser);
+        UserDB userDB = SQLite.select().from(UserDB.class).querySingle();
+        return Observable.just(userDB);
     };
 
     @Override
-    public ObservableSource<SavedUser> apply(@NonNull Observable<SavedUser> upstream) {
+    public ObservableSource<UserDB> apply(@NonNull Observable<UserDB> upstream) {
         return upstream
                 .flatMap(mSaveFunc)
                 .onErrorResumeNext(mUserCacheErrorHandler);
