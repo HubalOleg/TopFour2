@@ -8,4 +8,5 @@ public class ApiFunctions {
     public static final String GET_PROFILE_INFO = "users/self";
     public static final String GET_VENUE_HISTORY = "users/self/venuehistory";
     public static final String GET_SEARCH_VENUES = "venues/search";
+    public static final String GET_USER_LISTS = "users/self";
 }

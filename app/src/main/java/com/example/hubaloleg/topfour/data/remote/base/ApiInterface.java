@@ -1,5 +1,6 @@
 package com.example.hubaloleg.topfour.data.remote.base;
 
+import com.example.hubaloleg.topfour.data.remote.model.entity.GroupEntity;
 import com.example.hubaloleg.topfour.data.remote.model.response.ResponseEntity;
 import com.example.hubaloleg.topfour.data.remote.model.response.SearchVenueResponse;
 import com.example.hubaloleg.topfour.data.remote.model.response.UserInfoResponse;
@@ -23,6 +24,11 @@ public interface ApiInterface {
 
     @GET(ApiFunctions.GET_PROFILE_INFO)
     Observable<ResponseEntity<UserInfoResponse>> getUserProfileInfo(
+            @Query("oauth_token") String token,
+            @Query("v") String version);
+
+    @GET(ApiFunctions.GET_USER_LISTS)
+    Observable<ResponseEntity<GroupEntity>> getUserGroups(
             @Query("oauth_token") String token,
             @Query("v") String version);
 }

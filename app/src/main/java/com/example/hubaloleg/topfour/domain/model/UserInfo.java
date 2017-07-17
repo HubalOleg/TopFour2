@@ -1,6 +1,7 @@
 package com.example.hubaloleg.topfour.domain.model;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by kostya on 11.07.17.
@@ -14,6 +15,15 @@ public class UserInfo {
     private Date mBirthdayDate;
     private String mHomeCity;
     private String mBiography;
+    private List<Group> mGroupList;
+
+    public List<Group> getGroupList() {
+        return mGroupList;
+    }
+
+    public void setGroupList(List<Group> groupList) {
+        mGroupList = groupList;
+    }
 
     public String getUserName() {
         return mUserName;

@@ -7,14 +7,16 @@ import android.view.ViewGroup;
  * Created by kostya on 17.07.17.
  */
 
-public class ListsAdapter extends RecyclerView.Adapter<ListsViewHolder> {
+public class GroupAdapter extends RecyclerView.Adapter<GroupViewHolder> {
+
+
     @Override
-    public ListsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public GroupViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return null;
     }
 
     @Override
-    public void onBindViewHolder(ListsViewHolder holder, int position) {
+    public void onBindViewHolder(GroupViewHolder holder, int position) {
 
     }
 

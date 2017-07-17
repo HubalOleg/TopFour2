@@ -9,10 +9,10 @@ import butterknife.ButterKnife;
  * Created by kostya on 17.07.17.
  */
 
-public class ListsViewHolder extends RecyclerView.ViewHolder {
-    public ListsViewHolder(View itemView) {
+public class GroupViewHolder extends RecyclerView.ViewHolder {
+    public GroupViewHolder(View itemView) {
         super(itemView);
-        ButterKnife.bind(ListsViewHolder.this, itemView);
+        ButterKnife.bind(GroupViewHolder.this, itemView);
     }
 
     public void bind() {

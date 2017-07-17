@@ -2,6 +2,8 @@ package com.example.hubaloleg.topfour.data.remote.model.entity;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 /**
  * Created by kostya on 11.07.17.
  */
@@ -23,6 +25,16 @@ public class UserEntity {
     private String mHomeCity;
     @SerializedName("bio")
     private String mBiography;
+    @SerializedName("groups")
+    private List<GroupEntity> mGroupEntityList;
+
+    public List<GroupEntity> getGroupEntityList() {
+        return mGroupEntityList;
+    }
+
+    public void setGroupEntityList(List<GroupEntity> groupEntityList) {
+        mGroupEntityList = groupEntityList;
+    }
 
     public String getUserId() {
         return mUserId;

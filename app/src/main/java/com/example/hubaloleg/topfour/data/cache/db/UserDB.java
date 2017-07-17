@@ -29,6 +29,7 @@ public class UserDB extends BaseModel {
     @Column
     private String userBiography;
 
+
     public long getId() {
         return id;
     }
