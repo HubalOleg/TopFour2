@@ -1,15 +1,14 @@
-package com.example.hubaloleg.topfour.presentation.screens.profile;
+package com.example.hubaloleg.topfour.presentation.screens.profile.profile_info.view;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
@@ -18,14 +17,15 @@ import com.example.hubaloleg.topfour.R;
 import com.example.hubaloleg.topfour.domain.model.UserInfo;
 import com.example.hubaloleg.topfour.presentation.di.components.DaggerUserInfoComponent;
 import com.example.hubaloleg.topfour.presentation.global.TopFourApplication;
-import com.example.hubaloleg.topfour.presentation.screens.profile.presenter.ProfilePresenter;
-import com.example.hubaloleg.topfour.presentation.screens.profile.view.ProfileView;
+import com.example.hubaloleg.topfour.presentation.screens.profile.profile_info.presenter.ProfilePresenter;
+import com.example.hubaloleg.topfour.presentation.tools.InfoMessageUtil;
 import com.example.hubaloleg.topfour.presentation.tools.InitImageUtil;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by kostya on 11.07.17.
@@ -34,7 +34,6 @@ import butterknife.ButterKnife;
 public class ProfileFragment extends MvpAppCompatFragment
         implements ProfileView {
 
-    public static final String TEST_IMAGE = "https://cdn1.iconfinder.com/data/icons/ios-7-style-metro-ui-icons/512/MetroUI_OS_Android.png";
     private static final String TAG = ProfileFragment.class.getSimpleName();
 
     @InjectPresenter
@@ -43,17 +42,10 @@ public class ProfileFragment extends MvpAppCompatFragment
 
     @BindView(R.id.siv_profile_image)
     ImageView mIvProfileImage;
-//    @BindView(R.id.rv_venue_history)
-//    RecyclerView mRvVenueHistory;
-//    @BindView(R.id.rv_lists)
-//    RecyclerView mRvLists;
-//    @BindView(R.id.tv_user_name)
-//    TextView mTvUserName;
-//    @BindView(R.id.tv_user_city)
-//    TextView mTvUserCity;
     @BindView(R.id.collapsing_toolbar)
     CollapsingToolbarLayout mCollapsingToolbarLayout;
 
+    private OnProfileFragmentInteractionListener mListener;
 
     @ProvidePresenter
     ProfilePresenter provideProfilePresenter() {
@@ -68,6 +60,16 @@ public class ProfileFragment extends MvpAppCompatFragment
         return fragment;
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            mListener = ((OnProfileFragmentInteractionListener) context);
+        }catch (ClassCastException ex) {
+            throw new ClassCastException(context.toString() + " must implement OnProfileFragmentInteractionListener");
+        }
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -77,10 +79,25 @@ public class ProfileFragment extends MvpAppCompatFragment
         return view;
     }
 
+    @OnClick(R.id.btn_history)
+    public void onHistoryClick() {
+        mListener.openHistoryScreen();
+    }
+
+    @OnClick(R.id.btn_lists)
+    public void onListsClick() {
+        mListener.openListsScreen();
+    }
+
     @Override
     public void showUserInfo(UserInfo userInfo) {
         Log.d(TAG, "showUserInfo: " + userInfo);
         initUserInfo(userInfo);
+    }
+
+    @Override
+    public void userFetchFailure() {
+        InfoMessageUtil.showMessage(getContext(), getString(R.string.error_user_fetch_failed));
     }
 
     private void initInjection() {
@@ -98,5 +115,12 @@ public class ProfileFragment extends MvpAppCompatFragment
     private void initUserInfo(UserInfo userInfo) {
         InitImageUtil.intitImage(getContext(), userInfo.getImageUrl(), mIvProfileImage);
         mCollapsingToolbarLayout.setTitle(userInfo.getUserName());
+    }
+
+    // interface
+    public interface OnProfileFragmentInteractionListener {
+        void openHistoryScreen();
+
+        void openListsScreen();
     }
 }

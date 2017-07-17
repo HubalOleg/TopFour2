@@ -8,12 +8,13 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.hubaloleg.topfour.R;
-import com.example.hubaloleg.topfour.presentation.screens.near_venue.NearVenueFragment;
-import com.example.hubaloleg.topfour.presentation.screens.profile.ProfileFragment;
+import com.example.hubaloleg.topfour.presentation.screens.profile.profile_info.view.ProfileFragment;
+import com.example.hubaloleg.topfour.presentation.screens.profile.user_lists.UserListsFragment;
 
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+        implements ProfileFragment.OnProfileFragmentInteractionListener {
 
     private static final String TAG = "MainActivity";
 
@@ -30,6 +31,16 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             openFragment(ProfileFragment.newInstance(), ProfileFragment.class.getSimpleName(), false);
         }
+    }
+
+    @Override
+    public void openHistoryScreen() {
+
+    }
+
+    @Override
+    public void openListsScreen() {
+        openFragment(UserListsFragment.newInstance(), UserListsFragment.class.getSimpleName(), true);
     }
 
     public void openFragment(Fragment fragment, String tag, boolean addToBackStack) {

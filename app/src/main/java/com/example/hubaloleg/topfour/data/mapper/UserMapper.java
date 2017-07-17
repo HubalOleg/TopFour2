@@ -13,13 +13,14 @@ import com.example.hubaloleg.topfour.domain.model.UserInfo;
 
 public class UserMapper {
 
-    public UserInfo transform(UserDB userEntity) {
+    public UserInfo transform(UserDB userDB) {
         UserInfo userInfo = new UserInfo();
-        if (userEntity != null) {
-            userInfo.setUserName(userEntity.getUserName());
-            userInfo.setHomeCity(userEntity.getUserCity());
-            userInfo.setImageUrl(userEntity.getUserPhotoURL());
-            userInfo.setId(userEntity.getUserID());
+        if (userDB != null) {
+            userInfo.setUserName(userDB.getUserName());
+            userInfo.setHomeCity(userDB.getUserCity());
+            userInfo.setImageUrl(userDB.getUserPhotoURL());
+            userInfo.setId(userDB.getUserID());
+            userInfo.setBiography(userDB.getUserBiography());
         }
         return userInfo;
     }
@@ -30,6 +31,7 @@ public class UserMapper {
         userDB.setUserID(userEntity.getUserId());
         userDB.setUserPhotoURL(getImageUrl(userEntity.getIconEntity()));
         userDB.setUserName(getUserName(userEntity));
+        userDB.setUserBiography(userEntity.getBiography());
         return userDB;
     }
 

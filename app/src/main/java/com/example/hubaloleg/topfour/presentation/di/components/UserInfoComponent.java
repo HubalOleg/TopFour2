@@ -3,7 +3,7 @@ package com.example.hubaloleg.topfour.presentation.di.components;
 import com.example.hubaloleg.topfour.presentation.di.global.AppComponent;
 import com.example.hubaloleg.topfour.presentation.di.modules.user_info.UserInfoScope;
 import com.example.hubaloleg.topfour.presentation.di.modules.user_info.UserRepositoryModule;
-import com.example.hubaloleg.topfour.presentation.screens.profile.ProfileFragment;
+import com.example.hubaloleg.topfour.presentation.screens.profile.profile_info.view.ProfileFragment;
 
 import dagger.Component;
 
