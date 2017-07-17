@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,6 +45,8 @@ public class ProfileFragment extends MvpAppCompatFragment
     ImageView mIvProfileImage;
     @BindView(R.id.collapsing_toolbar)
     CollapsingToolbarLayout mCollapsingToolbarLayout;
+    @BindView(R.id.rv_lists)
+    RecyclerView mRvLists;
 
     private OnProfileFragmentInteractionListener mListener;
 
@@ -75,7 +78,6 @@ public class ProfileFragment extends MvpAppCompatFragment
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         ButterKnife.bind(ProfileFragment.this, view);
-        loadProfileData();
         return view;
     }
 
@@ -108,9 +110,6 @@ public class ProfileFragment extends MvpAppCompatFragment
                 .inject(ProfileFragment.this);
     }
 
-    private void loadProfileData() {
-        mPresenter.loadUserData();
-    }
 
     private void initUserInfo(UserInfo userInfo) {
         InitImageUtil.intitImage(getContext(), userInfo.getImageUrl(), mIvProfileImage);

@@ -20,6 +20,12 @@ public class ProfilePresenter extends MvpPresenter<ProfileView> {
         mUserUseCase = userInfoUseCase;
     }
 
+    @Override
+    protected void onFirstViewAttach() {
+        super.onFirstViewAttach();
+        loadUserData();
+    }
+
     public void loadUserData() {
         mUserUseCase.loadUserInfo()
                 .subscribe(userInfo -> getViewState().showUserInfo(userInfo),

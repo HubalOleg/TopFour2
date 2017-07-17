@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.hubaloleg.topfour.R;
 import com.example.hubaloleg.topfour.presentation.screens.profile.profile_info.view.ProfileFragment;
-import com.example.hubaloleg.topfour.presentation.screens.profile.user_lists.UserListsFragment;
 
 import butterknife.ButterKnife;
 
@@ -40,7 +39,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void openListsScreen() {
-        openFragment(UserListsFragment.newInstance(), UserListsFragment.class.getSimpleName(), true);
+
     }
 
     public void openFragment(Fragment fragment, String tag, boolean addToBackStack) {
