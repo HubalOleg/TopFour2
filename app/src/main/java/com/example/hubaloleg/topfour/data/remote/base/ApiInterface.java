@@ -26,9 +26,4 @@ public interface ApiInterface {
     Observable<ResponseEntity<UserInfoResponse>> getUserProfileInfo(
             @Query("oauth_token") String token,
             @Query("v") String version);
-
-    @GET(ApiFunctions.GET_USER_LISTS)
-    Observable<ResponseEntity<GroupEntity>> getUserGroups(
-            @Query("oauth_token") String token,
-            @Query("v") String version);
 }

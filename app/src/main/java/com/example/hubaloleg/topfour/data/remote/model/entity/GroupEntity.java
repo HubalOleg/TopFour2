@@ -1,6 +1,5 @@
 package com.example.hubaloleg.topfour.data.remote.model.entity;
 
-import com.example.hubaloleg.topfour.data.remote.model.entity.SingleGroupEntity;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -10,14 +9,34 @@ import java.util.List;
  */
 
 public class GroupEntity {
-    @SerializedName("groups")
-    private List<SingleGroupEntity> mSingleGroupEntityList;
+    @SerializedName("items")
+    private List<ItemEntity> mListItemEntities;
+    @SerializedName("type")
+    private String type;
+    @SerializedName("count")
+    private long count;
 
-    public List<SingleGroupEntity> getSingleGroupEntityList() {
-        return mSingleGroupEntityList;
+    public String getType() {
+        return type;
     }
 
-    public void setSingleGroupEntityList(List<SingleGroupEntity> singleGroupEntityList) {
-        mSingleGroupEntityList = singleGroupEntityList;
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public long getCount() {
+        return count;
+    }
+
+    public void setCount(long count) {
+        this.count = count;
+    }
+
+    public List<ItemEntity> getListItemEntities() {
+        return mListItemEntities;
+    }
+
+    public void setListItemEntities(List<ItemEntity> listItemEntities) {
+        mListItemEntities = listItemEntities;
     }
 }

@@ -7,13 +7,31 @@ import java.util.List;
  */
 
 public class Group {
-    private List<SingleGroup> mSingleGroupList;
+    private List<Item> mItemList;
+    private String type;
+    private long count;
 
-    public List<SingleGroup> getSingleGroupList() {
-        return mSingleGroupList;
+    public String getType() {
+        return type;
     }
 
-    public void setSingleGroupList(List<SingleGroup> singleGroupList) {
-        mSingleGroupList = singleGroupList;
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public long getCount() {
+        return count;
+    }
+
+    public void setCount(long count) {
+        this.count = count;
+    }
+
+    public List<Item> getItemList() {
+        return mItemList;
+    }
+
+    public void setItemList(List<Item> itemList) {
+        mItemList = itemList;
     }
 }
