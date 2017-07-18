@@ -2,8 +2,10 @@ package com.example.hubaloleg.topfour.data.mapper.venues;
 
 import com.example.hubaloleg.topfour.data.cache.db.VenueDB;
 import com.example.hubaloleg.topfour.data.remote.model.entity.user.ItemEntity;
+import com.example.hubaloleg.topfour.data.remote.model.entity.venues.LocationEntity;
 import com.example.hubaloleg.topfour.data.remote.model.entity.venues.VenueEntity;
 import com.example.hubaloleg.topfour.domain.model.venues.LikedVenue;
+import com.example.hubaloleg.topfour.domain.model.venues.Location;
 import com.example.hubaloleg.topfour.domain.model.venues.Venue;
 
 import java.util.ArrayList;
@@ -40,7 +42,21 @@ public class VenueMapper {
         LikedVenue likedVenue = new LikedVenue();
         likedVenue.setId(item.getId());
         likedVenue.setName(item.getName());
+        likedVenue.setLocation(transformToLocation(item.getLocationEntity()));
         return likedVenue;
+    }
+
+    private Location transformToLocation(LocationEntity locationEntity) {
+        Location location = new Location();
+        location.setAddress(locationEntity.getAddress());
+        location.setCity(locationEntity.getCity());
+        location.setCountry(locationEntity.getCountry());
+        location.setLat(locationEntity.getLat());
+        location.setLng(locationEntity.getLng());
+        location.setPostalCode(locationEntity.getPostalCode());
+        location.setState(locationEntity.getState());
+        location.setCountryCode(locationEntity.getCountryCode());
+        return location;
     }
 
     public VenueDB transformApi(VenueEntity venueEntity) {

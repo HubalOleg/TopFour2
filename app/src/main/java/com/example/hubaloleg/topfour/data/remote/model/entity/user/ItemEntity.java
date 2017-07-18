@@ -1,5 +1,6 @@
 package com.example.hubaloleg.topfour.data.remote.model.entity.user;
 
+import com.example.hubaloleg.topfour.data.remote.model.entity.venues.LocationEntity;
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -21,6 +22,16 @@ public class ItemEntity {
     private boolean isCollaborative;
     @SerializedName("canonicalUrl")
     private String canonicalUrl;
+    @SerializedName("location")
+    private LocationEntity mLocationEntity;
+
+    public LocationEntity getLocationEntity() {
+        return mLocationEntity;
+    }
+
+    public void setLocationEntity(LocationEntity locationEntity) {
+        mLocationEntity = locationEntity;
+    }
 
     public String getId() {
         return id;
