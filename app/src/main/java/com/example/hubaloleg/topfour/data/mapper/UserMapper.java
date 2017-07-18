@@ -5,10 +5,14 @@ import android.support.annotation.NonNull;
 import com.example.hubaloleg.topfour.data.cache.db.UserDB;
 import com.example.hubaloleg.topfour.data.remote.model.entity.GroupEntity;
 import com.example.hubaloleg.topfour.data.remote.model.entity.IconEntity;
+import com.example.hubaloleg.topfour.data.remote.model.entity.ItemEntity;
 import com.example.hubaloleg.topfour.data.remote.model.entity.UserEntity;
 import com.example.hubaloleg.topfour.domain.model.Group;
+import com.example.hubaloleg.topfour.domain.model.Item;
 import com.example.hubaloleg.topfour.domain.model.UserInfo;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -25,11 +29,10 @@ public class UserMapper {
             userInfo.setImageUrl(userDB.getUserPhotoURL());
             userInfo.setId(userDB.getUserID());
             userInfo.setBiography(userDB.getUserBiography());
-
+            userInfo.setGroupList(getGroupList(userDB.getGroupEntityList()));
         }
         return userInfo;
     }
-
 
 
     public UserDB transformToDB(UserEntity userEntity) {
@@ -39,6 +42,7 @@ public class UserMapper {
         userDB.setUserPhotoURL(getImageUrl(userEntity.getIconEntity()));
         userDB.setUserName(getUserName(userEntity));
         userDB.setUserBiography(userEntity.getBiography());
+        userDB.setGroupEntityList(userEntity.getGroupEntityList());
         return userDB;
     }
 
@@ -49,5 +53,37 @@ public class UserMapper {
 
     private String getImageUrl(IconEntity iconEntity) {
         return iconEntity.getPrefix() + "original" + iconEntity.getSuffix();
+    }
+
+    private List<Group> getGroupList(List<GroupEntity> groupEntities) {
+        List<Group> groupList = new ArrayList<>();
+        for (GroupEntity groupEntity : groupEntities)
+            groupList.add(getGroup(groupEntity));
+        return groupList;
+    }
+
+    private Group getGroup(GroupEntity groupEntity) {
+        Group group = new Group();
+        group.setCount(groupEntity.getCount());
+        group.setType(groupEntity.getType());
+        group.setItemList(getItemsEntity(groupEntity.getListItemEntities()));
+        return group;
+    }
+
+    private List<Item> getItemsEntity(List<ItemEntity> listItemEntities) {
+        List<Item> itemList = new ArrayList<>();
+        for (ItemEntity itemEntity : listItemEntities) {
+            itemList.add(getItem(itemEntity));
+        }
+        return itemList;
+    }
+
+    private Item getItem(ItemEntity itemEntity) {
+        Item item = new Item();
+        item.setName(itemEntity.getName());
+        item.setId(itemEntity.getId());
+        item.setType(itemEntity.getType());
+        item.setCanonicalUrl(itemEntity.getCanonicalUrl());
+        return item;
     }
 }

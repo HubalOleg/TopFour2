@@ -1,5 +1,7 @@
 package com.example.hubaloleg.topfour.domain.model;
 
+import com.example.hubaloleg.topfour.data.remote.model.entity.GroupEntity;
+
 import java.util.Date;
 import java.util.List;
 

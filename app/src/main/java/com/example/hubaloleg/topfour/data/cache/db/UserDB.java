@@ -1,10 +1,16 @@
 package com.example.hubaloleg.topfour.data.cache.db;
 
+import com.example.hubaloleg.topfour.data.remote.model.entity.GroupEntity;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
 import com.raizlabs.android.dbflow.annotation.Unique;
 import com.raizlabs.android.dbflow.structure.BaseModel;
+
+import java.lang.reflect.Type;
+import java.util.List;
 
 import static com.raizlabs.android.dbflow.annotation.ConflictAction.REPLACE;
 
@@ -28,7 +34,18 @@ public class UserDB extends BaseModel {
     private String userPhotoURL;
     @Column
     private String userBiography;
+    @Column
+    private String groupEntityList;
 
+    public List<GroupEntity> getGroupEntityList() {
+        Type listOfItems = new TypeToken<List<GroupEntity>>(){}.getType();
+        return new Gson().fromJson(groupEntityList, listOfItems);
+    }
+
+    public void setGroupEntityList(List<GroupEntity> groupEntityList) {
+        Type listOfItems = new TypeToken<List<GroupEntity>>(){}.getType();
+        this.groupEntityList = new Gson().toJson(groupEntityList, listOfItems);
+    }
 
     public long getId() {
         return id;
