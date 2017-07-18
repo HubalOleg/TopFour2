@@ -16,12 +16,17 @@ import java.util.List;
  */
 
 public class GroupAdapter extends RecyclerView.Adapter<GroupViewHolder> {
+    private final GroupViewHolder.OnGroupViewHolderClickListener mListener;
     private List<Group> mGroupList = new ArrayList<>();
+
+    public GroupAdapter(GroupViewHolder.OnGroupViewHolderClickListener listener) {
+        mListener = listener;
+    }
 
     @Override
     public GroupViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_lists, parent, false);
-        return new GroupViewHolder(view);
+        return new GroupViewHolder(view, mListener);
     }
 
     @Override

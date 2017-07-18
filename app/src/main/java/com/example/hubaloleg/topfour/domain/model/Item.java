@@ -1,10 +1,13 @@
 package com.example.hubaloleg.topfour.domain.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by kostya on 17.07.17.
  */
 
-public class Item {
+public class Item implements Parcelable {
     private String id;
     private String name;
     private String type;
@@ -41,4 +44,40 @@ public class Item {
     public void setCanonicalUrl(String canonicalUrl) {
         this.canonicalUrl = canonicalUrl;
     }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.id);
+        dest.writeString(this.name);
+        dest.writeString(this.type);
+        dest.writeString(this.canonicalUrl);
+    }
+
+    public Item() {
+    }
+
+    protected Item(Parcel in) {
+        this.id = in.readString();
+        this.name = in.readString();
+        this.type = in.readString();
+        this.canonicalUrl = in.readString();
+    }
+
+    public static final Creator<Item> CREATOR = new Creator<Item>() {
+        @Override
+        public Item createFromParcel(Parcel source) {
+            return new Item(source);
+        }
+
+        @Override
+        public Item[] newArray(int size) {
+            return new Item[size];
+        }
+    };
 }

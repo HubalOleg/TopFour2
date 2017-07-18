@@ -24,8 +24,8 @@ public class GroupMapper {
         return group;
     }
 
-    private List<Item> transformItemEntity(List<ItemEntity> listItemEntities) {
-        List<Item> itemList = new ArrayList<>();
+    private ArrayList<Item> transformItemEntity(List<ItemEntity> listItemEntities) {
+        ArrayList<Item> itemList = new ArrayList<>();
         for (ItemEntity itemEntity : listItemEntities) {
             itemList.add(transformItem(itemEntity));
         }

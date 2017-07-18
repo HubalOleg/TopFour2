@@ -8,13 +8,19 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.hubaloleg.topfour.R;
+import com.example.hubaloleg.topfour.domain.model.Item;
 import com.example.hubaloleg.topfour.presentation.screens.near_venue.NearVenueFragment;
+import com.example.hubaloleg.topfour.presentation.screens.profile.group_items.GroupItemsFragment;
 import com.example.hubaloleg.topfour.presentation.screens.profile.profile_info.view.ProfileFragment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity
-        implements ProfileFragment.OnProfileFragmentInteractionListener, NearVenueFragment.OnNearVenueFragmentInteractionListener {
+        implements ProfileFragment.OnProfileFragmentInteractionListener,
+        NearVenueFragment.OnNearVenueFragmentInteractionListener {
 
     private static final String TAG = "MainActivity";
 
@@ -34,18 +40,13 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void openHistoryScreen() {
-
-    }
-
-    @Override
-    public void openListsScreen() {
-
-    }
-
-    @Override
     public void onProfileClick() {
         openFragment(ProfileFragment.newInstance(), ProfileFragment.class.getSimpleName(), true);
+    }
+
+    @Override
+    public void onGroupClick(ArrayList<Item> itemList) {
+        openFragment(GroupItemsFragment.newInstance(itemList), GroupItemsFragment.class.getSimpleName(), true);
     }
 
     public void openFragment(Fragment fragment, String tag, boolean addToBackStack) {

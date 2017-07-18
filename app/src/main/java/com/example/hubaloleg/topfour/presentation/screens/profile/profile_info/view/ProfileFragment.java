@@ -18,14 +18,17 @@ import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.example.hubaloleg.topfour.R;
 import com.example.hubaloleg.topfour.domain.model.Group;
+import com.example.hubaloleg.topfour.domain.model.Item;
 import com.example.hubaloleg.topfour.domain.model.UserInfo;
 import com.example.hubaloleg.topfour.presentation.di.components.DaggerUserInfoComponent;
 import com.example.hubaloleg.topfour.presentation.global.TopFourApplication;
 import com.example.hubaloleg.topfour.presentation.screens.profile.profile_info.adapter.GroupAdapter;
+import com.example.hubaloleg.topfour.presentation.screens.profile.profile_info.adapter.GroupViewHolder;
 import com.example.hubaloleg.topfour.presentation.screens.profile.profile_info.presenter.ProfilePresenter;
 import com.example.hubaloleg.topfour.presentation.tools.InfoMessageUtil;
 import com.example.hubaloleg.topfour.presentation.tools.InitImageUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -52,12 +55,20 @@ public class ProfileFragment extends MvpAppCompatFragment
 
     private GroupAdapter mGroupAdapter;
     private OnProfileFragmentInteractionListener mListener;
+    private List<Group> mGroupList = new ArrayList<>();
 
     @ProvidePresenter
     ProfilePresenter provideProfilePresenter() {
         initInjection();
         return mPresenter;
     }
+
+    //region listener
+
+    private GroupViewHolder.OnGroupViewHolderClickListener mOnGroupViewHolderClickListener = adapterPosition ->
+            mListener.onGroupClick(mGroupList.get(adapterPosition).getItemList());
+
+    //endregion listener end
 
     public static ProfileFragment newInstance() {
         Bundle args = new Bundle();
@@ -87,7 +98,7 @@ public class ProfileFragment extends MvpAppCompatFragment
 
     private void initRecyclerView() {
         mRvLists.setLayoutManager(new GridLayoutManager(getContext(), SPAN_COUNT, LinearLayoutManager.HORIZONTAL, false));
-        mGroupAdapter = new GroupAdapter();
+        mGroupAdapter = new GroupAdapter(mOnGroupViewHolderClickListener);
         mRvLists.setAdapter(mGroupAdapter);
     }
 
@@ -99,7 +110,9 @@ public class ProfileFragment extends MvpAppCompatFragment
     }
 
     private void showUserGroups(List<Group> groupList) {
-        mGroupAdapter.setGroupList(groupList);
+        mGroupList.clear();
+        mGroupList = groupList;
+        mGroupAdapter.setGroupList(mGroupList);
     }
 
     @Override
@@ -124,8 +137,6 @@ public class ProfileFragment extends MvpAppCompatFragment
 
     // interface
     public interface OnProfileFragmentInteractionListener {
-        void openHistoryScreen();
-
-        void openListsScreen();
+        void onGroupClick(ArrayList<Item> itemList);
     }
 }

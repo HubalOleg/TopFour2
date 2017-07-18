@@ -2,6 +2,7 @@ package com.example.hubaloleg.topfour.data.remote.model.entity;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,7 +11,7 @@ import java.util.List;
 
 public class GroupEntity {
     @SerializedName("items")
-    private List<ItemEntity> mListItemEntities;
+    private ArrayList<ItemEntity> mListItemEntities;
     @SerializedName("type")
     private String type;
     @SerializedName("count")
@@ -32,11 +33,11 @@ public class GroupEntity {
         this.count = count;
     }
 
-    public List<ItemEntity> getListItemEntities() {
+    public ArrayList<ItemEntity> getListItemEntities() {
         return mListItemEntities;
     }
 
-    public void setListItemEntities(List<ItemEntity> listItemEntities) {
+    public void setListItemEntities(ArrayList<ItemEntity> listItemEntities) {
         mListItemEntities = listItemEntities;
     }
 }

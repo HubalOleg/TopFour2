@@ -1,5 +1,6 @@
 package com.example.hubaloleg.topfour.domain.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -7,7 +8,7 @@ import java.util.List;
  */
 
 public class Group {
-    private List<Item> mItemList;
+    private ArrayList<Item> mItemList;
     private String type;
     private long count;
 
@@ -27,11 +28,11 @@ public class Group {
         this.count = count;
     }
 
-    public List<Item> getItemList() {
+    public ArrayList<Item> getItemList() {
         return mItemList;
     }
 
-    public void setItemList(List<Item> itemList) {
+    public void setItemList(ArrayList<Item> itemList) {
         mItemList = itemList;
     }
 }

@@ -9,6 +9,7 @@ import com.example.hubaloleg.topfour.domain.model.Group;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by kostya on 17.07.17.
@@ -20,13 +21,26 @@ public class GroupViewHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.tv_group_name)
     TextView mTvGroupName;
 
-    public GroupViewHolder(View itemView) {
+    private OnGroupViewHolderClickListener mListener;
+
+    public GroupViewHolder(View itemView, OnGroupViewHolderClickListener listener) {
         super(itemView);
+        mListener = listener;
         ButterKnife.bind(GroupViewHolder.this, itemView);
+    }
+
+    @OnClick(R.id.rl_item_lists)
+    public void onItemClick() {
+        mListener.onItemClick(getAdapterPosition());
     }
 
     public void bind(Group group) {
         mTvGroupCount.setText(String.valueOf(group.getCount()));
         mTvGroupName.setText(group.getType());
+    }
+
+    //interface
+    public interface OnGroupViewHolderClickListener {
+        void onItemClick(int adapterPosition);
     }
 }
