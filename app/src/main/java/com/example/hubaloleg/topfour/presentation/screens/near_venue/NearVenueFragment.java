@@ -16,7 +16,7 @@ import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.example.hubaloleg.topfour.R;
-import com.example.hubaloleg.topfour.domain.model.Venue;
+import com.example.hubaloleg.topfour.domain.model.venues.Venue;
 import com.example.hubaloleg.topfour.presentation.adapter.VenueAdapter;
 import com.example.hubaloleg.topfour.presentation.di.components.DaggerVenueComponent;
 import com.example.hubaloleg.topfour.presentation.global.TopFourApplication;

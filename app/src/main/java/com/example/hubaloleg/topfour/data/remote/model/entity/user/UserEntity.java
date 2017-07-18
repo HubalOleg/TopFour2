@@ -1,5 +1,6 @@
-package com.example.hubaloleg.topfour.data.remote.model.entity;
+package com.example.hubaloleg.topfour.data.remote.model.entity.user;
 
+import com.example.hubaloleg.topfour.data.remote.model.entity.IconEntity;
 import com.google.gson.annotations.SerializedName;
 
 public class UserEntity {

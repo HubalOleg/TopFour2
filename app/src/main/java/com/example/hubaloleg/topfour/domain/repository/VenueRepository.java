@@ -1,6 +1,6 @@
 package com.example.hubaloleg.topfour.domain.repository;
 
-import com.example.hubaloleg.topfour.domain.model.Venue;
+import com.example.hubaloleg.topfour.domain.model.venues.Venue;
 
 import java.util.List;
 

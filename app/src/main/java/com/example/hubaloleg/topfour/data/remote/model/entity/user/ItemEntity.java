@@ -1,4 +1,4 @@
-package com.example.hubaloleg.topfour.data.remote.model.entity;
+package com.example.hubaloleg.topfour.data.remote.model.entity.user;
 
 import com.google.gson.annotations.SerializedName;
 

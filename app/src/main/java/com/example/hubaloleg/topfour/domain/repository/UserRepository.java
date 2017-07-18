@@ -1,6 +1,6 @@
 package com.example.hubaloleg.topfour.domain.repository;
 
-import com.example.hubaloleg.topfour.domain.model.UserInfo;
+import com.example.hubaloleg.topfour.domain.model.user.UserInfo;
 
 import io.reactivex.Observable;
 

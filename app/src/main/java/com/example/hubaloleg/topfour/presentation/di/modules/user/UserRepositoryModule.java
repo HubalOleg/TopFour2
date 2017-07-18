@@ -1,9 +1,9 @@
-package com.example.hubaloleg.topfour.presentation.di.modules.user_info;
+package com.example.hubaloleg.topfour.presentation.di.modules.user;
 
 import com.example.hubaloleg.topfour.data.cache.UserCacheTransformer;
 import com.example.hubaloleg.topfour.data.credential.CredentialStore;
-import com.example.hubaloleg.topfour.data.mapper.GroupMapper;
-import com.example.hubaloleg.topfour.data.mapper.UserMapper;
+import com.example.hubaloleg.topfour.data.mapper.user.GroupMapper;
+import com.example.hubaloleg.topfour.data.mapper.user.UserMapper;
 import com.example.hubaloleg.topfour.data.remote.api.UserApi;
 import com.example.hubaloleg.topfour.data.remote.base.ApiInterface;
 import com.example.hubaloleg.topfour.data.repository.UserRepositoryImpl;

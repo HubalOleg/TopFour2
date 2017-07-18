@@ -1,11 +1,11 @@
-package com.example.hubaloleg.topfour.data.mapper;
+package com.example.hubaloleg.topfour.data.mapper.user;
 
 import android.support.annotation.NonNull;
 
 import com.example.hubaloleg.topfour.data.cache.db.UserDB;
 import com.example.hubaloleg.topfour.data.remote.model.entity.IconEntity;
-import com.example.hubaloleg.topfour.data.remote.model.entity.UserEntity;
-import com.example.hubaloleg.topfour.domain.model.UserInfo;
+import com.example.hubaloleg.topfour.data.remote.model.entity.user.UserEntity;
+import com.example.hubaloleg.topfour.domain.model.user.UserInfo;
 
 import javax.inject.Inject;
 

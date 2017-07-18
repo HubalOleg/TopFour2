@@ -1,4 +1,4 @@
-package com.example.hubaloleg.topfour.presentation.di.modules.user_info;
+package com.example.hubaloleg.topfour.presentation.di.modules.user;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

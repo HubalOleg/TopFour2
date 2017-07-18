@@ -1,4 +1,4 @@
-package com.example.hubaloleg.topfour.domain.model;
+package com.example.hubaloleg.topfour.domain.model.user;
 
 import android.os.Parcel;
 import android.os.Parcelable;

@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.example.hubaloleg.topfour.R;
-import com.example.hubaloleg.topfour.domain.model.Item;
+import com.example.hubaloleg.topfour.domain.model.user.Item;
 import com.example.hubaloleg.topfour.presentation.screens.profile.group_items.adapter.GroupItemsAdapter;
 import com.example.hubaloleg.topfour.presentation.screens.profile.group_items.view.GroupItemView;
 

@@ -1,9 +1,9 @@
 package com.example.hubaloleg.topfour.data.repository;
 
 import com.example.hubaloleg.topfour.data.cache.VenueCacheTransformer;
-import com.example.hubaloleg.topfour.data.mapper.VenueMapper;
+import com.example.hubaloleg.topfour.data.mapper.venues.VenueMapper;
 import com.example.hubaloleg.topfour.data.remote.api.VenueApi;
-import com.example.hubaloleg.topfour.domain.model.Venue;
+import com.example.hubaloleg.topfour.domain.model.venues.Venue;
 import com.example.hubaloleg.topfour.domain.repository.VenueRepository;
 
 import java.util.List;

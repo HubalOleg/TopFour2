@@ -1,6 +1,6 @@
 package com.example.hubaloleg.topfour.data.cache.db;
 
-import com.example.hubaloleg.topfour.data.remote.model.entity.GroupEntity;
+import com.example.hubaloleg.topfour.data.remote.model.entity.user.GroupEntity;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.raizlabs.android.dbflow.annotation.Column;

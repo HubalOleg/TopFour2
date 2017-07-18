@@ -1,4 +1,6 @@
-package com.example.hubaloleg.topfour.domain.model;
+package com.example.hubaloleg.topfour.domain.model.venues;
+
+import com.example.hubaloleg.topfour.domain.model.Icon;
 
 /**
  * Created by hubaloleg on 12.07.17.

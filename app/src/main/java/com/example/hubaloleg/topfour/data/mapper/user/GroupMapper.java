@@ -1,9 +1,9 @@
-package com.example.hubaloleg.topfour.data.mapper;
+package com.example.hubaloleg.topfour.data.mapper.user;
 
-import com.example.hubaloleg.topfour.data.remote.model.entity.GroupEntity;
-import com.example.hubaloleg.topfour.data.remote.model.entity.ItemEntity;
-import com.example.hubaloleg.topfour.domain.model.Group;
-import com.example.hubaloleg.topfour.domain.model.Item;
+import com.example.hubaloleg.topfour.data.remote.model.entity.user.GroupEntity;
+import com.example.hubaloleg.topfour.data.remote.model.entity.user.ItemEntity;
+import com.example.hubaloleg.topfour.domain.model.user.Group;
+import com.example.hubaloleg.topfour.domain.model.user.Item;
 
 import java.util.ArrayList;
 import java.util.List;

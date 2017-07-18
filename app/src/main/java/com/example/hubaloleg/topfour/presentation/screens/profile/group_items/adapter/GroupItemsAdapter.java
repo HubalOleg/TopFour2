@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.hubaloleg.topfour.R;
-import com.example.hubaloleg.topfour.domain.model.Item;
+import com.example.hubaloleg.topfour.domain.model.user.Item;
 
 import java.util.List;
 

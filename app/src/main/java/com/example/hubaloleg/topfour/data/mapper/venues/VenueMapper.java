@@ -1,8 +1,8 @@
-package com.example.hubaloleg.topfour.data.mapper;
+package com.example.hubaloleg.topfour.data.mapper.venues;
 
 import com.example.hubaloleg.topfour.data.cache.db.VenueDB;
-import com.example.hubaloleg.topfour.data.remote.model.entity.VenueEntity;
-import com.example.hubaloleg.topfour.domain.model.Venue;
+import com.example.hubaloleg.topfour.data.remote.model.entity.venues.VenueEntity;
+import com.example.hubaloleg.topfour.domain.model.venues.Venue;
 
 import java.util.ArrayList;
 import java.util.List;

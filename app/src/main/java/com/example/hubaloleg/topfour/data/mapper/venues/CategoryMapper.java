@@ -1,7 +1,8 @@
-package com.example.hubaloleg.topfour.data.mapper;
+package com.example.hubaloleg.topfour.data.mapper.venues;
 
-import com.example.hubaloleg.topfour.data.remote.model.entity.CategoryEntity;
-import com.example.hubaloleg.topfour.domain.model.Category;
+import com.example.hubaloleg.topfour.data.mapper.IconMapper;
+import com.example.hubaloleg.topfour.data.remote.model.entity.venues.CategoryEntity;
+import com.example.hubaloleg.topfour.domain.model.venues.Category;
 
 import java.util.ArrayList;
 import java.util.List;

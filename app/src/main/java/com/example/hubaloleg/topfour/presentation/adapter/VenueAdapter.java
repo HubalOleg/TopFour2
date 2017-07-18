@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.hubaloleg.topfour.R;
-import com.example.hubaloleg.topfour.domain.model.Venue;
+import com.example.hubaloleg.topfour.domain.model.venues.Venue;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -67,16 +67,16 @@
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_lists"
-                android:nestedScrollingEnabled="false"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:id="@+id/tv_test"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/rv_lists"
-                tools:text="@string/lorem_ipsum"/>
+                android:nestedScrollingEnabled="false"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_marginTop="10dp"
+                android:id="@+id/rv_venues_likes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rv_lists"/>
 
         </RelativeLayout>
     </android.support.v4.widget.NestedScrollView>

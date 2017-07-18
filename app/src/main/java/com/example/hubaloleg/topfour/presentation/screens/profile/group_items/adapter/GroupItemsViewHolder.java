@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.hubaloleg.topfour.R;
-import com.example.hubaloleg.topfour.domain.model.Item;
+import com.example.hubaloleg.topfour.domain.model.user.Item;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

@@ -1,6 +1,6 @@
 package com.example.hubaloleg.topfour.domain.usecase;
 
-import com.example.hubaloleg.topfour.domain.model.Venue;
+import com.example.hubaloleg.topfour.domain.model.venues.Venue;
 import com.example.hubaloleg.topfour.domain.repository.VenueRepository;
 import com.example.hubaloleg.topfour.presentation.di.qualifier.SchedulerUI;
 

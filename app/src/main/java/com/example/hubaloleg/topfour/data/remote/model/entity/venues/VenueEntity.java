@@ -1,18 +1,21 @@
-package com.example.hubaloleg.topfour.data.remote.model.entity;
+package com.example.hubaloleg.topfour.data.remote.model.entity.venues;
 
 import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
 
 /**
  * Created by hubaloleg on 10.07.17.
  */
 
-public class CategoryEntity {
+public class VenueEntity {
+
     @SerializedName("id")
     private String mId;
     @SerializedName("name")
     private String mName;
-    @SerializedName("icon")
-    private IconEntity mIconEntity;
+    @SerializedName("categories")
+    private List<CategoryEntity> mCategoryEntityList;
 
     public String getId() {
         return mId;
@@ -30,11 +33,11 @@ public class CategoryEntity {
         mName = name;
     }
 
-    public IconEntity getIconEntity() {
-        return mIconEntity;
+    public List<CategoryEntity> getCategoryEntityList() {
+        return mCategoryEntityList;
     }
 
-    public void setIconEntity(IconEntity iconEntity) {
-        mIconEntity = iconEntity;
+    public void setCategoryEntityList(List<CategoryEntity> categoryEntityList) {
+        mCategoryEntityList = categoryEntityList;
     }
 }

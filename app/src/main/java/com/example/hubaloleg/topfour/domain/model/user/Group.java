@@ -1,7 +1,6 @@
-package com.example.hubaloleg.topfour.domain.model;
+package com.example.hubaloleg.topfour.domain.model.user;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by kostya on 17.07.17.

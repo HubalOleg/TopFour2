@@ -1,6 +1,6 @@
 package com.example.hubaloleg.topfour.data.remote.model.response;
 
-import com.example.hubaloleg.topfour.data.remote.model.entity.UserEntity;
+import com.example.hubaloleg.topfour.data.remote.model.entity.user.UserEntity;
 import com.google.gson.annotations.SerializedName;
 
 public class UserInfoResponse {

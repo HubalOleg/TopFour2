@@ -1,9 +1,8 @@
-package com.example.hubaloleg.topfour.data.remote.model.entity;
+package com.example.hubaloleg.topfour.data.remote.model.entity.user;
 
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by kostya on 17.07.17.

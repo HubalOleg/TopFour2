@@ -1,9 +1,9 @@
 package com.example.hubaloleg.topfour.data.repository;
 
 import com.example.hubaloleg.topfour.data.cache.UserCacheTransformer;
-import com.example.hubaloleg.topfour.data.mapper.UserMapper;
+import com.example.hubaloleg.topfour.data.mapper.user.UserMapper;
 import com.example.hubaloleg.topfour.data.remote.api.UserApi;
-import com.example.hubaloleg.topfour.domain.model.UserInfo;
+import com.example.hubaloleg.topfour.domain.model.user.UserInfo;
 import com.example.hubaloleg.topfour.domain.repository.UserRepository;
 
 import io.reactivex.Observable;

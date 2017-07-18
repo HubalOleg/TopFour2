@@ -1,4 +1,4 @@
-package com.example.hubaloleg.topfour.domain.model;
+package com.example.hubaloleg.topfour.domain.model.venues;
 
 import java.util.List;
 
