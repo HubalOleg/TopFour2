@@ -2,6 +2,7 @@ package com.example.hubaloleg.topfour.presentation.di.modules.user_info;
 
 import com.example.hubaloleg.topfour.data.cache.UserCacheTransformer;
 import com.example.hubaloleg.topfour.data.credential.CredentialStore;
+import com.example.hubaloleg.topfour.data.mapper.GroupMapper;
 import com.example.hubaloleg.topfour.data.mapper.UserMapper;
 import com.example.hubaloleg.topfour.data.remote.api.UserApi;
 import com.example.hubaloleg.topfour.data.remote.base.ApiInterface;
@@ -28,8 +29,13 @@ public class UserRepositoryModule {
     }
 
     @Provides
-    UserMapper provideUserMapper() {
-        return new UserMapper();
+    GroupMapper provideGroupMapper() {
+        return new GroupMapper();
+    }
+
+    @Provides
+    UserMapper provideUserMapper(GroupMapper groupMapper) {
+        return new UserMapper(groupMapper);
     }
 
     @Provides
@@ -41,4 +47,5 @@ public class UserRepositoryModule {
     UserRepository provideUserRepository(UserCacheTransformer cacheTransformer, UserApi userApi, UserMapper dataMapper) {
         return new UserRepositoryImpl(cacheTransformer, userApi, dataMapper);
     }
+
 }
