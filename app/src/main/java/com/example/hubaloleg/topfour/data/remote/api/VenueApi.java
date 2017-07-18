@@ -2,8 +2,10 @@ package com.example.hubaloleg.topfour.data.remote.api;
 
 import com.example.hubaloleg.topfour.data.credential.CredentialStore;
 import com.example.hubaloleg.topfour.data.remote.base.ApiInterface;
+import com.example.hubaloleg.topfour.data.remote.model.response.LikesVenuesResponse;
 import com.example.hubaloleg.topfour.data.remote.model.response.ResponseEntity;
 import com.example.hubaloleg.topfour.data.remote.model.response.SearchVenueResponse;
+import com.example.hubaloleg.topfour.domain.model.venues.LikedVenue;
 import com.example.hubaloleg.topfour.presentation.di.qualifier.ApiVersion;
 
 import javax.inject.Inject;
@@ -23,5 +25,9 @@ public class VenueApi extends BaseDataApi {
 
     public Observable<ResponseEntity<SearchVenueResponse>> searchVenuesWithCoordinates(String coordinates, int limit) {
         return mApiInterface.getSearchVenues(coordinates, limit, mToken, mApiVersion);
+    }
+
+    public Observable<ResponseEntity<LikesVenuesResponse>> getLikedVenueList() {
+        return mApiInterface.getLikesVenues(mToken, mApiVersion);
     }
 }

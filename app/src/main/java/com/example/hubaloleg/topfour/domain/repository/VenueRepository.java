@@ -1,5 +1,6 @@
 package com.example.hubaloleg.topfour.domain.repository;
 
+import com.example.hubaloleg.topfour.domain.model.venues.LikedVenue;
 import com.example.hubaloleg.topfour.domain.model.venues.Venue;
 
 import java.util.List;
@@ -14,4 +15,5 @@ public interface VenueRepository {
 
     Observable<List<Venue>> searchVenuesWithCoordinates(String coordinates, int limit);
 
+    Observable<List<LikedVenue>> getLikedVenueList();
 }

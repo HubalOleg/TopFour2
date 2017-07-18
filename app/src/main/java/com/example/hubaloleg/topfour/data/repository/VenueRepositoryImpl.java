@@ -3,6 +3,10 @@ package com.example.hubaloleg.topfour.data.repository;
 import com.example.hubaloleg.topfour.data.cache.VenueCacheTransformer;
 import com.example.hubaloleg.topfour.data.mapper.venues.VenueMapper;
 import com.example.hubaloleg.topfour.data.remote.api.VenueApi;
+import com.example.hubaloleg.topfour.data.remote.model.entity.venues.VenueEntity;
+import com.example.hubaloleg.topfour.data.remote.model.response.LikesVenuesResponse;
+import com.example.hubaloleg.topfour.data.remote.model.response.ResponseEntity;
+import com.example.hubaloleg.topfour.domain.model.venues.LikedVenue;
 import com.example.hubaloleg.topfour.domain.model.venues.Venue;
 import com.example.hubaloleg.topfour.domain.repository.VenueRepository;
 
@@ -33,6 +37,15 @@ public class VenueRepositoryImpl implements VenueRepository {
                 .map(mDataMapper::transformApiList)
                 .compose(mVenueCacheTransformer)
                 .map(mDataMapper::transformDBList);
+    }
+
+    @Override
+    public Observable<List<LikedVenue>> getLikedVenueList() {
+        return mVenueApi.getLikedVenueList()
+                .map(ResponseEntity::getResponse)
+                .map(LikesVenuesResponse::getLikedVenuesResponse)
+                .map(VenueEntity::getItemEntityList)
+                .map(mDataMapper::transformToLikedVenueList);
     }
 
 }

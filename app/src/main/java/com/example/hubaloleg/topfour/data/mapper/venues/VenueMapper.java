@@ -1,7 +1,10 @@
 package com.example.hubaloleg.topfour.data.mapper.venues;
 
 import com.example.hubaloleg.topfour.data.cache.db.VenueDB;
+import com.example.hubaloleg.topfour.data.remote.model.entity.user.ItemEntity;
 import com.example.hubaloleg.topfour.data.remote.model.entity.venues.VenueEntity;
+import com.example.hubaloleg.topfour.domain.model.user.Item;
+import com.example.hubaloleg.topfour.domain.model.venues.LikedVenue;
 import com.example.hubaloleg.topfour.domain.model.venues.Venue;
 
 import java.util.ArrayList;
@@ -22,11 +25,23 @@ public class VenueMapper {
     public List<VenueDB> transformApiList(List<VenueEntity> venueEntityList) {
         List<VenueDB> venueList = new ArrayList<>();
 
-        for (VenueEntity venueEntity : venueEntityList) {
+        for (VenueEntity venueEntity : venueEntityList)
             venueList.add(transformApi(venueEntity));
-
-        }
         return venueList;
+    }
+
+    public List<LikedVenue> transformToLikedVenueList(List<ItemEntity> venueEntityList) {
+        List<LikedVenue> likedVenues = new ArrayList<>();
+        for (ItemEntity venueEntity : venueEntityList)
+            likedVenues.add(transformToLikedVenue(venueEntity));
+        return likedVenues;
+    }
+
+    private LikedVenue transformToLikedVenue(ItemEntity item) {
+        LikedVenue likedVenue = new LikedVenue();
+        likedVenue.setId(item.getId());
+        likedVenue.setName(item.getName());
+        return likedVenue;
     }
 
     public VenueDB transformApi(VenueEntity venueEntity) {
