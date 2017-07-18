@@ -4,4 +4,5 @@
     <string name="title_history">History</string>
     <string name="title_lists">lists</string>
     <string name="error_user_fetch_failed">Error occurred while loading profile data</string>
+    <string name="error_user_groups_fetch_failed">Error occurred while loading user groups</string>
 </resources>

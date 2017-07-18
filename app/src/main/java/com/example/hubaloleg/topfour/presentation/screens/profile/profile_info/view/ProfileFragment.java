@@ -4,6 +4,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,18 +17,21 @@ import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.example.hubaloleg.topfour.R;
+import com.example.hubaloleg.topfour.domain.model.Group;
 import com.example.hubaloleg.topfour.domain.model.UserInfo;
 import com.example.hubaloleg.topfour.presentation.di.components.DaggerUserInfoComponent;
 import com.example.hubaloleg.topfour.presentation.global.TopFourApplication;
+import com.example.hubaloleg.topfour.presentation.screens.profile.profile_info.adapter.GroupAdapter;
 import com.example.hubaloleg.topfour.presentation.screens.profile.profile_info.presenter.ProfilePresenter;
 import com.example.hubaloleg.topfour.presentation.tools.InfoMessageUtil;
 import com.example.hubaloleg.topfour.presentation.tools.InitImageUtil;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class ProfileFragment extends MvpAppCompatFragment
         implements ProfileView {
@@ -44,6 +49,7 @@ public class ProfileFragment extends MvpAppCompatFragment
     @BindView(R.id.rv_lists)
     RecyclerView mRvLists;
 
+    private GroupAdapter mGroupAdapter;
     private OnProfileFragmentInteractionListener mListener;
 
     @ProvidePresenter
@@ -64,7 +70,7 @@ public class ProfileFragment extends MvpAppCompatFragment
         super.onAttach(context);
         try {
             mListener = ((OnProfileFragmentInteractionListener) context);
-        }catch (ClassCastException ex) {
+        } catch (ClassCastException ex) {
             throw new ClassCastException(context.toString() + " must implement OnProfileFragmentInteractionListener");
         }
     }
@@ -74,13 +80,25 @@ public class ProfileFragment extends MvpAppCompatFragment
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         ButterKnife.bind(ProfileFragment.this, view);
+        initRecyclerView();
         return view;
+    }
+
+    private void initRecyclerView() {
+        mRvLists.setLayoutManager(new GridLayoutManager(getContext(), 2, LinearLayoutManager.HORIZONTAL, false));
+        mGroupAdapter = new GroupAdapter();
+        mRvLists.setAdapter(mGroupAdapter);
     }
 
     @Override
     public void showUserInfo(UserInfo userInfo) {
         Log.d(TAG, "showUserInfo: " + userInfo);
         initUserInfo(userInfo);
+        showUserGroups(userInfo.getGroupList());
+    }
+
+    private void showUserGroups(List<Group> groupList) {
+        mGroupAdapter.setGroupList(groupList);
     }
 
     @Override

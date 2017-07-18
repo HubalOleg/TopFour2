@@ -1,7 +1,10 @@
 package com.example.hubaloleg.topfour.domain.usecase;
 
+import com.example.hubaloleg.topfour.domain.model.Group;
 import com.example.hubaloleg.topfour.domain.model.UserInfo;
 import com.example.hubaloleg.topfour.domain.repository.UserRepository;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -19,6 +22,5 @@ public class UserInfoUseCase {
     public Observable<UserInfo> loadUserInfo() {
         return mUserRepository.retrieveUserInfo();
     }
-
 
 }
