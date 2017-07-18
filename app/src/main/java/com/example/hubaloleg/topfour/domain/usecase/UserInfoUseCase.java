@@ -7,10 +7,6 @@ import javax.inject.Inject;
 
 import io.reactivex.Observable;
 
-/**
- * Created by kostya on 11.07.17.
- */
-
 public class UserInfoUseCase {
 
     private final UserRepository mUserRepository;
@@ -23,4 +19,6 @@ public class UserInfoUseCase {
     public Observable<UserInfo> loadUserInfo() {
         return mUserRepository.retrieveUserInfo();
     }
+
+
 }

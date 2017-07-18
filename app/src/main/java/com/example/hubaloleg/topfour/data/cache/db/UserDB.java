@@ -14,10 +14,6 @@ import java.util.List;
 
 import static com.raizlabs.android.dbflow.annotation.ConflictAction.REPLACE;
 
-/**
- * Created by kostya on 13.07.17.
- */
-
 @Table(database = AppDatabase.class)
 public class UserDB extends BaseModel {
     @PrimaryKey(autoincrement = true)
@@ -35,7 +31,7 @@ public class UserDB extends BaseModel {
     @Column
     private String userBiography;
     @Column
-    private String groupEntityList;
+    String groupEntityList;
 
     public List<GroupEntity> getGroupEntityList() {
         Type listOfItems = new TypeToken<List<GroupEntity>>(){}.getType();

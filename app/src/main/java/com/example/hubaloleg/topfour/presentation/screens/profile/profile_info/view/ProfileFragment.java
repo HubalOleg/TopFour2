@@ -28,10 +28,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-/**
- * Created by kostya on 11.07.17.
- */
-
 public class ProfileFragment extends MvpAppCompatFragment
         implements ProfileView {
 
@@ -81,16 +77,6 @@ public class ProfileFragment extends MvpAppCompatFragment
         return view;
     }
 
-    @OnClick(R.id.btn_history)
-    public void onHistoryClick() {
-        mListener.openHistoryScreen();
-    }
-
-    @OnClick(R.id.btn_lists)
-    public void onListsClick() {
-        mListener.openListsScreen();
-    }
-
     @Override
     public void showUserInfo(UserInfo userInfo) {
         Log.d(TAG, "showUserInfo: " + userInfo);
@@ -98,7 +84,8 @@ public class ProfileFragment extends MvpAppCompatFragment
     }
 
     @Override
-    public void userFetchFailure() {
+    public void userFetchFailure(Throwable throwable) {
+        Log.d(TAG, "userFetchFailure: " + throwable.toString());
         InfoMessageUtil.showMessage(getContext(), getString(R.string.error_user_fetch_failed));
     }
 

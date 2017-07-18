@@ -7,10 +7,6 @@ import com.example.hubaloleg.topfour.presentation.screens.profile.profile_info.v
 
 import javax.inject.Inject;
 
-/**
- * Created by kostya on 11.07.17.
- */
-
 @InjectViewState
 public class ProfilePresenter extends MvpPresenter<ProfileView> {
     private final UserInfoUseCase mUserUseCase;
@@ -29,6 +25,6 @@ public class ProfilePresenter extends MvpPresenter<ProfileView> {
     public void loadUserData() {
         mUserUseCase.loadUserInfo()
                 .subscribe(userInfo -> getViewState().showUserInfo(userInfo),
-                        throwable -> getViewState().userFetchFailure());
+                        throwable -> getViewState().userFetchFailure(throwable));
     }
 }
