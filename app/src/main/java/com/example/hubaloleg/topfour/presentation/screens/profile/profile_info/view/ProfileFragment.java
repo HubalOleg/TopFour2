@@ -20,10 +20,13 @@ import com.example.hubaloleg.topfour.R;
 import com.example.hubaloleg.topfour.domain.model.user.Group;
 import com.example.hubaloleg.topfour.domain.model.user.Item;
 import com.example.hubaloleg.topfour.domain.model.user.UserInfo;
+import com.example.hubaloleg.topfour.domain.model.venues.LikedVenue;
+import com.example.hubaloleg.topfour.presentation.adapter.VenueAdapter;
 import com.example.hubaloleg.topfour.presentation.di.components.DaggerUserInfoComponent;
 import com.example.hubaloleg.topfour.presentation.global.TopFourApplication;
 import com.example.hubaloleg.topfour.presentation.screens.profile.profile_info.adapter.GroupAdapter;
 import com.example.hubaloleg.topfour.presentation.screens.profile.profile_info.adapter.GroupViewHolder;
+import com.example.hubaloleg.topfour.presentation.screens.profile.profile_info.adapter.LikedVenueAdapter;
 import com.example.hubaloleg.topfour.presentation.screens.profile.profile_info.presenter.ProfilePresenter;
 import com.example.hubaloleg.topfour.presentation.tools.InfoMessageUtil;
 import com.example.hubaloleg.topfour.presentation.tools.InitImageUtil;
@@ -52,10 +55,15 @@ public class ProfileFragment extends MvpAppCompatFragment
     CollapsingToolbarLayout mCollapsingToolbarLayout;
     @BindView(R.id.rv_lists)
     RecyclerView mRvLists;
+    @BindView(R.id.rv_venues_likes)
+    RecyclerView mRvLikedVenues;
 
     private GroupAdapter mGroupAdapter;
     private OnProfileFragmentInteractionListener mListener;
+
     private List<Group> mGroupList = new ArrayList<>();
+    private List<LikedVenue> mLikedVenueList = new ArrayList<>();
+    private LikedVenueAdapter mLikedVenueAdapter;
 
     @ProvidePresenter
     ProfilePresenter provideProfilePresenter() {
@@ -100,6 +108,10 @@ public class ProfileFragment extends MvpAppCompatFragment
         mRvLists.setLayoutManager(new GridLayoutManager(getContext(), SPAN_COUNT, LinearLayoutManager.HORIZONTAL, false));
         mGroupAdapter = new GroupAdapter(mOnGroupViewHolderClickListener);
         mRvLists.setAdapter(mGroupAdapter);
+
+        mRvLikedVenues.setLayoutManager(new LinearLayoutManager(getContext()));
+        mLikedVenueAdapter = new LikedVenueAdapter();
+        mRvLikedVenues.setAdapter(mLikedVenueAdapter);
     }
 
     @Override
@@ -118,6 +130,18 @@ public class ProfileFragment extends MvpAppCompatFragment
     public void userFetchFailure(Throwable throwable) {
         Log.d(TAG, "userFetchFailure: " + throwable.toString());
         InfoMessageUtil.showMessage(getContext(), getString(R.string.error_user_fetch_failed));
+    }
+
+    @Override
+    public void likedVenueFetchFailure(Throwable throwable) {
+        Log.d(TAG, "likedVenueFetchFailure: " + throwable);
+        InfoMessageUtil.showMessage(getContext(), getString(R.string.error_liked_venue_fetch_failed));
+    }
+
+    @Override
+    public void showLikedVenueList(List<LikedVenue> likedVenues) {
+        mLikedVenueList = likedVenues;
+        mLikedVenueAdapter.updateVenueList(likedVenues);
     }
 
     private void initInjection() {

@@ -18,7 +18,7 @@ import io.reactivex.schedulers.Schedulers;
  * Created by hubaloleg on 11.07.17.
  */
 
-public class SearchVenueUseCase {
+public class VenueUseCase {
 
     private static final int ITEMS_LIMIT = 20;
 
@@ -26,7 +26,7 @@ public class SearchVenueUseCase {
     private final Scheduler mSchedulerUI;
 
     @Inject
-    SearchVenueUseCase(VenueRepository venueRepository, @SchedulerUI Scheduler schedulerUI) {
+    VenueUseCase(VenueRepository venueRepository, @SchedulerUI Scheduler schedulerUI) {
         mVenueRepository = venueRepository;
         mSchedulerUI = schedulerUI;
     }

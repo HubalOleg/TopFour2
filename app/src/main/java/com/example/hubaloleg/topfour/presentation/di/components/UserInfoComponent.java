@@ -3,6 +3,7 @@ package com.example.hubaloleg.topfour.presentation.di.components;
 import com.example.hubaloleg.topfour.presentation.di.global.AppComponent;
 import com.example.hubaloleg.topfour.presentation.di.modules.user.UserInfoScope;
 import com.example.hubaloleg.topfour.presentation.di.modules.user.UserRepositoryModule;
+import com.example.hubaloleg.topfour.presentation.di.modules.venue.VenueRepositoryModule;
 import com.example.hubaloleg.topfour.presentation.screens.profile.profile_info.view.ProfileFragment;
 
 import dagger.Component;
@@ -12,7 +13,10 @@ import dagger.Component;
  */
 
 @Component(dependencies = AppComponent.class,
-        modules = UserRepositoryModule.class)
+        modules = {
+                UserRepositoryModule.class,
+                VenueRepositoryModule.class
+        })
 @UserInfoScope
 public interface UserInfoComponent {
 
