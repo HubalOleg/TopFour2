@@ -1,5 +1,6 @@
 package com.example.hubaloleg.topfour.presentation.screens.near_venue;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
@@ -33,8 +34,6 @@ import butterknife.OnClick;
 public class NearVenueFragment extends MvpAppCompatFragment implements NearVenueView {
     public static final String TAG = "NearVenueFragment";
 
-    VenueAdapter mVenueAdapter;
-
     @BindView(R.id.rv_venue)
     RecyclerView mVenueRecyclerView;
     @BindView(R.id.iv_profile_image)
@@ -54,6 +53,9 @@ public class NearVenueFragment extends MvpAppCompatFragment implements NearVenue
         return mNearVenuePresenter;
     }
 
+    private OnNearVenueFragmentInteractionListener mListener;
+    private VenueAdapter mVenueAdapter;
+
     private void initInjection() {
         DaggerVenueComponent.builder()
                 .appComponent(TopFourApplication.getAppComponent())
@@ -63,10 +65,8 @@ public class NearVenueFragment extends MvpAppCompatFragment implements NearVenue
 
     public static NearVenueFragment newInstance() {
         NearVenueFragment fragment = new NearVenueFragment();
-
         Bundle args = new Bundle();
         fragment.setArguments(args);
-
         return fragment;
     }
 
@@ -79,20 +79,19 @@ public class NearVenueFragment extends MvpAppCompatFragment implements NearVenue
         return view;
     }
 
-    private void initViews() {
-        mProfileImageView.setImageResource(R.drawable.ic_profile);
-
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        mVenueRecyclerView.setLayoutManager(linearLayoutManager);
-
-        mVenueAdapter = new VenueAdapter();
-        mVenueRecyclerView.setAdapter(mVenueAdapter);
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            mListener = ((OnNearVenueFragmentInteractionListener) context);
+        }catch (ClassCastException ex) {
+            throw new ClassCastException(context.toString() + " must implement OnNearVenueFragmentInteractionListener");
+        }
     }
 
-    @Override
-    public void onViewCreated(final View view, final Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
+    @OnClick(R.id.iv_profile_image)
+    public void onProfileImageClick() {
+        mListener.onProfileClick();
     }
 
     @OnClick(R.id.fab_search_location)
@@ -118,5 +117,21 @@ public class NearVenueFragment extends MvpAppCompatFragment implements NearVenue
     @Override
     public void dismissLoading() {
         mLoadingProgressBar.setVisibility(View.GONE);
+    }
+
+    private void initViews() {
+        mProfileImageView.setImageResource(R.drawable.ic_profile);
+        initRecyclerView();
+    }
+
+    private void initRecyclerView() {
+        mVenueRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        mVenueAdapter = new VenueAdapter();
+        mVenueRecyclerView.setAdapter(mVenueAdapter);
+    }
+
+    // interface
+    public interface OnNearVenueFragmentInteractionListener {
+        void onProfileClick();
     }
 }

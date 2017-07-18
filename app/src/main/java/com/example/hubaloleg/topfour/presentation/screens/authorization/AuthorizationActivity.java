@@ -107,5 +107,6 @@ public class AuthorizationActivity extends MvpAppCompatActivity
     @Override
     public void startMainActivity() {
         startActivity(MainActivity.getIntent(AuthorizationActivity.this));
+        finish();
     }
 }
