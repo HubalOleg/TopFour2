@@ -34,8 +34,10 @@ public class NearVenuePresenter extends MvpPresenter<NearVenueView> {
                 })
                 .doOnTerminate(() -> getViewState().dismissLoading())
                 .subscribe(
-                        venues -> {getViewState().showVenues(venues);
-                            Log.d(TAG, "onSearchVenuesClick: " + venues.size());},
+                        venues -> {
+                            getViewState().showVenues(venues);
+                            Log.d(TAG, "onSearchVenuesClick: " + venues.size());
+                        },
                         throwable -> {
                             throwable.printStackTrace();
                             getViewState().showError(throwable.getMessage());
@@ -45,6 +47,7 @@ public class NearVenuePresenter extends MvpPresenter<NearVenueView> {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        mDisposable.dispose();
+        if (mDisposable != null)
+            mDisposable.dispose();
     }
 }

@@ -110,7 +110,6 @@ public class ProfileFragment extends MvpAppCompatFragment
     }
 
     private void showUserGroups(List<Group> groupList) {
-        mGroupList.clear();
         mGroupList = groupList;
         mGroupAdapter.setGroupList(mGroupList);
     }
