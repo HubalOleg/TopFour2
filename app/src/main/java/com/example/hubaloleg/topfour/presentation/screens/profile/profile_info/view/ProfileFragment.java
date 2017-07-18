@@ -37,6 +37,7 @@ public class ProfileFragment extends MvpAppCompatFragment
         implements ProfileView {
 
     private static final String TAG = ProfileFragment.class.getSimpleName();
+    public static final int SPAN_COUNT = 1;
 
     @InjectPresenter
     @Inject
@@ -85,7 +86,7 @@ public class ProfileFragment extends MvpAppCompatFragment
     }
 
     private void initRecyclerView() {
-        mRvLists.setLayoutManager(new GridLayoutManager(getContext(), 2, LinearLayoutManager.HORIZONTAL, false));
+        mRvLists.setLayoutManager(new GridLayoutManager(getContext(), SPAN_COUNT, LinearLayoutManager.HORIZONTAL, false));
         mGroupAdapter = new GroupAdapter();
         mRvLists.setAdapter(mGroupAdapter);
     }
