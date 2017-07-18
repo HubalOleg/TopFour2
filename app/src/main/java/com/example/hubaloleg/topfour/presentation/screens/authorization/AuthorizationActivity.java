@@ -8,12 +8,10 @@ import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.example.hubaloleg.topfour.R;
-import com.example.hubaloleg.topfour.domain.usecase.CredentialUseCase;
 import com.example.hubaloleg.topfour.presentation.global.TopFourApplication;
 import com.example.hubaloleg.topfour.presentation.screens.authorization.presenter.AuthorizationPresenter;
 import com.example.hubaloleg.topfour.presentation.screens.authorization.view.AuthorizationView;
 import com.example.hubaloleg.topfour.presentation.screens.main.MainActivity;
-import com.example.hubaloleg.topfour.presentation.screens.splash.SplashActivity;
 import com.foursquare.android.nativeoauth.FoursquareOAuth;
 import com.foursquare.android.nativeoauth.model.AuthCodeResponse;
 

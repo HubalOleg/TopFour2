@@ -1,6 +1,5 @@
 package com.example.hubaloleg.topfour.data.remote.model.response;
 
-import com.example.hubaloleg.topfour.data.remote.model.entity.ListEntity;
 import com.example.hubaloleg.topfour.data.remote.model.entity.UserEntity;
 import com.google.gson.annotations.SerializedName;
 

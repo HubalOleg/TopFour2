@@ -1,11 +1,6 @@
 package com.example.hubaloleg.topfour.data.remote.model.entity;
 
-import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.List;
 
 public class UserEntity {
     @SerializedName("id")

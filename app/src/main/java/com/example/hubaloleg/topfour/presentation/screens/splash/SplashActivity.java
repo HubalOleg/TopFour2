@@ -8,8 +8,6 @@ import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.example.hubaloleg.topfour.R;
-import com.example.hubaloleg.topfour.presentation.di.global.ApplicationModule;
-import com.example.hubaloleg.topfour.presentation.di.global.DaggerAppComponent;
 import com.example.hubaloleg.topfour.presentation.global.TopFourApplication;
 import com.example.hubaloleg.topfour.presentation.screens.authorization.AuthorizationActivity;
 import com.example.hubaloleg.topfour.presentation.screens.main.MainActivity;

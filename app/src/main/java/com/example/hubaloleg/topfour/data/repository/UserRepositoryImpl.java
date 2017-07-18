@@ -1,14 +1,10 @@
 package com.example.hubaloleg.topfour.data.repository;
 
 import com.example.hubaloleg.topfour.data.cache.UserCacheTransformer;
-import com.example.hubaloleg.topfour.data.remote.api.UserApi;
 import com.example.hubaloleg.topfour.data.mapper.UserMapper;
-import com.example.hubaloleg.topfour.data.remote.model.response.ResponseEntity;
-import com.example.hubaloleg.topfour.domain.model.Group;
+import com.example.hubaloleg.topfour.data.remote.api.UserApi;
 import com.example.hubaloleg.topfour.domain.model.UserInfo;
 import com.example.hubaloleg.topfour.domain.repository.UserRepository;
-
-import java.util.List;
 
 import io.reactivex.Observable;
 

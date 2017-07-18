@@ -6,13 +6,10 @@ import com.example.hubaloleg.topfour.data.cache.db.UserDB;
 import com.example.hubaloleg.topfour.data.remote.model.entity.GroupEntity;
 import com.example.hubaloleg.topfour.data.remote.model.entity.IconEntity;
 import com.example.hubaloleg.topfour.data.remote.model.entity.ItemEntity;
-import com.example.hubaloleg.topfour.data.remote.model.entity.ListEntity;
 import com.example.hubaloleg.topfour.data.remote.model.entity.UserEntity;
-import com.example.hubaloleg.topfour.data.remote.model.response.UserInfoResponse;
 import com.example.hubaloleg.topfour.domain.model.Group;
 import com.example.hubaloleg.topfour.domain.model.Item;
 import com.example.hubaloleg.topfour.domain.model.UserInfo;
-import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;

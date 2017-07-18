@@ -2,7 +2,6 @@ package com.example.hubaloleg.topfour.presentation.global;
 
 import android.app.Application;
 
-import com.example.hubaloleg.topfour.data.cache.db.VenueDB;
 import com.example.hubaloleg.topfour.presentation.di.global.AppComponent;
 import com.example.hubaloleg.topfour.presentation.di.global.ApplicationModule;
 import com.example.hubaloleg.topfour.presentation.di.global.CredentialModule;

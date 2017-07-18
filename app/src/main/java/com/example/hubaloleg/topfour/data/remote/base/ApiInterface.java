@@ -1,6 +1,5 @@
 package com.example.hubaloleg.topfour.data.remote.base;
 
-import com.example.hubaloleg.topfour.data.remote.model.entity.GroupEntity;
 import com.example.hubaloleg.topfour.data.remote.model.response.ResponseEntity;
 import com.example.hubaloleg.topfour.data.remote.model.response.SearchVenueResponse;
 import com.example.hubaloleg.topfour.data.remote.model.response.UserInfoResponse;
