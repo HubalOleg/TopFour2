@@ -1,4 +1,4 @@
-package com.example.hubaloleg.topfour.presentation.adapter;
+package com.example.hubaloleg.topfour.presentation.screens.near_venue.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

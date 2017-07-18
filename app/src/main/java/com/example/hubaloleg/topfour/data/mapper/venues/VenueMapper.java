@@ -3,7 +3,6 @@ package com.example.hubaloleg.topfour.data.mapper.venues;
 import com.example.hubaloleg.topfour.data.cache.db.VenueDB;
 import com.example.hubaloleg.topfour.data.remote.model.entity.user.ItemEntity;
 import com.example.hubaloleg.topfour.data.remote.model.entity.venues.VenueEntity;
-import com.example.hubaloleg.topfour.domain.model.user.Item;
 import com.example.hubaloleg.topfour.domain.model.venues.LikedVenue;
 import com.example.hubaloleg.topfour.domain.model.venues.Venue;
 

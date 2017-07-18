@@ -2,8 +2,8 @@ package com.example.hubaloleg.topfour.presentation.di.modules.venue;
 
 import com.example.hubaloleg.topfour.data.cache.VenueCacheTransformer;
 import com.example.hubaloleg.topfour.data.credential.CredentialStore;
-import com.example.hubaloleg.topfour.data.mapper.venues.CategoryMapper;
 import com.example.hubaloleg.topfour.data.mapper.IconMapper;
+import com.example.hubaloleg.topfour.data.mapper.venues.CategoryMapper;
 import com.example.hubaloleg.topfour.data.mapper.venues.VenueMapper;
 import com.example.hubaloleg.topfour.data.remote.api.VenueApi;
 import com.example.hubaloleg.topfour.data.remote.base.ApiInterface;

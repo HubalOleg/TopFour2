@@ -7,15 +7,11 @@ import com.example.hubaloleg.topfour.data.mapper.user.UserMapper;
 import com.example.hubaloleg.topfour.data.remote.api.UserApi;
 import com.example.hubaloleg.topfour.data.remote.base.ApiInterface;
 import com.example.hubaloleg.topfour.data.repository.UserRepositoryImpl;
-import com.example.hubaloleg.topfour.data.repository.VenueRepositoryImpl;
 import com.example.hubaloleg.topfour.domain.repository.UserRepository;
-import com.example.hubaloleg.topfour.domain.repository.VenueRepository;
-import com.example.hubaloleg.topfour.domain.usecase.VenueUseCase;
 import com.example.hubaloleg.topfour.presentation.di.qualifier.ApiVersion;
 
 import dagger.Module;
 import dagger.Provides;
-import io.reactivex.Scheduler;
 
 /**
  * Created by kostya on 11.07.17.

@@ -21,7 +21,6 @@ import com.example.hubaloleg.topfour.domain.model.user.Group;
 import com.example.hubaloleg.topfour.domain.model.user.Item;
 import com.example.hubaloleg.topfour.domain.model.user.UserInfo;
 import com.example.hubaloleg.topfour.domain.model.venues.LikedVenue;
-import com.example.hubaloleg.topfour.presentation.adapter.VenueAdapter;
 import com.example.hubaloleg.topfour.presentation.di.components.DaggerUserInfoComponent;
 import com.example.hubaloleg.topfour.presentation.global.TopFourApplication;
 import com.example.hubaloleg.topfour.presentation.screens.profile.profile_info.adapter.GroupAdapter;
