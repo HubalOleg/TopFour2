@@ -10,9 +10,9 @@ public class LocationEntity {
     @SerializedName("address")
     private String address;
     @SerializedName("lat")
-    private String lat;
+    private double lat;
     @SerializedName("lng")
-    private String lng;
+    private double lng;
     @SerializedName("city")
     private String city;
     @SerializedName("state")
@@ -32,19 +32,19 @@ public class LocationEntity {
         this.address = address;
     }
 
-    public String getLat() {
+    public double getLat() {
         return lat;
     }
 
-    public void setLat(String lat) {
+    public void setLat(double lat) {
         this.lat = lat;
     }
 
-    public String getLng() {
+    public double getLng() {
         return lng;
     }
 
-    public void setLng(String lng) {
+    public void setLng(double lng) {
         this.lng = lng;
     }
 

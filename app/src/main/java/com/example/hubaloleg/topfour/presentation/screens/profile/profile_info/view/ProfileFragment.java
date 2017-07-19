@@ -26,6 +26,7 @@ import com.example.hubaloleg.topfour.presentation.global.TopFourApplication;
 import com.example.hubaloleg.topfour.presentation.screens.profile.profile_info.adapter.GroupAdapter;
 import com.example.hubaloleg.topfour.presentation.screens.profile.profile_info.adapter.GroupViewHolder;
 import com.example.hubaloleg.topfour.presentation.screens.profile.profile_info.adapter.LikedVenueAdapter;
+import com.example.hubaloleg.topfour.presentation.screens.profile.profile_info.adapter.LikedVenueViewHolder;
 import com.example.hubaloleg.topfour.presentation.screens.profile.profile_info.presenter.ProfilePresenter;
 import com.example.hubaloleg.topfour.presentation.tools.InfoMessageUtil;
 import com.example.hubaloleg.topfour.presentation.tools.InitImageUtil;
@@ -75,6 +76,9 @@ public class ProfileFragment extends MvpAppCompatFragment
     private GroupViewHolder.OnGroupViewHolderClickListener mOnGroupViewHolderClickListener = adapterPosition ->
             mListener.onGroupClick(mGroupList.get(adapterPosition).getItemList());
 
+    private LikedVenueViewHolder.OnLikedVenueClickListener mOnLikedVenueClickListener = position ->
+            mListener.onLikedVenueClick(mLikedVenueList.get(position));
+
     //endregion listener end
 
     public static ProfileFragment newInstance() {
@@ -109,7 +113,7 @@ public class ProfileFragment extends MvpAppCompatFragment
         mRvLists.setAdapter(mGroupAdapter);
 
         mRvLikedVenues.setLayoutManager(new LinearLayoutManager(getContext()));
-        mLikedVenueAdapter = new LikedVenueAdapter();
+        mLikedVenueAdapter = new LikedVenueAdapter(mOnLikedVenueClickListener);
         mRvLikedVenues.setAdapter(mLikedVenueAdapter);
     }
 
@@ -160,5 +164,7 @@ public class ProfileFragment extends MvpAppCompatFragment
     // interface
     public interface OnProfileFragmentInteractionListener {
         void onGroupClick(ArrayList<Item> itemList);
+
+        void onLikedVenueClick(LikedVenue likedVenue);
     }
 }

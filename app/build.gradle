@@ -48,9 +48,9 @@ android {
     buildTypes {
         all {
             signingConfig signingConfigs.release
-            buildConfigField "String", "CLIENT_ID",                 '"GQUNINKHGJUUZGB0AZ25Q4FWN54RNLKEH4PO5NC0U4MRTSZT"'
-            buildConfigField "String", "CLIENT_SECRET",             '"1ILRNPPOEJKRC4LQIUS3RNZBLGSMMXFRBHHTJNHSZPO4T2AE"'
-            buildConfigField "String", "BASE_API",                  '"https://api.foursquare.com/v2/"'
+            buildConfigField "String", "CLIENT_ID", '"GQUNINKHGJUUZGB0AZ25Q4FWN54RNLKEH4PO5NC0U4MRTSZT"'
+            buildConfigField "String", "CLIENT_SECRET", '"1ILRNPPOEJKRC4LQIUS3RNZBLGSMMXFRBHHTJNHSZPO4T2AE"'
+            buildConfigField "String", "BASE_API", '"https://api.foursquare.com/v2/"'
         }
         debug {
             signingConfig signingConfigs.release
@@ -124,5 +124,7 @@ dependencies {
 
 
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.google.android.gms:play-services-maps:11.0.2'
+    compile 'com.android.support:appcompat-v7:25.3.1'
     debugCompile 'com.amitshekhar.android:debug-db:0.2.0'
 }

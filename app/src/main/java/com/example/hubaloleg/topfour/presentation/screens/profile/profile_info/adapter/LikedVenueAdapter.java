@@ -17,11 +17,16 @@ import java.util.List;
 
 public class LikedVenueAdapter extends RecyclerView.Adapter<LikedVenueViewHolder> {
     private List<LikedVenue> mLikedVenueList = new ArrayList<>();
+    private LikedVenueViewHolder.OnLikedVenueClickListener mOnLikedVenueClickListener;
+
+    public LikedVenueAdapter(LikedVenueViewHolder.OnLikedVenueClickListener onLikedVenueClickListener) {
+        mOnLikedVenueClickListener = onLikedVenueClickListener;
+    }
 
     @Override
     public LikedVenueViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_venue, parent, false);
-        return new LikedVenueViewHolder(view);
+        return new LikedVenueViewHolder(view, mOnLikedVenueClickListener);
     }
 
     @Override

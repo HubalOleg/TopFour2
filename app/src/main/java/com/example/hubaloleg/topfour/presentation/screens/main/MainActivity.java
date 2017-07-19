@@ -9,8 +9,10 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.hubaloleg.topfour.R;
 import com.example.hubaloleg.topfour.domain.model.user.Item;
+import com.example.hubaloleg.topfour.domain.model.venues.LikedVenue;
 import com.example.hubaloleg.topfour.presentation.screens.near_venue.NearVenueFragment;
 import com.example.hubaloleg.topfour.presentation.screens.profile.group_items.GroupItemsFragment;
+import com.example.hubaloleg.topfour.presentation.screens.profile.liked_pace_map.LikedPlaceAppActivity;
 import com.example.hubaloleg.topfour.presentation.screens.profile.profile_info.view.ProfileFragment;
 
 import java.util.ArrayList;
@@ -46,6 +48,17 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onGroupClick(ArrayList<Item> itemList) {
         openFragment(GroupItemsFragment.newInstance(itemList), GroupItemsFragment.class.getSimpleName(), true);
+    }
+
+    @Override
+    public void onLikedVenueClick(LikedVenue likedVenue) {
+        launchMapActivity(likedVenue);
+    }
+
+    private void launchMapActivity(LikedVenue likedVenue) {
+        Intent intent = LikedPlaceAppActivity.getIntent(getApplicationContext());
+        intent.putExtra(LikedPlaceAppActivity.EXTRA_LIKED_VENUE, likedVenue);
+        startActivity(intent);
     }
 
     public void openFragment(Fragment fragment, String tag, boolean addToBackStack) {
