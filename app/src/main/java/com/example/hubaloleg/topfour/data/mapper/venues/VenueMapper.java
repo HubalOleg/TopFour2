@@ -18,9 +18,11 @@ import java.util.List;
 public class VenueMapper {
 
     private final CategoryMapper mCategoryMapper;
+    private final LocationMapper mLocationMapper;
 
-    public VenueMapper(CategoryMapper categoryMapper) {
+    public VenueMapper(CategoryMapper categoryMapper, LocationMapper locationMapper) {
         mCategoryMapper = categoryMapper;
+        mLocationMapper = locationMapper;
     }
 
     public List<VenueDB> transformApiList(List<VenueEntity> venueEntityList) {
@@ -42,22 +44,11 @@ public class VenueMapper {
         LikedVenue likedVenue = new LikedVenue();
         likedVenue.setId(item.getId());
         likedVenue.setName(item.getName());
-        likedVenue.setLocation(transformToLocation(item.getLocationEntity()));
+        likedVenue.setLocation(mLocationMapper.transform(item.getLocationEntity()));
         return likedVenue;
     }
 
-    private Location transformToLocation(LocationEntity locationEntity) {
-        Location location = new Location();
-        location.setAddress(locationEntity.getAddress());
-        location.setCity(locationEntity.getCity());
-        location.setCountry(locationEntity.getCountry());
-        location.setLat(locationEntity.getLat());
-        location.setLng(locationEntity.getLng());
-        location.setPostalCode(locationEntity.getPostalCode());
-        location.setState(locationEntity.getState());
-        location.setCountryCode(locationEntity.getCountryCode());
-        return location;
-    }
+
 
     public VenueDB transformApi(VenueEntity venueEntity) {
         return new VenueDB(
