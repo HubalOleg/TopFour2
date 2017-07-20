@@ -1,5 +1,6 @@
 package com.example.hubaloleg.topfour.domain.usecase;
 
+import com.example.hubaloleg.topfour.domain.model.elements.Element;
 import com.example.hubaloleg.topfour.domain.model.venues.LikedVenue;
 import com.example.hubaloleg.topfour.domain.model.venues.Venue;
 import com.example.hubaloleg.topfour.domain.repository.VenueRepository;
@@ -41,5 +42,12 @@ public class VenueUseCase {
         return mVenueRepository.getLikedVenueList()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Observable<List<Element>> fetchMaxSpeed(String data) {
+        return mVenueRepository.fetchMaxSpeedInRadius(data)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+
     }
 }

@@ -4,6 +4,7 @@ import com.example.hubaloleg.topfour.presentation.di.global.AppComponent;
 import com.example.hubaloleg.topfour.presentation.di.modules.venue.VenueRepositoryModule;
 import com.example.hubaloleg.topfour.presentation.di.modules.venue.VenueScope;
 import com.example.hubaloleg.topfour.presentation.screens.near_venue.NearVenueFragment;
+import com.example.hubaloleg.topfour.presentation.screens.profile.liked_pace_map.LikedPlaceAppActivity;
 
 import dagger.Component;
 
@@ -17,4 +18,6 @@ import dagger.Component;
 public interface VenueComponent {
 
     void inject(NearVenueFragment nearVenueFragment);
+
+    void inject(LikedPlaceAppActivity likedPlaceAppActivity);
 }
