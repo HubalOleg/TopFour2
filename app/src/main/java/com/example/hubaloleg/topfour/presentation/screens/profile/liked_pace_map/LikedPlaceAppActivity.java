@@ -8,13 +8,11 @@ import android.os.Bundle;
 import com.example.hubaloleg.topfour.R;
 import com.example.hubaloleg.topfour.domain.model.venues.LikedVenue;
 import com.example.hubaloleg.topfour.domain.model.venues.Location;
-import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class LikedPlaceAppActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -48,10 +46,10 @@ public class LikedPlaceAppActivity extends FragmentActivity implements OnMapRead
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        showMarker();
+        addMarker();
     }
 
-    private void showMarker() {
+    private void addMarker() {
         if (mLikedVenue != null && mLikedVenue.getLocation() != null) {
             Location location = mLikedVenue.getLocation();
             LatLng coordinates = new LatLng(location.getLat(), location.getLng());

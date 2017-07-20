@@ -1,6 +1,7 @@
 package com.example.hubaloleg.topfour.data.remote.base;
 
 import com.example.hubaloleg.topfour.data.remote.model.response.LikesVenuesResponse;
+import com.example.hubaloleg.topfour.data.remote.model.response.MaxSpeedResponse;
 import com.example.hubaloleg.topfour.data.remote.model.response.ResponseEntity;
 import com.example.hubaloleg.topfour.data.remote.model.response.SearchVenueResponse;
 import com.example.hubaloleg.topfour.data.remote.model.response.UserInfoResponse;
@@ -8,6 +9,7 @@ import com.example.hubaloleg.topfour.data.remote.model.response.UserInfoResponse
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
+import retrofit2.http.Url;
 
 /**
  * Created by hubaloleg on 10.07.17.
@@ -32,4 +34,8 @@ public interface ApiInterface {
             @Query("oauth_token") String token,
             @Query("v") String version
     );
+
+    @GET
+    Observable<MaxSpeedResponse> getMaxSpeed(
+            @Url String url, @Query("data") String data);
 }
