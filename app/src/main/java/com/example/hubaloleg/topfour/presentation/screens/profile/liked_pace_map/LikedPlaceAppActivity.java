@@ -40,10 +40,10 @@ public class LikedPlaceAppActivity extends FragmentActivity implements OnMapRead
     TextView mTvMaxSpeed;
 
     @InjectPresenter
+    @Inject
     LikedPlaceAppPresenter mPresenter;
 
     @ProvidePresenter
-    @Inject
     LikedPlaceAppPresenter provideLikedPlaceAppPresenter() {
         return mPresenter;
     }
@@ -61,8 +61,8 @@ public class LikedPlaceAppActivity extends FragmentActivity implements OnMapRead
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(LikedPlaceAppActivity.this);
         ButterKnife.bind(LikedPlaceAppActivity.this);
-        mPresenter.fetchMaxSpeed(mLikedVenue.getLocation());
         initInjection();
+        mPresenter.fetchMaxSpeed(mLikedVenue.getLocation());
     }
 
     private void initInjection() {

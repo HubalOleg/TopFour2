@@ -21,7 +21,7 @@ import io.reactivex.Observable;
 
 public class VenueApi extends BaseDataApi {
 
-    public static final String HTTPS_OVERPASS_API_DE_API = "https://overpass-api.de/api";
+    public static final String HTTPS_OVERPASS_API_DE_API = "https://overpass-api.de/api/interpreter";
 
     @Inject
     public VenueApi(ApiInterface apiInterface, CredentialStore credentialStore, @ApiVersion String apiVersion) {

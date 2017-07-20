@@ -17,7 +17,6 @@ import retrofit2.http.Url;
 
 public interface ApiInterface {
 
-    String INTERPRETER = "/interpreter";
 
     @GET(ApiFunctions.GET_SEARCH_VENUES)
     Observable<ResponseEntity<SearchVenueResponse>> getSearchVenues(
@@ -37,7 +36,7 @@ public interface ApiInterface {
             @Query("v") String version
     );
 
-    @GET(INTERPRETER)
+    @GET
     Observable<MaxSpeedResponse> getMaxSpeed(
             @Url String url, @Query("data") String data);
 }
