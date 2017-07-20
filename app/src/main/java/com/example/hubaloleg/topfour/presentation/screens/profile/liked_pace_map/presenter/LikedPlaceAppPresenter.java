@@ -1,11 +1,16 @@
 package com.example.hubaloleg.topfour.presentation.screens.profile.liked_pace_map.presenter;
 
+import android.util.Log;
+
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
+import com.example.hubaloleg.topfour.domain.model.elements.Element;
 import com.example.hubaloleg.topfour.domain.model.venues.LikedVenue;
 import com.example.hubaloleg.topfour.domain.model.venues.Location;
 import com.example.hubaloleg.topfour.domain.usecase.VenueUseCase;
 import com.example.hubaloleg.topfour.presentation.screens.profile.liked_pace_map.view.LikedPlaceAppView;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -16,6 +21,7 @@ import javax.inject.Inject;
 @InjectViewState
 public class LikedPlaceAppPresenter extends MvpPresenter<LikedPlaceAppView> {
     private VenueUseCase mVenueUseCase;
+    private static final String TAG = "LikedPlaceAppPresenter";
 
     @Inject
     public LikedPlaceAppPresenter(VenueUseCase venueUseCase) {
@@ -24,9 +30,12 @@ public class LikedPlaceAppPresenter extends MvpPresenter<LikedPlaceAppView> {
 
 
     public void fetchMaxSpeed(Location location) {
-        mVenueUseCase.fetchMaxSpeed(formQuery(location)).subscribe(elements -> {
-
-        }, throwable -> getViewState().onError(throwable));
+        mVenueUseCase.fetchMaxSpeed(formQuery(location)).subscribe(
+                elements -> {
+                    Log.d(TAG, "fetchMaxSpeed: " + elements);
+                    getViewState().showElementList(elements);
+                },
+                throwable -> getViewState().onError(throwable));
     }
 
     private String formQuery(Location location) {
