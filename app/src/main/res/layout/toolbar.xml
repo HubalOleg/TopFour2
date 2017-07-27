@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" android:id="@+id/cl_toolbar"
     android:layout_width="match_parent"
-    android:layout_height="50dp" android:background="@android:color/holo_orange_light"
+    android:layout_height="50dp" android:background="@color/colorPrimary"
     android:orientation="vertical">
 
     <ImageView

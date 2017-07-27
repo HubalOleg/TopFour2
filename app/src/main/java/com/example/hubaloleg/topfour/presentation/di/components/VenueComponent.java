@@ -1,6 +1,7 @@
 package com.example.hubaloleg.topfour.presentation.di.components;
 
 import com.example.hubaloleg.topfour.presentation.di.global.AppComponent;
+import com.example.hubaloleg.topfour.presentation.di.modules.venue.VenuePresentationModule;
 import com.example.hubaloleg.topfour.presentation.di.modules.venue.VenueRepositoryModule;
 import com.example.hubaloleg.topfour.presentation.di.modules.venue.VenueScope;
 import com.example.hubaloleg.topfour.presentation.screens.near_venue.NearVenueFragment;
@@ -13,7 +14,7 @@ import dagger.Component;
 
 @VenueScope
 @Component(dependencies = AppComponent.class,
-        modules = VenueRepositoryModule.class)
+        modules = {VenueRepositoryModule.class, VenuePresentationModule.class})
 public interface VenueComponent {
 
     void inject(NearVenueFragment nearVenueFragment);

@@ -1,12 +1,9 @@
 package com.example.hubaloleg.topfour.data.cache;
 
-import android.util.Log;
-
-import com.example.hubaloleg.topfour.data.cache.db.AppDatabase;
+import com.example.hubaloleg.topfour.data.cache.db.CategoryDB;
 import com.example.hubaloleg.topfour.data.cache.db.VenueDB;
-import com.raizlabs.android.dbflow.config.FlowManager;
+import com.example.hubaloleg.topfour.data.cache.db.VenueDB_CategoryDB;
 import com.raizlabs.android.dbflow.sql.language.SQLite;
-import com.raizlabs.android.dbflow.structure.database.transaction.FastStoreModelTransaction;
 
 import java.util.List;
 
@@ -22,21 +19,22 @@ import io.reactivex.functions.Function;
 
 public class VenueCacheTransformer implements ObservableTransformer<List<VenueDB>, List<VenueDB>> {
 
-    private static final String TAG = "VenueCacheTransformer";
-
     private final Function<List<VenueDB>, ObservableSource<List<VenueDB>>> mSaveFunc = venueDBList -> {
         SQLite.delete().from(VenueDB.class).execute();
-        FlowManager.getDatabase(AppDatabase.class).executeTransaction(
-                FastStoreModelTransaction
-                .insertBuilder(FlowManager.getModelAdapter(VenueDB.class))
-                .addAll(venueDBList)
-                .build());
+        for (VenueDB venueDB : venueDBList) {
+            venueDB.save();
+            for (CategoryDB categoryDB : venueDB.getCategoryDBList()) {
+                VenueDB_CategoryDB venueDB_categoryDB = new VenueDB_CategoryDB();
+                venueDB_categoryDB.setVenueDB(venueDB);
+                venueDB_categoryDB.setCategoryDB(categoryDB);
+                venueDB_categoryDB.save();
+            }
+        }
         return Observable.just(venueDBList);
     };
 
     private final Function<Throwable, Observable<List<VenueDB>>> mCacheErrorHandle = throwable -> {
         throwable.printStackTrace();
-        Log.d(TAG, ": " + throwable.getMessage());
         List<VenueDB> venueDBList = SQLite.select().from(VenueDB.class).queryList();
         return Observable.just(venueDBList);
     };

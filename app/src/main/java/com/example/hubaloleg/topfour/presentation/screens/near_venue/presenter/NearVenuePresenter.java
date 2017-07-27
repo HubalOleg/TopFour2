@@ -1,10 +1,9 @@
 package com.example.hubaloleg.topfour.presentation.screens.near_venue.presenter;
 
-import android.util.Log;
-
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 import com.example.hubaloleg.topfour.domain.usecase.SearchVenueUseCase;
+import com.example.hubaloleg.topfour.presentation.mapper.VenueUIMapper;
 import com.example.hubaloleg.topfour.presentation.screens.near_venue.view.NearVenueView;
 
 import javax.inject.Inject;
@@ -19,11 +18,14 @@ public class NearVenuePresenter extends MvpPresenter<NearVenueView> {
     private static final String MOCK_COORDINATES = "49.815226, 24.157680";
 
     private final SearchVenueUseCase mSearchVenueUseCase;
+    private final VenueUIMapper mVenueUIMapper;
+
     private Disposable mDisposable;
 
     @Inject
-    public NearVenuePresenter(SearchVenueUseCase searchVenueUseCase) {
+    public NearVenuePresenter(SearchVenueUseCase searchVenueUseCase, VenueUIMapper venueUIMapper) {
         mSearchVenueUseCase = searchVenueUseCase;
+        mVenueUIMapper = venueUIMapper;
     }
 
     public void onSearchVenuesClick(String coordinates) {
@@ -33,9 +35,10 @@ public class NearVenuePresenter extends MvpPresenter<NearVenueView> {
                     getViewState().showLoading();
                 })
                 .doOnTerminate(() -> getViewState().dismissLoading())
-                .subscribe(
-                        venues -> {getViewState().showVenues(venues);
-                            Log.d(TAG, "onSearchVenuesClick: " + venues.size());},
+                .map(mVenueUIMapper::transformList)
+                .subscribe(venues -> {
+                            getViewState().showVenues(venues);
+                        },
                         throwable -> {
                             throwable.printStackTrace();
                             getViewState().showError(throwable.getMessage());

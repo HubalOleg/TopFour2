@@ -15,7 +15,7 @@ import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.example.hubaloleg.topfour.R;
-import com.example.hubaloleg.topfour.domain.model.Venue;
+import com.example.hubaloleg.topfour.presentation.model.VenueUI;
 import com.example.hubaloleg.topfour.presentation.adapter.VenueAdapter;
 import com.example.hubaloleg.topfour.presentation.di.components.DaggerVenueComponent;
 import com.example.hubaloleg.topfour.presentation.global.TopFourApplication;
@@ -85,7 +85,7 @@ public class NearVenueFragment extends MvpAppCompatFragment implements NearVenue
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         mVenueRecyclerView.setLayoutManager(linearLayoutManager);
 
-        mVenueAdapter = new VenueAdapter();
+        mVenueAdapter = new VenueAdapter(getContext());
         mVenueRecyclerView.setAdapter(mVenueAdapter);
     }
 
@@ -101,7 +101,7 @@ public class NearVenueFragment extends MvpAppCompatFragment implements NearVenue
     }
 
     @Override
-    public void showVenues(List<Venue> venueList) {
+    public void showVenues(List<VenueUI> venueList) {
         mVenueAdapter.updateVenues(venueList);
     }
 

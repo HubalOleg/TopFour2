@@ -15,7 +15,7 @@ public class InitImageUtil {
 
      }
 
-     public static void intitImage(Context context, String url, ImageView imageView) {
+     public static void initImage(Context context, String url, ImageView imageView) {
           Glide.with(context)
                   .load(url)
                   .into(imageView);

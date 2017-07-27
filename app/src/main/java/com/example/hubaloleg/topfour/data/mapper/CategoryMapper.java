@@ -1,5 +1,8 @@
 package com.example.hubaloleg.topfour.data.mapper;
 
+import android.util.Log;
+
+import com.example.hubaloleg.topfour.data.cache.db.CategoryDB;
 import com.example.hubaloleg.topfour.data.remote.model.entity.CategoryEntity;
 import com.example.hubaloleg.topfour.domain.model.Category;
 
@@ -18,20 +21,37 @@ public class CategoryMapper {
         mIconMapper = iconMapper;
     }
 
-    public List<Category> transormList(List<CategoryEntity> categoryEntityList) {
-        List<Category> categoryList = new ArrayList<>();
+    public List<CategoryDB> transformApiList(List<CategoryEntity> categoryEntityList) {
+        List<CategoryDB> categoryList = new ArrayList<>();
 
         for (CategoryEntity categoryEntity : categoryEntityList) {
-            categoryList.add(transform(categoryEntity));
+            categoryList.add(transformApi(categoryEntity));
         }
 
         return categoryList;
     }
 
-    public Category transform(CategoryEntity categoryEntity) {
-        return new Category(
+    public CategoryDB transformApi(CategoryEntity categoryEntity) {
+        return new CategoryDB(
                 categoryEntity.getId(),
                 categoryEntity.getName(),
-                mIconMapper.transform(categoryEntity.getIconEntity()));
+                mIconMapper.transformApi(categoryEntity.getIconEntity()));
+    }
+
+    public List<Category> transformDBList(List<CategoryDB> categoryDBList) {
+        List<Category> categoryList = new ArrayList<>();
+
+        for (CategoryDB categoryDB : categoryDBList) {
+            categoryList.add(transformDB(categoryDB));
+        }
+
+        return categoryList;
+    }
+
+    public Category transformDB(CategoryDB categoryDB) {
+        return new Category(
+                categoryDB.getId(),
+                categoryDB.getName(),
+                mIconMapper.transformDB(categoryDB.getIconDB()));
     }
 }

@@ -82,7 +82,7 @@ public class ProfileFragment extends MvpAppCompatFragment
     }
 
     private void initUI() {
-        InitImageUtil.intitImage(getContext(),
+        InitImageUtil.initImage(getContext(),
                 TEST_IMAGE,
                 mIvProfileImage);
     }

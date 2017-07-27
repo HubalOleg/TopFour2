@@ -32,7 +32,8 @@ public class VenueMapper {
     public VenueDB transformApi(VenueEntity venueEntity) {
         return new VenueDB(
                 venueEntity.getId(),
-                venueEntity.getName()
+                venueEntity.getName(),
+                mCategoryMapper.transformApiList(venueEntity.getCategoryEntityList())
         );
     }
 
@@ -49,7 +50,7 @@ public class VenueMapper {
         return new Venue(
                 venueDB.getId(),
                 venueDB.getName(),
-                null
+                mCategoryMapper.transformDBList(venueDB.getCategoryDBList())
         );
     }
 }
